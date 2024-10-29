@@ -1,8 +1,12 @@
-{% extends 'IFC/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Leadership{% endblock %}
-
-{% block header %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
     <style>
         /* Add your custom styles here */
         .containerL {
@@ -31,78 +35,92 @@
             background-color: rgb(214, 0, 28);
             padding: 5px;
         }
+
     </style>
-{% endblock %}
+</head>
 
-{% block content %}
-  {% load static %}
+<body>
+    {% include 'IFC/navbar.html' %}
 
-  <div class="containerL">
-    <!-- Repeat this section for each leader -->
-    <div class="leader">
-      <img src="{% static 'IFC/images/leadership/joshMoskoff.png' %}" alt="Leader image">
-      <h2>Josh Moskoff</h2>
-      <p>Computer Science 2025</p>
-      <div class="org">Phi Sigma Kappa</div>
-      <div class="position">President</div>
+    <div class="containerL">
+        <!-- Repeat this section for each leader -->
+        <div class="leader">
+          <img src="{% static 'IFC/images/leadership/joshMoskoff.png' %}" alt="Leader image">
+          <h2>Josh Moskoff</h2>
+          <p>Computer Science 2025</p>
+          <div class="org">Phi Sigma Kappa</div>
+          <div class="position">President</div>
+          
+        </div>
+
+        <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Peter Crisileo</h2>
+            <p>Materials Science Engineering 2024</p>
+            <div class="org">Lambda Chi Alpha</div>
+            <div class="position">Vice President</div>
+            
+          </div>
+
+          <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Shawn Vembenil</h2>
+            <p>CS/ITWS 202</p>
+            <div class="org">Sigma Chi</div>
+            <div class="position">VP Recruitment</div>
+            
+          </div>
+
+          <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Nick Khoo</h2>
+            <p>BSAN/ITWS 2025</p>
+            <div class="org">Lambda Chi Alpha</div>
+            <div class="position">VP Finance</div>
+            
+          </div>
+
+          <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Sam Stone</h2>
+            <p>Computer Science 2024</p>
+            <div class="org">Zeta Psi</div>
+            <div class="position">VP Internal Communication</div>
+          </div>
+
+          <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Aidan Saunders</h2>
+            <p>major 202</p>
+            <div class="org">Pi Lambda Phi</div>
+            <div class="position">VP External Communication</div>
+          </div>
+
+          <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Ethan Rokjer</h2>
+            <p>major 202</p>
+            <div class="org">Tau Epsilon Phi</div>
+            <div class="position">VP Philanthropy & Service</div>
+            
+          </div>
+
+          <div class="leader">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
+            <h2>Matthew So</h2>
+            <p>Computer Systems Engineer</p>
+            <div class="org">Delta Phi</div>
+            <div class="position">IFC Senator</div>
+            
+          </div>
+            
+          
     </div>
 
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Peter Crisileo</h2>
-      <p>Materials Science Engineering 2024</p>
-      <div class="org">Lambda Chi Alpha</div>
-      <div class="position">Vice President</div>
-    </div>
+    <!-- Add more leader sections as needed -->
 
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Shawn Vembenil</h2>
-      <p>CS/ITWS 202</p>
-      <div class="org">Sigma Chi</div>
-      <div class="position">VP Recruitment</div>
-    </div>
+    <!-- Footer -->
+    {% include 'IFC/footer.html' %}
+</body>
 
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Nick Khoo</h2>
-      <p>BSAN/ITWS 2025</p>
-      <div class="org">Lambda Chi Alpha</div>
-      <div class="position">VP Finance</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Sam Stone</h2>
-      <p>Computer Science 2024</p>
-      <div class="org">Zeta Psi</div>
-      <div class="position">VP Internal Communication</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Aidan Saunders</h2>
-      <p>major 202</p>
-      <div class="org">Pi Lambda Phi</div>
-      <div class="position">VP External Communication</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Ethan Rokjer</h2>
-      <p>major 202</p>
-      <div class="org">Tau Epsilon Phi</div>
-      <div class="position">VP Philanthropy & Service</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Matthew So</h2>
-      <p>Computer Systems Engineer</p>
-      <div class="org">Delta Phi</div>
-      <div class="position">IFC Senator</div>
-    </div>
-  </div>
-
-  <!-- Add more leader sections as needed -->
-{% endblock %}
+</html>

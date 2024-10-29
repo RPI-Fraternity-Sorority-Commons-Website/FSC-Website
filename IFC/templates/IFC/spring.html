@@ -1,9 +1,23 @@
-{% extends 'IFC/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Spring Recruitment{% endblock %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block header %}
+    <title>Spring Recruitment</title>
+    
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    
     <style>
+
         a.register-button {
             transition: 0.3s;
             background-color: rgb(214, 0, 28);
@@ -32,15 +46,33 @@
         .container h1{
             margin: 20px;
         }
+
+        
     </style>
-{% endblock %}
+</head>
 
-{% block content %}
-    <div class="container">
-        <h1>Spring registration is currently closed</h1>
+<body>
+    <div id="main-content">
+        <!-- Navbar -->
+        {% include 'IFC/navbar.html' %}
 
-        <a id="registerFall" class="register-button" href="fall" target="blank">
-            Fall registration
-        </a>
+        <div class="container">
+            <h1>Spring registration is currently closed</h1>
+
+            <a id="registerFall" class="register-button" href="fall" target="blank">
+                Fall registration
+            </a>
+        </div>
+        
+
+        
+
+
+        
+
+        <!-- Footer -->
+        {% include 'IFC/footer.html' %}
     </div>
-{% endblock %}
+</body>
+
+</html>

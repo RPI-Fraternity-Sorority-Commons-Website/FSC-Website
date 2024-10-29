@@ -1,136 +1,158 @@
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<style>
-    body {
-        margin: 0px;
-    }
-    
-    .colour-block {
-        background: rgb(214, 0, 28);
-        width: 100%;
-        height: 10px;
-        padding: 3% 0 5% 0; /* Adjusted padding */
-        color: #fff;
-    }
-    
-    .colour-block h1{
-        position: relative; top: -30px;
-    }
-    
-    .white-block {
-        background: #fff;
-        width: 100%;
-        height: 600px;
-        padding: 7% 0 10% 0; /* Adjusted padding */
-        color: rgb(214, 0, 28);
-    }
-    
-    h1 {
-        text-align: center;
-        font-size: 72px;
-        font-weight: normal;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split section</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+    <style>
+        body {
+            margin: 0px;
+        }
+        
+        .colour-block {
+            background: rgb(214, 0, 28);
+            width: 100%;
+            height: 10px;
+            padding: 3% 0 5% 0; /* Adjusted padding */
+            color: #fff;
+        }
+        
+        .colour-block h1{
+            position: relative; top: -30px;
+        }
+        
+        .white-block {
+            background: #fff;
+            width: 100%;
+            height: 600px;
+            padding: 7% 0 10% 0; /* Adjusted padding */
+            color: rgb(214, 0, 28);
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 72px;
+            font-weight: normal;
+        }
 
-    h2 {
-        text-align: center;
-        font-size: 36px;
-        font-weight: normal;
-    }
-    
-    p {
-        font-size: 24px;
-    }
-    
-    .flex-window {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: normal;
+        }
+        
+        p {
+            font-size: 24px;
+        }
+        
+        .flex-window {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
 
-    .flex-window h2{
-        margin: 100px;
-        position: relative;
-        top: -80px;
-    }
+        .flex-window h2{
+            margin: 100px;
+            position: relative;
+            top: -80px;
+        }
 
-    .flex-window img {
-        width: 40%;
-        object-fit: cover; /* Adjusted object-fit */
-        max-height: 100%; /* Added max-height property */
-    }
-    
-    /*------------------*/
-    /*  SKEW CLOCKWISE  */
-    /*------------------*/
-    .skew-cc {
-        width: 100%;
-        height: 50px;
-        background: linear-gradient(to right bottom, rgb(214, 0, 28) 49%, #fff 50%),
-            linear-gradient(-50deg, #ffffff 16px, #000 0);
-    }
-    
-    /*-------------------------*/
-    /* SKEW COUNTER CLOCKWISE  */
-    /*-------------------------*/
-    .skew-c {
-        width: 100%;
-        height: 50px;
-        background: linear-gradient(to left bottom, #fff 49%, rgb(214, 0, 28) 50%);
-    }
-    
+        .flex-window img {
+            width: 40%;
+            object-fit: cover; /* Adjusted object-fit */
+            max-height: 100%; /* Added max-height property */
+        }
+        
+        /*------------------*/
+        /*  SKEW CLOCKWISE  */
+        /*------------------*/
+        .skew-cc {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to right bottom, rgb(214, 0, 28) 49%, #fff 50%),
+                linear-gradient(-50deg, #ffffff 16px, #000 0);
+        }
+        
+        /*-------------------------*/
+        /* SKEW COUNTER CLOCKWISE  */
+        /*-------------------------*/
+        .skew-c {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to left bottom, #fff 49%, rgb(214, 0, 28) 50%);
+        }
+        
+        .learn-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-    .learn-button {
-        transition: 0.1s;
-        background-color: rgb(214, 0, 28);
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        text-align: center;
-        max-width: 30%;
-        margin: 0 auto;
-        position: relative;
-        top: -140px;
-    }
+        .learn-button {
+            transition: 0.1s;
+            background-color: rgb(214, 0, 28);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            max-width: 30%;
+            margin: 0 auto;
+            position: relative;
+            top: -140px;
+        }
 
-    .learn-button:hover {
-        transition: 0.1s;
-        filter: brightness(75%);
-    }
-</style>
+        .learn-button:hover {
+            transition: 0.1s;
+            filter: brightness(75%);
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
 
-<div class="skew-c"></div>
-<div class="colour-block">
-    <h1>FSC Philanthropy and Service</h1>
-</div>
-<div class="skew-cc"></div>
-<div class="white-block">
-    <div class="flex-window">
-        <div class="learn-section">
-            <h2>
-                The Fraternity and Sorority community at RPI raises over $100,000 
-                each year for charities and community organizations.
-            </h2>
-            <a href="/Philanthropy-and-service"><div class="learn-button">Learn More</div></a>
-        </div>
-        <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px; margin-right: 75px;">
+<body>
+
+    <div class="skew-c"></div>
+    <div class="colour-block">
+        <h1>FSC Philanthropy and Service</h1>
     </div>
-</div>
-<div class="skew-c"></div>
-<div class="colour-block">
-    <h1>Why join a Greek Organization?</h1>
-</div>
-<div class="skew-cc"></div>
-<div class="white-block">
-    <div class="flex-window">
-        <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px; margin-right: 75px; margin-left: 75px;">
-        <div class="learn-section">
-            <h2>
-                Unlock the gateway to lifelong brotherhood, unparalleled networking 
-                opportunities, and personal growth that stretches far beyond college.
-            </h2>
-            <a href="/recruitment"><div class="learn-button">Learn More</div></a>
+    <div class="skew-cc"></div>
+    <div class="white-block">
+        <div class="flex-window">
+            <div class="learn-section">
+                <h2>
+                    The Fraternity and Sorority community at RPI raises over $100,000 
+                    each year for charities and community organizations.
+                </h2>
+                <a href="/Philanthropy-and-service" class="learn-button">Learn more</a>
+            </div>
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px; margin-right: 75px;">
         </div>
     </div>
-</div>
+    <div class="skew-c"></div>
+    <div class="colour-block">
+        <h1>Why join a Greek Organization?</h1>
+    </div>
+    <div class="skew-cc"></div>
+    <div class="white-block">
+        <div class="flex-window">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px; margin-right: 75px; margin-left: 75px;">
+            <div class="learn-section">
+                <h2>
+                    Unlock the gateway to lifelong brotherhood, unparalleled networking 
+                    opportunities, and personal growth that stretches far beyond college.
+                </h2>
+                <a href="/recruitment" class="learn-button">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

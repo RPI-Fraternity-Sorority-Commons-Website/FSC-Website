@@ -1,8 +1,10 @@
-{% extends 'IFC/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Our Chapters{% endblock %}
-
-{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Chapters</title>
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
     <style>
@@ -16,8 +18,18 @@
         
         .chapters{margin-top: 25px;}
     </style>
+</head>
+
+<body>
+    {% include 'IFC/navbar.html' %}
 
     <div class="chapters">
         {% include 'IFC/chapterGrid.html' %}
     </div> 
-{% endblock %}
+
+    <!-- Footer -->
+    {% include 'IFC/footer.html' %}
+
+</body>
+
+</html>

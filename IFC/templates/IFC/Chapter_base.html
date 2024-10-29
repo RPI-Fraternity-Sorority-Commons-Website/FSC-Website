@@ -1,91 +1,84 @@
-{% extends 'IFC/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Include CSS stylesheets -->
+    <link rel="stylesheet" type="text/css" href="path/to/style.css">
 
-{% block content %}
-  <style>
-  .container {
-    display: flex;
-    flex-direction: row;
-  }
+    <style>
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
 
-  .left-column {
-    width: 55%;
-    margin-right: 10px;
-    margin-top: 10px;
-  }
+    .left-column {
+      width: 55%;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
 
-  .right-column {
-    width: 45%;
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  .social-bar {
-    padding: 10px;
-    text-align: center;
-  }
+    .right-column {
+      width: 45%;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+    .social-bar {
+      padding: 10px;
+      text-align: center;
+    }
 
-  .social-bar a {
-    text-decoration: none;
-    margin-right: 10px;
-  }
+    .social-bar a {
+      text-decoration: none;
+      margin-right: 10px;
+    }
 
-  .social-bar a:last-child {
-    margin-right: 0;
-  }
-  p {
-    font-size: 18px;
-  }
-  h2 {
-    font-size: 25px;
-  }
-  .contact_text {
-    font-size: 15px;
-  }
-  .prov-image {
-    margin-bottom: 10px;
-    margin-bottom: 10px;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  .map {
-    margin-top: 10px;
-  }
-  </style>
+    .social-bar a:last-child {
+      margin-right: 0;
+    }
+    p {
+      font-size: 18px;
+    }
+    .contact_text {
+      font-size: 15px;
+    }
+    .prov-image {
+      margin-bottom: 10px;
+      margin-bottom: 10px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .map {
+      margin-top: 10px;
+    }
+    </style>
+    </head>
+    <body>
 
-  {% load static %}
+        {% include 'IFC/navbar.html' %}
+        <div class="container">
+            <div class="left-column">
+              <div class="content">
+                {% block left_column %}
 
-  <div class="container">
-      <div class="left-column">
-        <div class="content">
-          
-          <a href="/chapters">Back</a>
+                {% endblock %}
 
-          <h1>{{chapter.name}} ({{chapter.letters}})</h1>
+                {% block links %} {% endblock %}
 
-          <h2>President</h2>
-          <p>{{chapter.president}}</p>
-          
-          <h2>Rush chair</h2>
-          <p>{{chapter.rush_chair}}</p>
-          
-          <h2>Chapter size</h2>
-          <p>{{chapter.chapter_size}}</p>
+            </div>
+            </div>
+            <div class="right-column">
+                {% block image %} {% endblock %} 
+               
 
-          <h2>About</h2>
-          <p>{{chapter.info}}</p>
+                {% block map %} {% endblock %}
 
-          {% block links %} {% endblock %}
-        </div>
-      </div>
-      <div class="right-column">
+                {% block right_column %}
 
-        <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}" width="400">
-
-        {% block map %} {% endblock %}
-
-        {% block right_column %} {% endblock %}
-      </div>
-      <a href="edit"><img src="{% static 'IFC/images/pencil.png' %}" width="40" height="40"></a>
-    </div>
+                {% endblock %}
+            </div>
+          </div>
     
-{% endblock %}
+        {% include 'IFC/footer.html' %}
+
+    </body>
+</html>

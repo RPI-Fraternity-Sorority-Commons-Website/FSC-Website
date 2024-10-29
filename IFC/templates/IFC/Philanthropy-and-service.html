@@ -6,30 +6,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% load static %}
+    <title>Template</title>
     
+    {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
     
+
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>{% block title %}RPI IFC{% endblock %}</title>
+    
+    <style>
+        
+    </style>
 </head>
 
 <body>
     <div id="main-content">
-
-        {% block header %} {% endblock %}
-
         <!-- Navbar -->
         {% include 'IFC/navbar.html' %}
 
-        <!-- Main Content -->
-        {% block content %}
-        {% endblock %}
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        
+
+
+        
 
         <!-- Footer -->
         {% include 'IFC/footer.html' %}

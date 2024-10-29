@@ -1,99 +1,131 @@
-<style>
-    body {
-        margin: 0;
-        overflow-x: hidden;
-    }
+<!doctype html>
+<html lang="en">
 
-    .footer {
-        background: #EDEDED;
-        padding: 30px 0px;
-        font-family: 'Play', sans-serif;
-        text-align: center;
-    }
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .footer .row {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        color:black;
-        font-size: 0.8em;
-    }
+    <title>Footer</title>
 
-    .footer .row a {
-        text-decoration: none;
-        color: black;
-        transition: 0.5s;
-        display: inline-block;
-        margin: 0 5px; /* Adjust the margin as per your preference */
-    }
-
-    .footer .row a:hover {
-        color: #808080;
-    }
-
-    .footer .row ul {
-        width: 100%;
-    }
-
-    .footer .row ul li {
-        display: inline-block;
-        margin: 0px 30px;
-    }
-
-    .footer .row a i {
-        font-size: 2em;
-        margin: 0% 1%;
-    }
-
-    .footer .row:last-child {
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .footer .row:last-child p {
-        margin: 0;
-    }
-
-    @media (max-width: 720px) {
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+    
         .footer {
+            background: #EDEDED;
+            padding: 30px 0px;
+            font-family: 'Play', sans-serif;
             text-align: center;
-            padding: 5%;
         }
-
+    
+        .footer .row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            color:black;
+            font-size: 0.8em;
+        }
+    
+        .footer .row a {
+            text-decoration: none;
+            color: black;
+            transition: 0.5s;
+            display: inline-block;
+            margin: 0 5px; /* Adjust the margin as per your preference */
+        }
+    
+        .footer .row a:hover {
+            color: #808080;
+        }
+    
+        .footer .row ul {
+            width: 100%;
+        }
+    
         .footer .row ul li {
-            display: block;
-            margin: 10px 0px;
-            text-align: left;
+            display: inline-block;
+            margin: 0px 30px;
         }
-
+    
         .footer .row a i {
-            margin: 0% 3%;
+            font-size: 2em;
+            margin: 0% 1%;
         }
-    }
-</style>
+    
+        .footer .row:last-child {
+            margin-top: 10px;
+            text-align: center;
+        }
+    
+        .footer .row:last-child p {
+            margin: 0;
+        }
+    
+        @media (max-width: 720px) {
+            .footer {
+                text-align: center;
+                padding: 5%;
+            }
+    
+            .footer .row ul li {
+                display: block;
+                margin: 10px 0px;
+                text-align: left;
+            }
+    
+            .footer .row a i {
+                margin: 0% 3%;
+            }
+        }
+    </style>
+    
+    
+    
 
 <!--FONT AWESOME-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!--GOOGLE FONTS-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
-
-
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+</head>
+<body>
 <footer>
     <div class="footer">
         <div class="row">
+            <a href="https://www.instagram.com/rpi_fsc/?hl=en" target="blank"><i class="fa fa-instagram"></i></a>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
             <ul>
+                <li><a href="mailto:ifc@rpi.edu?cc=ifc.rpi.president@gmail.com"> Contact us</a></li>
+                <li><a href="https://sll.rpi.edu/fraternity-and-sorority-commons" target="blank">Fraternity & Sorority Commons</a></li>
+                <li><a href="leadership">About us</a></li>
+                <li><a href="chapters">Our chapters</a></li>
                 <li><a href="https://rpi.edu" target="blank">RPI</a></li>
-                <li><a href="https://sll.rpi.edu/node/15" target="blank">Fraternity & Sorority Commons</a></li>
-                <li><a href="chapters">Our Chapters</a></li>
-                <li><a href="/leadership">Contact Us</a></li>
-                <li><a href="https://www.instagram.com/rpi_fsc/?hl=en" target="blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://github.com/kyogrekube/FSC_Website/" target="blank"><i class="fa fa-github"></i></a></li>
             </ul>
         </div>
         <div class="row">
-            Copyright © 2024 Rensselaer Polytechnic Institute | Fraternity & Sorority Commons
+            <a href="https://github.com/Rezlang/WebsiteTemplate" target="blank">
+                Open Source Repository
+            </a>
         </div>
-    </div>  
+        <div class="row">
+            Copyright © 2023 Rensselaer Polytechnic Institute | Interfraternity Council
+        </div>
+    </div>
+    <script>
+        function composeEmail() {
+            var email = 'ifc@rpi.edu';
+            var subject = 'Subject Here';
+            var body = 'Hello IFC,';
+    
+            var mailtoLink = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            window.location.href = mailtoLink;
+        }
+    </script>    
 </footer>
+

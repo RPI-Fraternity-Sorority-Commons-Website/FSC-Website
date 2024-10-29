@@ -15,16 +15,11 @@ Including another URLconf
 """
 
 from django.contrib import admin
-admin.autodiscover()
 from django.urls import include, path
-from django.conf import settings
-from django.conf.urls.static import static
 from IFC import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    # hook in admin site urls
-    path("admin/", admin.site.urls), 
-
     # IFC app URLs
     path("", views.homepage, name="home"),
     path("documents/", views.documents, name="documents"),
@@ -40,8 +35,5 @@ urlpatterns = [
     path("chapters/<slug:chapter_name>/edit/", views.edit_chapter, name="edit_chapter"),
 
     path('selectChapter', views.select_chapter, name="select_chapter"),
-
-    path('login/', views.user_login, name="user_login"),
-    path('signup/', views.user_signup, name="user_signup"),
-    path('logout/', views.user_logout, name="user_logout"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('chapterInfoEdit', views.chapterInfoEdit, name="chapterInfoEdit")
+]

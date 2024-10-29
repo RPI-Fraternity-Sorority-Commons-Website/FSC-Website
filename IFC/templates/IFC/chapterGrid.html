@@ -1,69 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
 <style>
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
-  .button {
-    margin: 5px;
-    width: calc(25% - 10px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+.button {
+  margin: 5px;
+  width: calc(25% - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  height: 200px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.button:hover {
     color: black;
-    height: 200px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-  }
+    text-decoration: none;
+}
 
-  .button:hover {
-      color: black;
-      text-decoration: none;
-  }
+.button img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
-  .button img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
+.button.disabled {
+  opacity: 0;
+  pointer-events: none;
+}
 
-  .button.disabled {
-    opacity: 0;
-    pointer-events: none;
-  }
+.brighten img {
+-webkit-filter: brightness(50%);
+-webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+-o-transition: all 1s ease;
+-ms-transition: all 1s ease;
+transition: all 1s ease;
+}
 
-  .brighten img {
-  -webkit-filter: brightness(50%);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
-  }
+.brighten img:hover {
+-webkit-filter: brightness(100%);
+}
 
-  .brighten img:hover {
-  -webkit-filter: brightness(100%);
-  }
+.nickname {
+  color: #808080; /* Change this to whatever color you want */
+}
 
-  .nickname {
-    color: #808080; /* Change this to whatever color you want */
-  }
+.button p {
+  margin: 1px 0; /* Reduce the top and bottom margin */
+}
 
-  .button p {
-    margin: 1px 0; /* Reduce the top and bottom margin */
-  }
 </style>
+</head>
+<body>
+    {% load static %}
+    {% for chapter in chapters %}
+    <div class="container">
+      <a href="chapters/PhiSigmaKappa" class="button brighten">
+        <img src="{% static 'IFC/images/PhiSigmaKappaLogo.png' %}" alt="Image 1">
+        <p>Phi Sigma Kappa</p>
+        <p class="nickname">Church</p>
+      </a>
+      <a href="{{ chapter.get_absolute_url }}" class="button brighten">
+        <img src="{% static 'IFC/images/PhiGammaDeltaLogo.png' %}" alt="Image 2">
+        <p>Phi Gamma Delta</p>
+        <p class="nickname">Fiji</p>
+      </a>
+      <a href="chapters/AlphaSigmaPhi" class="button brighten">
+        <img src="{% static 'IFC/images/AlphaSigmaPhiLogo.png' %}" alt="Image 3">
+        <p>Alpha Sigma Phi</p>
+        <p class="nickname">ASig</p>
+      </a>
+      <a href="chapters/SigmaAlphaEpsilon" class="button brighten">
+        <img src="{% static 'IFC/images/SigmaAlphaEpsilonLogo.png' %}" alt="Image 4">
+        <p>Sigma Alpha Epsilon</p>
+        <p class="nickname">SAE</p>
+      </a>
+      <a href="chapters/Acacia" class="button brighten">
+        <img src="{% static 'IFC/images/AcaciaLogo.png' %}" alt="Image 5">
+        <p>Acacia</p>
+        <p class="nickname">Acacia</p>
+      </a>
+      <a href="chapters/AlphaChiRho" class="button brighten">
+        <img src="{% static 'IFC/images/AlphaChiRhoLogo.png' %}" alt="Image 6">
+        <p>Alphi Chi Rho</p>
+        <p class="nickname">Crows</p>
+      </a>
+      <a href="chapters/AlphaEpsilonPi" class="button brighten">
+        <img src="{% static 'IFC/images/AlphaEpsilonPiLogo.png' %}" alt="Image 7">
+        <p>Alpha Epsilon Pi</p>
+        <p class="nickname">ΑΕΠ</p>
+      </a>
+      <a href="chapters/ChiPhi" class="button brighten">
+        <img src="{% static 'IFC/images/ChiPhiLogo.png' %}" alt="Image 9">
+        <p>Chi Phi</p>
+        <p class="nickname">ΧΦ</p>
+      </a>
+      <a href="chapters/DeltaKappaEpsilon" class="button brighten">
+        <img src="{% static 'IFC/images/DeltaKappaEpsilonLogo.png' %}" alt="Image 10">
+        <p>Delta Kappa Epsilon</p>
+        <p class="nickname">Dekes</p>
+      </a>
+      <a href="chapters/DeltaPhi" class="button brighten">
+        <img src="{% static 'IFC/images/DeltaPhiLogo.png' %}" alt="Image 11">
+        <p>Delta Phi</p>
+        <p class="nickname">ΔΦ</p>
+      </a>
+      <a href="chapters/DeltaTauDelta" class="button brighten">
+        <img src="{% static 'IFC/images/DeltaTauDeltaLogo.png' %}" alt="Image 12">
+        <p>Delta Tau Delta</p>
+        <p class="nickname">ΔΤΔ</p>
+      </a>
+      <a href="chapters/LambdaChiAlpha" class="button brighten">
+        <img src="{% static 'IFC/images/LambdaChiAlphaLogo.png' %}" alt="Image 13">
+        <p>Lambda Chi Alpha</p>
+        <p class="nickname">ΛΧΑ</p>
+      </a>
+      <a href="chapters/PhiKappaTheta" class="button brighten">
+        <img src="{% static 'IFC/images/PhiKappaThetaLogo.png' %}" alt="Image 14">
+        <p>Phi Kappa Theta</p>
+        <p class="nickname">SKI</p>
+      </a>
+      <a href="chapters/PhiMuDelta" class="button brighten">
+        <img src="{% static 'IFC/images/PhiMuDeltaLogo.png' %}" alt="Image 15">
+        <p>Phi Mu Delta</p>
+        <p class="nickname">ΦΜΔ</p>
+      </a>
+      <a href="chapters/PiKappaAlpha" class="button brighten">
+        <img src="{% static 'IFC/images/PiKappaAlphaLogo.png' %}" alt="Image 17">
+        <p>Pi Kappa Alpha</p>
+        <p class="nickname">Pikes</p>
+      </a>
+      <a href="chapters/PiLambdaPhi" class="button brighten">
+        <img src="{% static 'IFC/images/PiLambdaPhiLogo.png' %}" alt="Image 18">
+        <p>Pi Lambda Phi</p>
+        <p class="nickname">ΠΛΦ</p>
+      </a>
+      <a href="chapters/PsiUpsilon" class="button brighten">
+        <img src="{% static 'IFC/images/PsiUpsilonLogo.png' %}" alt="Image 19">
+        <p>Psi Upsilon</p>
+        <p class="nickname">ΨΥ</p>
+      </a>
+      <a href="chapters/SigmaChi" class="button brighten">
+        <img src="{% static 'IFC/images/SigmaChiLogo.png' %}" alt="Image 20">
+        <p>Sigma Chi</p>
+        <p class="nickname">ΣΧ</p>
+      </a>
+      <a href="chapters/SigmaPhiEpsilon" class="button brighten">
+        <img src="{% static 'IFC/images/SigmaPhiEpsilonLogo.png' %}" alt="Image 21">
+        <p>Sigma Phi Epsilon</p>
+        <p class="nickname">ΣΦΕ</p>
+      </a>
+      <a href="chapters/TauEpsilonPhi" class="button brighten">
+        <img src="{% static 'IFC/images/TauEpsilonPhiLogo.png' %}" alt="Image 22">
+        <p>Tau Epsilon Phi</p>
+        <p class="nickname">ΤΕΦ</p>
+      </a>
+      <a href="chapters/TauKappaEpsilon" class="button brighten">
+        <img src="{% static 'IFC/images/TauKappaEpsilonLogo.png' %}" alt="Image 23">
+        <p>Tau Kappa Epsilon</p>
+        <p class="nickname">TKE</p>
+      </a>
+      <a href="chapters/ThetaXi" class="button brighten">
+        <img src="{% static 'IFC/images/ThetaXiLogo.png' %}" alt="Image 24">
+        <p>Theta Xi</p>
+        <p class="nickname">ΘΞ</p>
+      </a>
+      <a href="chapters/ZetaPsi" class="button brighten">
+        <img src="{% static 'IFC/images/ZetaPsiLogo.png' %}" alt="Image 25">
+        <p>Zeta Psi</p>
+        <p class="nickname">ΖΨ</p>
+      </a>
+      <!-- Add more buttons as desired... -->
 
-{% load static %}
-<div class="container">
-  {% for chapter in chapters %}
-    <a href="{{ chapter.slug }}" class="button brighten">
-      <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
-      <p>{{chapter.name}}</p>
-      <p class="nickname">{{chapter.letters}}</p>
-    </a>
-  {% endfor %}
+      <!-- Example of a disabled button -->
+      <div class="button disabled">
+        <img src="image5.png" alt="Image 5">
+        <p>Text 5</p>
+    </div>
+    {% endfor %}
 </div>
+
+</body>
+</html>

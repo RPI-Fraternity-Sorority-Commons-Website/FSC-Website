@@ -1,232 +1,222 @@
-{% extends 'IFC/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block header %}   
-  <style>
-    #faq {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px 10px 20px 10px;
-      text-align: center;
-    }
+<head>    
+    <style>
+            #faq {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px 10px 20px 10px;
+            text-align: center;
+            }
 
-    section.faq {
-      padding-top: 2em;
-      padding-bottom: 3em;
-    }
+            section.faq {
+            padding-top: 2em;
+            padding-bottom: 3em;
+            }
 
-    #faq ul {
-      text-align: left;
-    }
-    .transition, p, ul li i:before, ul li i:after {
-      transition: all 0.3s;
-    }
+            #faq ul {
+            text-align: left;
+            }
+            .transition, p, ul li i:before, ul li i:after {
+            transition: all 0.3s;
+            }
 
-    #faq .no-select, #faq h2 {
-      -webkit-tap-highlight-color: transparent;
-      -webkit-touch-callout: none;
-      user-select: none;
-    }
+            #faq .no-select, #faq h2 {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            user-select: none;
+            }
 
-    #faq h1 {
-      color: #000;
-      margin-bottom: 30px;
-      margin-top: 0;
-    }
+            #faq h1 {
+            color: #000;
+            margin-bottom: 30px;
+            margin-top: 0;
+            }
 
-    #faq h2 {
-      color: #cc071e;
-      font-size: 20px;
-      line-height: 34px;
-      text-align: left;
-      padding: 15px 30px 0;
-      text-transform: none;
-      font-weight: 300;
-      letter-spacing: 1px;
-      display: block;
-      margin: 0;
-      cursor: pointer;
-      transition: .2s;
-    }
+            #faq h2 {
+            color: #cc071e;
+            font-size: 20px;
+            line-height: 34px;
+            text-align: left;
+            padding: 15px 30px 0;
+            text-transform: none;
+            font-weight: 300;
+            letter-spacing: 1px;
+            display: block;
+            margin: 0;
+            cursor: pointer;
+            transition: .2s;
+            }
 
-    #faq p {
-      color: #333;
-      text-align: left;
-      font-size: 14px;
-      line-height: 1.45;
-      position: relative;
-      overflow: hidden;
-      max-height: 250px;
-      will-change: max-height;
-      contain: layout;
-      display: inline-block;
-      opacity: 1;
-      transform: translate(0, 0);
-      margin-top: 5px;
-      margin-bottom: 15px;
-      padding: 0 100px 0 50px;
-      transition: .3s opacity, .6s max-height;
-      hyphens: auto;
-      z-index: 2;
-    }
+            #faq p {
+            color: #333;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.45;
+            position: relative;
+            overflow: hidden;
+            max-height: 250px;
+            will-change: max-height;
+            contain: layout;
+            display: inline-block;
+            opacity: 1;
+            transform: translate(0, 0);
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding: 0 100px 0 50px;
+            transition: .3s opacity, .6s max-height;
+            hyphens: auto;
+            z-index: 2;
+            }
 
-    #faq ul {
-      list-style: none;
-      perspective: 900;
-      padding: 0;
-      margin: 0;
-    }
+            #faq ul {
+            list-style: none;
+            perspective: 900;
+            padding: 0;
+            margin: 0;
+            }
+            #faq ul li {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            /*padding-bottom: 4px;*/
+            /*padding-top: 18px;*/
+            background: #fff;
+            box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
+            -webkit-tap-highlight-color: transparent;
+            }
+            #faq ul li + li {
+            margin-top: 15px;
+            }
+            #faq ul li:last-of-type {
+            padding-bottom: 0;
+            }
+            #faq ul li i {
+            position: absolute;
+            transform: translate(-6px, 0);
+            margin-top: 28px;
+            right: 15px;
+            }
+            #faq ul li i:before, ul li i:after {
+            content: "";
+            position: absolute;
+            background-color: #cc071e;
+            width: 3px;
+            height: 9px;
+            }
+            #faq ul li i:before {
+            transform: translate(-2px, 0) rotate(45deg);
+            }
+            #faq ul li i:after {
+            transform: translate(2px, 0) rotate(-45deg);
+            }
+            #faq ul li input[type=checkbox] {
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            touch-action: manipulation;
+            }
+            #faq ul li input[type=checkbox]:checked ~ h2 {
+            color: #000;
+            }
+            #faq ul li input[type=checkbox]:checked ~ p {
+            /*margin-top: 0;*/
+            max-height: 0;
+            transition: .3s;
+            opacity: 0;
+            /*transform: translate(0, 50%);*/
+            }
+            #faq ul li input[type=checkbox]:checked ~ i:before {
+            transform: translate(2px, 0) rotate(45deg);
+            }
+            #faq ul li input[type=checkbox]:checked ~ i:after {
+            transform: translate(-2px, 0) rotate(-45deg);
+            }    
+        
+    </style>
+</head>
 
-    #faq ul li {
-      position: relative;
-      overflow: hidden;
-      padding: 0;
-      margin: 0;
-      /*padding-bottom: 4px;*/
-      /*padding-top: 18px;*/
-      background: #fff;
-      box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
-      -webkit-tap-highlight-color: transparent;
-    }
+<body>
+    <div id="faq">
+        <ul>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>Will joining a greek organization affect my academic performance?</h2>
+            <p>No, greek organizations at RPI pride themselves in their higher than average GPAs. 
+               In order to be eligible to join a greek organization, a student must have a minimum GPA of 2.5.
+               Academics are very important to the greek community and due to this,
+               every organization must provide help to their members should they struggle
+               to maintain this minimum.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>I've heard about hazing in fraternities. Does that happen?</h2>
+            <p>No, hazing does not happen in RPI fraternities. We are fully committed to 
+              providing a safe, welcoming, and respectful environment for all members. 
+              We strictly adhere to the policies and laws that prohibit hazing, both 
+              from RPI Policy and the local and federal laws. Hazing is not only illegal 
+              but is counterproductive to our goal of fostering brotherhood and personal 
+              development.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>What are the financial obligations of joining a greek organization?</h2>
+            <p>Joining a greek organization does come with financial obligations, but these costs 
+              often provide significant value.
+              The fees typically cover membership dues, social events, and philanthropy 
+              projects, among other things. Notably, the room and board expenses 
+              are generally more affordable than those offered by RPI.
+            Specific financial obligations vary by chapter; students are encouraged to 
+            ask individual organizations should they wish to know more.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>What leadership opportunities are available within the greek system?</h2>
+            <p>Leadership opportunities within the greek system abound at both the 
+              chapter and council levels. At the chapter level, members can serve in roles
+               like President or Treasurer, influencing the direction and success of the 
+               organization. Council leadership roles allow for broader impact within the 
+               greek community, shaping initiatives that benefit all chapters. These 
+               positions provide valuable experiences in teamwork, communication, and 
+               strategic thinking, enhancing both your greek life experience and future 
+               professional endeavors.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>How can I balance commitments to a greek organization with my academic and personal life?</h2>
+            <p>Balancing commitments to a greek organization with academic and personal life is entirely
+               possible with proper time management and prioritization. Being part of a 
+               greek organization means joining a supportive community that values academics and 
+               personal well-being. Many chapters offer study sessions, academic 
+               resources, and mentorship to help you succeed academically. Clear 
 
-    #faq ul li + li {
-      margin-top: 15px;
-    }
-    
-    #faq ul li:last-of-type {
-      padding-bottom: 0;
-    }
+               communication with greek leadership about your needs and setting 
+               realistic expectations can further ensure a healthy balance.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>What opportunities does the greek life community provide for personal growth and development?</h2>
+            <p>The greek life community provides diverse opportunities for personal growth and 
+              development that extend beyond social connections. Through involvement 
+              in chapter leadership, council roles, philanthropic projects, and community 
+              service, members can cultivate essential life skills such as leadership, 
+              teamwork, communication, and empathy. Engaging in these opportunities not
+               only enriches the college experience but fosters a well-rounded individual 
+               ready to succeed in life beyond university.</p>
+          </li>
+        </ul>
+      </div>
+</body>
 
-    #faq ul li i {
-      position: absolute;
-      transform: translate(-6px, 0);
-      margin-top: 28px;
-      right: 15px;
-    }
-
-    #faq ul li i:before, ul li i:after {
-      content: "";
-      position: absolute;
-      background-color: #cc071e;
-      width: 3px;
-      height: 9px;
-    }
-
-    #faq ul li i:before {
-      transform: translate(-2px, 0) rotate(45deg);
-    }
-
-    #faq ul li i:after {
-      transform: translate(2px, 0) rotate(-45deg);
-    }
-
-    #faq ul li input[type=checkbox] {
-      position: absolute;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      opacity: 0;
-      touch-action: manipulation;
-    }
-
-    #faq ul li input[type=checkbox]:checked ~ h2 {
-      color: #000;
-    }
-
-    #faq ul li input[type=checkbox]:checked ~ p {
-      /*margin-top: 0;*/
-      max-height: 0;
-      transition: .3s;
-      opacity: 0;
-      /*transform: translate(0, 50%);*/
-    }
-
-    #faq ul li input[type=checkbox]:checked ~ i:before {
-      transform: translate(2px, 0) rotate(45deg);
-    }
-    
-    #faq ul li input[type=checkbox]:checked ~ i:after {
-      transform: translate(-2px, 0) rotate(-45deg);
-    }
-  </style>
-{% endblock %}
-
-{% block content %}
-  <body>
-      <div id="faq">
-          <ul>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2>Will joining a greek organization affect my academic performance?</h2>
-              <p>No, greek organizations at RPI pride themselves in their higher than average GPAs. 
-                In order to be eligible to join a greek organization, a student must have a minimum GPA of 2.5.
-                Academics are very important to the greek community and due to this,
-                every organization must provide help to their members should they struggle
-                to maintain this minimum.</p>
-            </li>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2>I've heard about hazing in fraternities. Does that happen?</h2>
-              <p>No, hazing does not happen in RPI fraternities. We are fully committed to 
-                providing a safe, welcoming, and respectful environment for all members. 
-                We strictly adhere to the policies and laws that prohibit hazing, both 
-                from RPI Policy and the local and federal laws. Hazing is not only illegal 
-                but is counterproductive to our goal of fostering brotherhood and personal 
-                development.</p>
-            </li>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2>What are the financial obligations of joining a greek organization?</h2>
-              <p>Joining a greek organization does come with financial obligations, but these costs 
-                often provide significant value.
-                The fees typically cover membership dues, social events, and philanthropy 
-                projects, among other things. Notably, the room and board expenses 
-                are generally more affordable than those offered by RPI.
-              Specific financial obligations vary by chapter; students are encouraged to 
-              ask individual organizations should they wish to know more.</p>
-            </li>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2>What leadership opportunities are available within the greek system?</h2>
-              <p>Leadership opportunities within the greek system abound at both the 
-                chapter and council levels. At the chapter level, members can serve in roles
-                like President or Treasurer, influencing the direction and success of the 
-                organization. Council leadership roles allow for broader impact within the 
-                greek community, shaping initiatives that benefit all chapters. These 
-                positions provide valuable experiences in teamwork, communication, and 
-                strategic thinking, enhancing both your greek life experience and future 
-                professional endeavors.</p>
-            </li>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2>How can I balance commitments to a greek organization with my academic and personal life?</h2>
-              <p>Balancing commitments to a greek organization with academic and personal life is entirely
-                possible with proper time management and prioritization. Being part of a 
-                greek organization means joining a supportive community that values academics and 
-                personal well-being. Many chapters offer study sessions, academic 
-                resources, and mentorship to help you succeed academically. Clear 
-
-                communication with greek leadership about your needs and setting 
-                realistic expectations can further ensure a healthy balance.</p>
-            </li>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2>What opportunities does the greek life community provide for personal growth and development?</h2>
-              <p>The greek life community provides diverse opportunities for personal growth and 
-                development that extend beyond social connections. Through involvement 
-                in chapter leadership, council roles, philanthropic projects, and community 
-                service, members can cultivate essential life skills such as leadership, 
-                teamwork, communication, and empathy. Engaging in these opportunities not
-                only enriches the college experience but fosters a well-rounded individual 
-                ready to succeed in life beyond university.</p>
-            </li>
-          </ul>
-        </div>
-  </body>
-{% endblock %}
+</html>
