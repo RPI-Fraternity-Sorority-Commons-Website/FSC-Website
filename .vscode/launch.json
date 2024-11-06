@@ -15,7 +15,7 @@
       "justMyCode": true
     },
     {
-      "name": "Django LAN Debugger",
+      "name": "LAN Debugger",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}\\manage.py",
