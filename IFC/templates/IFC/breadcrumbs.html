@@ -22,20 +22,26 @@
         color: #ffffff;
     }
 
-    .login-links {
-        float: right; 
+    .login-container {
+        float: right;
+        margin-right: 10px;
+    }
+
+    .login-item {
+        margin-right: 12px;
     }
 </style>
 
 <div id="redbar">
-    <span id="breadcrumb" style="text-align: left;"></span>
-    <span id="session-info" style="float: right;">
-        <div class="login-links">
+    <span id="breadcrumb"></span>
+    <span id="session-info">
+        <div class="login-container">
             {% if user.is_authenticated %}
-                <span style="padding-right: 15px;">Hi, <a href="{% url 'view_profile' %}" style="font-weight: bold;">{{ user.username }}</a></span>
+                <span class="login-item">Hi, <a href="{% url 'view_profile' %}" style="font-weight: bold;">{{ user.username }}</a></span>
+                <span class="login-item"><a href="{% url 'user_logout' %}">Logout</a></span>
             {% else %}
-                <a href="{% url 'user_login' %}" style="padding-right: 15px;">Log in</a>
-                <a href="{% url 'user_signup' %}">Sign Up</a>
+                <span class="login-item"><a href="{% url 'user_login' %}">Log in</a></span>
+                <span class="login-item"><a href="{% url 'user_signup' %}">Sign Up</a></span>
             {% endif %}
         </div>
     </span>
@@ -55,7 +61,6 @@
         // Loop through each part to build the breadcrumb trail
         urlParts.shift();  // We've already processed the domain
         let path = '';
-        console.log("HELOOOOOOOOOOOOOOO")
         urlParts.forEach(function(part, i) {
             path += '/' + part;
             if (i < urlParts.length - 1) {
