@@ -1,0 +1,65 @@
+{% load static %}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body Style */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Container */
+    .navbar {
+        width: 100%;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        padding: 10px 0px 10px 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        height: 20px;
+    }
+
+    /* Navbar Links */
+    .navbar ul {
+        list-style: none;
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 0 15px;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+        color: #ddd;
+    }
+
+    /* Add space below navbar */
+    .content {
+        margin-top: 60px;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
