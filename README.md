@@ -2,9 +2,10 @@
 An RCOS project used for club websites at RPI
 
 # Setup
-To setup the project's development environment, run setup.bat.
-This performs all necessary first-time setup tasks and adds a VSCode debugger config for running the server in debug mode.
+On windows, the first-time setup process can be performed completely by running the included setup.bat script.
 
 # Starting the server
-To start the server in debug mode with VSCode, select Run -> Start Debugging.
-To start the server normally, run `.venv\scripts\python.exe manage.py runserver`.
+This repo comes with two VSCode launch configs; one for local device testing only (Loopback Debugger), and another for testing on remote clients (LAN Debugger). Note that the LAN Debugger binds to all available adapters, not just the local area network.
+
+To launch one of the predefined VSCode configs, navigate to 'Run & Debug' in the left sidebar, and then select a config.
+To start the server normally, run `.venv\scripts\python.exe manage.py runserver`. Remember to use the venv when launching the server, and not your system's python installation!
