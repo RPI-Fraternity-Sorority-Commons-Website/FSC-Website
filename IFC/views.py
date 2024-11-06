@@ -1,22 +1,21 @@
-from typing import Any
-from django.db.models.base import Model as Model
-from django.db.models.query import QuerySet
+
 import os
 import json
-from django.core.files.storage import FileSystemStorage
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from django.views import generic
+from typing import Any
+from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserChangeForm
-from django.http import HttpResponse, FileResponse
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+from django.core.files.storage import FileSystemStorage
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
+from django.http import HttpResponse, FileResponse
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import generic
 from .forms import ChapterForm, SignUpForm
-from django.contrib import messages
-from django.conf import settings
-from .forms import ChapterForm
 from .models import Chapter
 
 
