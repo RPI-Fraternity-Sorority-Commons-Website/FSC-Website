@@ -26,7 +26,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 75%;
     }
 
     .navbar-nav .nav-link {
@@ -62,7 +62,7 @@
     .logo-button {
         display: flex;
         justify-content: left;
-        align-items: left;
+        align-items: center;
         flex: 1;
     }
 
@@ -86,6 +86,14 @@
     }
     .nav-item{
         white-space: nowrap;
+        width: auto;
+        margin: 0px 10px;
+    }
+
+    .nav-login-container {
+        margin-left: 200px;
+        margin-right: 0;
+        width: 200px;
     }
 
 </style>
@@ -101,15 +109,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <!-- Logo -->
-                <li class="nav-item logo-button no-underline">
-                    <a class="nav-link no-underline" href="/">
+                <li class="nav-item logo-button">
+                    <a class="nav-link" href="/">
                         <img src="{% static 'IFC/images/FSCLogo.png' %}" alt="Button Image" width="70" height="70">
                     </a>
                 </li>
                 
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/" target="_blank">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
 
                 <!-- About Us Dropdown -->
@@ -161,22 +169,24 @@
                 </li>
 
                 <!-- Login Dropdown -->
-                {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Hi, <b>{{ user.username }}</b>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="loginDropdown">
-                            <li><a class="dropdown-item" href="{% url 'view_profile' %}">View profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'user_logout' %}">Log out</a></li>
-                        </ul>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Log in</a>
-                    </li>
-                {% endif %}
+                <div class="nav-login-container">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Hi, <b>{{ user.username }}</b>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                                <li><a class="dropdown-item" href="{% url 'view_profile' %}">View profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'user_logout' %}">Log out</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Log in</a>
+                        </li>
+                    {% endif %}
+                </div>
             </ul>
         </div>
     </div>
