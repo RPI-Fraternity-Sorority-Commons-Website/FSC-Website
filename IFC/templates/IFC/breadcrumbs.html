@@ -55,15 +55,18 @@
         // Loop through each part to build the breadcrumb trail
         urlParts.shift();  // We've already processed the domain
         let path = '';
-        console.log("HELOOOOOOOOOOOOOOO")
         urlParts.forEach(function(part, i) {
             path += '/' + part;
+
+            // Decode the %20 and replace it with a space: Phi%20Gamma%20Delta -> Phi Gamma Delta
+            const decodedPart = decodeURIComponent(part);
+
             if (i < urlParts.length - 1) {
                 // It's a part of the path (but not the last part), so make it a link
-                breadcrumbHTML += ` <span>&gt;</span> <a href="${path}">${part}</a>`;
+                breadcrumbHTML += ` <span>&gt;</span> <a href="${path}">${decodedPart}</a>`;
             } else {
                 // It's the last part of the path, so just display it as text
-                breadcrumbHTML += ` <span>&gt;</span> <span class="current">${part}</span>`;
+                breadcrumbHTML += ` <span>&gt;</span> <span class="current">${decodedPart}</span>`;
             }
         });
 
