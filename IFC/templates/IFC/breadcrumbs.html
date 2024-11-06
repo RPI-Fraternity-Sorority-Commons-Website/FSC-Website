@@ -55,7 +55,6 @@
         // Loop through each part to build the breadcrumb trail
         urlParts.shift();  // We've already processed the domain
         let path = '';
-        console.log("HELOOOOOOOOOOOOOOO")
         urlParts.forEach(function(part, i) {
             path += '/' + part;
             if (i < urlParts.length - 1) {
