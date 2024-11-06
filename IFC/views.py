@@ -107,7 +107,9 @@ class profileView(generic.UpdateView):
         return self.request.user
 
 def handleAcrFile(file, acr_std_id):
-    path = os.path.join('media/accreditation', str(acr_std_id))
+    path = os.path.join('accreditation', str(acr_std_id))
+
+    print("path: " + path)
 
     fs = FileSystemStorage()
     fs.save(os.path.join(path, file.name), file)
