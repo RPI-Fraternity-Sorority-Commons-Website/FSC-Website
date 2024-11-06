@@ -1,0 +1,11 @@
+{% extends 'IFC/base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="ifcbutton">Submit</button>
+    </form>
+{% endblock %}

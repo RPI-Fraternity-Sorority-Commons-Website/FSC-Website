@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'IFC/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Important Documents</title>
+{% block title %}Important Documents{% endblock %}
+
+{% block header %}
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
 
@@ -18,12 +16,9 @@
             padding: 10px 0;
         }
     </style>
-    
-</head>
+{% endblock %}
 
-<body>
-    {% include 'IFC/navbar.html' %}
-
+{% block content %}
     <h1 class="page-title">Governing Documents</h1>
 
     <div class="pdf-buttons">
@@ -44,9 +39,4 @@
             <div class="text">Community Relations Charter</div>
         </a>
     </div>
-
-    <!-- Footer -->
-    {% include 'IFC/footer.html' %}
-</body>
-
-</html>
+{% endblock %}

@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import AbstractUser
 
 """
 EXAMPLE OF HOW TO MAKE A TABLE:
@@ -25,17 +26,17 @@ class Chapter(models.Model):
     president = models.CharField(max_length=255)
     info = models.TextField(max_length=900)  # A 900 character info blob
     chapter_size = models.PositiveIntegerField()  # Non-negative integer
-    slug = models.SlugField(unique=True, blank=True)
+    image = models.ImageField(upload_to='chapters/', blank=False, default='chapters/default.jpg')
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
         super().save(*args, **kwargs)
-        
+
     def get_absolute_url(self):
-        chapter_slug = self.slug
-        chapter_slug = chapter_slug.replace('-', '')
-        return f'/chapters/{chapter_slug}'  # Use slug in the URL
+        return f'/chapters/{self.name}'
 
     def __str__(self):
         return self.name
+
+
+class FSCUser(AbstractUser):
+    affiliation = models.CharField(max_length=255)

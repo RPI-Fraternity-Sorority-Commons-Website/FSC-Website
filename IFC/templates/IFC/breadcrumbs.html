@@ -1,64 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Breadcrumb Navigation</title>
-    <style>
-        #breadcrumb {
-            padding: 8px;
-            min-height: 40px;
-            background-color: rgb(214, 0, 28);
-        }
+<style>
+    #redbar {
+        padding: 8px;
+        min-height: 40px;
+        background-color: rgb(214, 0, 28);
+    }
 
-        #breadcrumb a {
-            color: #ffffff;
-            text-decoration: none;
-        }
+    #redbar a {
+        color: #ffffff;
+        text-decoration: none;
+    }
 
-        #breadcrumb a:hover {
-            text-decoration: underline;
-        }
+    #redbar a:hover {
+        text-decoration: underline;
+    }
 
-        #breadcrumb span {
-            color: #ffffff;
-        }
+    #redbar span {
+        color: #ffffff;
+    }
 
-        #breadcrumb .current {
-            color: #ffffff;
-        }
-    </style>
-</head>
-<body>
-    <div id="breadcrumb"></div>
+    #redbar .current {
+        color: #ffffff;
+    }
 
-    <script>
-        function generateBreadcrumb() {
-            // Get the current URL
-            const url = window.location.href;
-    
-            // Break the URL into parts
-            const urlParts = url.replace('http://','').replace('https://','').split('/');
-    
-            // Replace the first part (domain/IP) with "Home"
-            let breadcrumbHTML = `<a href="/">Home</a>`;
-    
-            // Loop through each part to build the breadcrumb trail
-            urlParts.shift();  // We've already processed the domain
-            let path = '';
-            urlParts.forEach(function(part, i) {
-                path += '/' + part;
-                if (i < urlParts.length - 1) {
-                    // It's a part of the path (but not the last part), so make it a link
-                    breadcrumbHTML += ` <span>&gt;</span> <a href="${path}">${part}</a>`;
-                } else {
-                    // It's the last part of the path, so just display it as text
-                    breadcrumbHTML += ` <span>&gt;</span> <span class="current">${part}</span>`;
-                }
-            });
-    
-            // Insert the breadcrumb HTML into the page
-            document.getElementById('breadcrumb').innerHTML = breadcrumbHTML;
-        };
-    </script>
-    
-</body>
-</html>
+    .login-links {
+        float: right; 
+    }
+</style>
+
+<div id="redbar">
+    <span id="breadcrumb" style="text-align: left;"></span>
+    <span id="session-info" style="float: right;">
+        <div class="login-links">
+            {% if user.is_authenticated %}
+                <span style="padding-right: 15px;">Hi, <a href="{% url 'view_profile' %}" style="font-weight: bold;">{{ user.username }}</a></span>
+            {% else %}
+                <a href="{% url 'user_login' %}" style="padding-right: 15px;">Log in</a>
+                <a href="{% url 'user_signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+    </span>
+</div>
+
+<script>
+    function generateBreadcrumb() {
+        // Get the current URL
+        const url = window.location.href;
+
+        // Break the URL into parts
+        const urlParts = url.replace('http://','').replace('https://','').split('/');
+
+        // Replace the first part (domain/IP) with "Home"
+        let breadcrumbHTML = `<a href="/">Home</a>`;
+
+        // Loop through each part to build the breadcrumb trail
+        urlParts.shift();  // We've already processed the domain
+        let path = '';
+        console.log("HELOOOOOOOOOOOOOOO")
+        urlParts.forEach(function(part, i) {
+            path += '/' + part;
+            if (i < urlParts.length - 1) {
+                // It's a part of the path (but not the last part), so make it a link
+                breadcrumbHTML += ` <span>&gt;</span> <a href="${path}">${part}</a>`;
+            } else {
+                // It's the last part of the path, so just display it as text
+                breadcrumbHTML += ` <span>&gt;</span> <span class="current">${part}</span>`;
+            }
+        });
+
+        // Insert the breadcrumb HTML into the page
+        document.getElementById('breadcrumb').innerHTML = breadcrumbHTML;
+    };
+
+    generateBreadcrumb();
+</script>

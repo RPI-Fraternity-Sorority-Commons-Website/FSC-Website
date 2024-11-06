@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'IFC/base.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Calendar</title>
+{%block title%}Calendar{%endblock%}
     
+{%block content%}
     {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
-    
 
     <style>
         body {
@@ -51,13 +44,8 @@
             padding-bottom: 0px;
         }
     </style>
-</head>
 
-<body>
-    <!-- Navbar -->
-    {% include 'IFC/navbar.html' %}
-
-    <h2 class = "page-title">IFC Calendar</h2>
+    <h2 class = "page-title">FSC Calendar</h2>
     <div class="containerCalendar">
         <div class="calendar-wrapper">
             <iframe src="https://embed.styledcalendar.com/#RA1P9JZjB4Y5VaoETxc8" title="Styled Calendar" class="styled-calendar-container" style="width: 100%; border: none;" data-cy="calendar-embed-iframe"></iframe>
@@ -65,8 +53,4 @@
         </div>
     </div>
     
-    <!-- Footer -->
-    {% include 'IFC/footer.html' %}
-</body>
-
-</html>
+{%endblock%}

@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'IFC/base.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %}Recruitment{% endblock %}
 
-    <title>Recruitment</title>
-    
-    {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
-    
-
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    
+{% block header %}
     <style>
-
         .introduction{
             justify-content: center;
             text-align: center;
@@ -105,103 +91,94 @@
                 margin-top: 20px;
             }
         }
-
-
-
-        
     </style>
-</head>
+{% endblock %}
 
-<body>
-    {% include 'IFC/navbar.html' %}
-    <div id="main-content">
+{% block content %}
+    {% load static %}
 
-        <div class="introduction">
-            <h1>Why Join A Greek Organization?</h1>
-            <p style="padding: 0 10% 0 10%;">Joining a greek organization provides a unique 
-                opportunity to cultivate lifelong friendships, foster personal growth, 
-                and create a strong network of professional connections. As a member of 
-                our greek community, you will have access to leadership development 
-                programs, community service projects, and social events that promote 
-                camaraderie and teamwork. Our fraternity and sorority commons is committed to 
-                creating a respectful and inclusive environment that encourages 
-                individuality while also emphasizing shared values and goals. By becoming 
-                part of our greek system, you are not only joining a brotherhood but 
-                investing in a future filled with support, success, and enrichment.</p>
-        </div>
-
-        <div class="Community">
-            <div class="two-adjacent">
-                <div class="titled-text">
-                    <h2>Community</h2>
-                    <p>Joining a greek organization is more than a college experience; it's a 
-                        lifelong journey filled with camaraderie, personal growth, and 
-                        community involvement. Engage in enriching social events, make 
-                        connections that last a lifetime, and contribute to meaningful 
-                        philanthropic efforts. By becoming part of this vibrant community,
-                         you'll forge bonds that extend beyond your university years. 
-                         Discover the unique opportunities and friendships that await 
-                         you in greek life!
-                    </p>
-                    <div class="button-wrapper">
-                        <a class="philanthropy-button" href="chapters">
-                            Our Chapters
-                        </a>
-                    </div>
-                </div>
-                <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" class="d-block w-100" alt="Image 1">
-            </div>
-        </div>
-
-        <div class="Philanthropy">
-            <div class="two-adjacent">
-                <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" class="d-block w-100" alt="Image 1">
-
-                <div class="titled-text">
-                    <h2>Philanthropy & Service</h2>
-                    <p>Philanthropy and service are at the heart of our commitment to both
-                         the RPI community and the broader Troy community. Through 
-                         hands-on volunteering, organized charity events, and 
-                         collaboration with local organizations, we strive to make a 
-                         positive impact. Join us in making a difference!</p>
-                    <div class="button-wrapper">
-                        <a class="philanthropy-button" href="philanthropy">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="testimonials">
-
-        </div>
-
-        <div class="FAQ">
-                <h2>Fequently Asked Questions</h2>
-                {% include 'IFC/FAQ.html' %}
-
-        </div>
-
-        <div class="call-to-register">
-            <h2>Join us today!</h2>
-            <a id="registerFall" class="register-button" href="" target="blank">
-                Register
-            </a>
-            <a id="freshmenInterest" class="freshmen-button" href="" target="blank">
-                First-year student interest form
-            </a>
-        </div>
-        
+    <div class="introduction">
+        <h1>Why Join A Greek Organization?</h1>
+        <p style="padding: 0 10% 0 10%;">Joining a greek organization provides a unique 
+            opportunity to cultivate lifelong friendships, foster personal growth, 
+            and create a strong network of professional connections. As a member of 
+            our greek community, you will have access to leadership development 
+            programs, community service projects, and social events that promote 
+            camaraderie and teamwork. Our fraternity and sorority commons is committed to 
+            creating a respectful and inclusive environment that encourages 
+            individuality while also emphasizing shared values and goals. By becoming 
+            part of our greek system, you are not only joining a brotherhood but 
+            investing in a future filled with support, success, and enrichment.</p>
     </div>
-    {% include 'IFC/footer.html' %}
+
+    <div class="Community">
+        <div class="two-adjacent">
+            <div class="titled-text">
+                <h2>Community</h2>
+                <p>Joining a greek organization is more than a college experience; it's a 
+                    lifelong journey filled with camaraderie, personal growth, and 
+                    community involvement. Engage in enriching social events, make 
+                    connections that last a lifetime, and contribute to meaningful 
+                    philanthropic efforts. By becoming part of this vibrant community,
+                        you'll forge bonds that extend beyond your university years. 
+                        Discover the unique opportunities and friendships that await 
+                        you in greek life!
+                </p>
+                <div class="button-wrapper">
+                    <a class="philanthropy-button" href="chapters">
+                        Our Chapters
+                    </a>
+                </div>
+            </div>
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" class="d-block w-100" alt="Image 1">
+        </div>
+    </div>
+
+    <div class="Philanthropy">
+        <div class="two-adjacent">
+            <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" class="d-block w-100" alt="Image 1">
+
+            <div class="titled-text">
+                <h2>Philanthropy & Service</h2>
+                <p>Philanthropy and service are at the heart of our commitment to both
+                        the RPI community and the broader Troy community. Through 
+                        hands-on volunteering, organized charity events, and 
+                        collaboration with local organizations, we strive to make a 
+                        positive impact. Join us in making a difference!</p>
+                <div class="button-wrapper">
+                    <a class="philanthropy-button" href="philanthropy">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="testimonials">
+
+    </div>
+
+    <div class="FAQ">
+            <h2>Fequently Asked Questions</h2>
+            {% include 'IFC/FAQ.html' %}
+
+    </div>
+
+    <div class="call-to-register">
+        <h2>Join us today!</h2>
+        <a id="registerFall" class="register-button" href="" target="blank">
+            Register
+        </a>
+        <a id="freshmenInterest" class="freshmen-button" href="" target="blank">
+            First-year student interest form
+        </a>
+    </div>
+
     <script src="{% static 'IFC/js/links.js' %}"></script>
     <script>
         document.getElementById('registerFall').href = fallRegistration;
         document.getElementById('freshmenInterest').href = FirstYearInterest;
     </script>
-</body>
-
-</html>
+{% endblock %}

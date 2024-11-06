@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'IFC/base.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Fall Recruitment</title>
+{% block title %}Fall Recruitment{% endblock %}
     
-    {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
-    
-
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+{% block header %}
     <style>
         .container{
             margin-top: 30px;
@@ -89,53 +77,44 @@
         .item{
             margin: 10px;
         }
+
         .freshmen-button{
             color: grey;
             padding-top: 10px;
             display: block;
             text-align: center;
         }
-
-
     </style>
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
+    {% load static %}
+
     <script src="{% static 'IFC/js/links.js' %}"></script>
 
-    <div id="main-content">
-        <!-- Navbar -->
-        {% include 'IFC/navbar.html' %}
-
-        <div class="container">
-            <h2>For potential new members (PNMs), please adhere to the following rules:</h2>
-            <ol id="numbered-list">
-                <li class="item">In the fall semester, only second-year students or those in higher years are eligible to join a fraternity. It is mandatory for all students intending to participate in recruitment or join a fraternity to register with the IFC</li>
-                <li class="item">Eligibility for recruitment requires a cumulative GPA of 2.5 or higher if you are a returning RPI student.</li>
-                <li class="item">You must not be an initiated brother or full member of any other national fraternity, whether at RPI or from another campus.</li>
-                <li class="item">If you are a transfer student and wish to affiliate with the chapter you joined at your previous institution, please contact the RPI Chapter President or email fscommons@rpi.edu to get connected.</li>
-            </ol>
-            
-            <div class="bottom-buttons">
-                <a id="registerFall" class="register-button" href="test" target="blank">
-                    Register
-                </a>
-                <a class="learn-button" href="recruitment">
-                    Learn More
-                </a>
-            </div>
-            <a id="freshmenInterest" class="freshmen-button" href="" target="blank">
-                First-year student interest form
+    <div class="container">
+        <h2>For potential new members (PNMs), please adhere to the following rules:</h2>
+        <ol id="numbered-list">
+            <li class="item">In the fall semester, only second-year students or those in higher years are eligible to join a fraternity. It is mandatory for all students intending to participate in recruitment or join a fraternity to register with the IFC</li>
+            <li class="item">Eligibility for recruitment requires a cumulative GPA of 2.5 or higher if you are a returning RPI student.</li>
+            <li class="item">You must not be an initiated brother or full member of any other national fraternity, whether at RPI or from another campus.</li>
+            <li class="item">If you are a transfer student and wish to affiliate with the chapter you joined at your previous institution, please contact the RPI Chapter President or email fscommons@rpi.edu to get connected.</li>
+        </ol>
+        
+        <div class="bottom-buttons">
+            <a id="registerFall" class="register-button" href="test" target="blank">
+                Register
+            </a>
+            <a class="learn-button" href="recruitment">
+                Learn More
             </a>
         </div>
-        <script>
-            document.getElementById('registerFall').href = fallRegistration;
-            document.getElementById('freshmenInterest').href = FirstYearInterest;
-        </script>
-
-        <!-- Footer -->
-        {% include 'IFC/footer.html' %}
+        <a id="freshmenInterest" class="freshmen-button" href="" target="blank">
+            First-year student interest form
+        </a>
     </div>
-</body>
-
-</html>
+    <script>
+        document.getElementById('registerFall').href = fallRegistration;
+        document.getElementById('freshmenInterest').href = FirstYearInterest;
+    </script>
+{% endblock %}

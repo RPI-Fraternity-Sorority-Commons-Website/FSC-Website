@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'IFC/base.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %}RPI FSC{% endblock %}
 
-    <title>RPI FSC</title>
-    
+{% block header %}
+    {% include 'IFC/dropdownBanner.html' %}
+{% endblock %}
+
+{% block content %}
+
     {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
-    
 
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    
     <style>
-
         .hero .title-text{
             color: rgb(0, 0, 0);
             font-weight: bolder;
@@ -49,97 +42,72 @@
             font-family: 'CustomFont';
             src: url("{% static 'IFC/Fonts/Overpass/overpass-extrabold.otf' %}") format('truetype');
         }
-        
     </style>
-</head>
 
-<body>
-    {% include 'IFC/dropdownBanner.html' %}
-    <div id="main-content">
-        <!-- Navbar -->
-        {% include 'IFC/navbar.html' %}
+    <main class="main-content">
+        <div class="container">
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-lg-6">
+                    <!-- First Image Carousel -->
+                    {% include 'IFC/carousel.html' %}
+                </div>
+                <div class="col-lg-6">
+                    <!-- Second Image Carousel -->
+                    {% include 'IFC/carousel.html' %}
+                </div>
+            </div>
+        </div>
+        
+        <hr class="separator">
+        <h1>About the FSC</h1>
+        <hr class="separator">
 
-
-        <!-- Main Content -->
-        <main class="main-content">
+        <div class ="statistics">
+            <div class="row justify-content-center" style="margin-bottom: 0px; text-align: center;">
+            </div>
             <div class="container">
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-6">
-                        <!-- First Image Carousel -->
-                        {% include 'IFC/carousel.html' %}
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- Second Image Carousel -->
-                        {% include 'IFC/carousel.html' %}
-                    </div>
-                </div>
+                {% include 'IFC/percentageGraph.html' %}
             </div>
-            
-            <hr class="separator">
-            <h1>About the FSC</h1>
-            <hr class="separator">
+        </div>
 
-            <div class ="statistics">
-                <div class="row justify-content-center" style="margin-bottom: 0px; text-align: center;">
-                </div>
-                <div class="container">
-                    {% include 'IFC/percentageGraph.html' %}
-                </div>
-            </div>
-
-            <div>
-                {% include 'IFC/splitSection.html' %}
-            </div>
-            
-        </main>
-
-
+        <div>
+            {% include 'IFC/splitSection.html' %}
+        </div>
         
+    </main>
 
-        <!-- Footer -->
-        {% include 'IFC/footer.html' %}
+    <script>
+        $(document).ready(function() {
+            // For each carousel on the page
+            $(".carousel").each(function(index) {
+                var carouselId = "carouselExampleIndicators" + (index + 1);
         
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-        <script>
-            $(document).ready(function() {
-                // For each carousel on the page
-                $(".carousel").each(function(index) {
-                    var carouselId = "carouselExampleIndicators" + (index + 1);
-            
-                    // Set the ID of the carousel
-                    $(this).attr("id", carouselId);
-            
-                    // Update the data-targets of the carousel indicators
-                    $(this).find(".carousel-indicators li").each(function() {
-                        $(this).attr("data-target", "#" + carouselId);
-                    });
-            
-                    // Update the hrefs of the carousel controls
-                    $(this).find(".carousel-control-prev").attr("href", "#" + carouselId);
-                    $(this).find(".carousel-control-next").attr("href", "#" + carouselId);
+                // Set the ID of the carousel
+                $(this).attr("id", carouselId);
+        
+                // Update the data-targets of the carousel indicators
+                $(this).find(".carousel-indicators li").each(function() {
+                    $(this).attr("data-target", "#" + carouselId);
                 });
+        
+                // Update the hrefs of the carousel controls
+                $(this).find(".carousel-control-prev").attr("href", "#" + carouselId);
+                $(this).find(".carousel-control-next").attr("href", "#" + carouselId);
             });
-            </script>
-        <script>
-            window.onload = function() {
-              var notification = document.getElementById('notification');
-              var closeBtn = document.getElementById('close-btn');
-              var mainContent = document.getElementById('main-content');
-        
-              notification.style.top = '0px';
-              mainContent.style.marginTop = '0px';
-        
-              closeBtn.onclick = function() {
-                notification.style.top = '-' + (notification.offsetHeight * 2) + 'px';
-                mainContent.style.marginTop = '-' + notification.offsetHeight + 'px';
-              }
+        });
+    
+        window.onload = function() {
+            var notification = document.getElementById('notification');
+            var closeBtn = document.getElementById('close-btn');
+            var mainContent = document.getElementById('main-content');
+    
+            notification.style.top = '0px';
+            mainContent.style.marginTop = '0px';
+    
+            closeBtn.onclick = function() {
+            notification.style.top = '-' + (notification.offsetHeight * 2) + 'px';
+            mainContent.style.marginTop = '-' + notification.offsetHeight + 'px';
             }
-        
-        </script>
-    </div>
-</body>
-
-</html>
+        }
+    </script>
+{% endblock %}

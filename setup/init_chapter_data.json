@@ -1,0 +1,317 @@
+[
+    {
+        "name": "Acacia",
+        "letters": "Acacia",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Chi Rho",
+        "letters": "ΑΧΡ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Epsilon Pi",
+        "letters": "ΑΕΠ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Sigma Phi",
+        "letters": "ΑΣΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Chi Phi",
+        "letters": "ΧΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Delta Kappa Epsilon",
+        "letters": "ΔΚΕ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Delta Phi",
+        "letters": "ΔΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Lambda Chi Alpha",
+        "letters": "ΛΧΑ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Phi Gamma Delta",
+        "letters": "FIJI",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Phi Kappa Theta",
+        "letters": "ΦΚΘ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Phi Mu Delta",
+        "letters": "ΦΜΔ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Phi Sigma Kappa",
+        "letters": "ΦΣΚ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Pi Kappa Alpha",
+        "letters": "ΠΚΑ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Pi Lambda Phi",
+        "letters": "ΠΛΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Psi Upsilon",
+        "letters": "ΨΥ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Sigma Alpha Epsilon",
+        "letters": "ΣΑΕ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Sigma Chi",
+        "letters": "ΣΧ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Sigma Phi Epsilon",
+        "letters": "ΣΦΕ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Tau Epsilon Phi",
+        "letters": "ΤΕΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Tau Kappa Epsilon",
+        "letters": "ΤΚΕ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Theta Xi",
+        "letters": "ΘΞ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Zeta Psi",
+        "letters": "ΖΨ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Delta Tau Delta",
+        "letters": "ΔΤΔ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Phi Alpha",
+        "letters": "ΑΦΑ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Phi Iota Alpha",
+        "letters": "ΦΙΑ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Pi Delta Psi",
+        "letters": "ΠΔΨ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Lambda Upsilon Lambda",
+        "letters": "ΛΥΛ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Omega Phi Beta",
+        "letters": "ΩΦΒ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Sigma Iota Alpha",
+        "letters": "ΣΙΑ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Gamma Delta",
+        "letters": "ΑΓΔ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Phi",
+        "letters": "ΑΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Pi Beta Phi",
+        "letters": "ΠΒΦ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Alpha Omega Epsilon",
+        "letters": "ΑΩΕ",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Rensselaer Society of Engineering Innovation",
+        "letters": "RSEi",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    },
+    {
+        "name": "Order of Omega",
+        "letters": "",
+        "rush_chair": "temp",
+        "president": "temp",
+        "info": "temp",
+        "chapter_size": "0",
+        "image": "chapters/default.jpg"
+    }
+]

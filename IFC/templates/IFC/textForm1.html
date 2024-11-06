@@ -1,0 +1,99 @@
+{% extends 'IFC/base.html' %}
+
+{% block header %}
+    <style>
+        .form-area {
+            background-color: white;
+            padding: 20px;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 5px;
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        .form-field {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 275px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        button {
+            padding: 10px;
+            border: solid;
+            border-width: 1px;
+            border-radius: 4px;
+            background-color: #ff2828;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 200ms;
+        }
+        
+        button:hover {
+            color: #ff2828;
+            background-color: white;
+        }
+
+        .help-text {
+            font-size: 12px;
+            text-align: left;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="form-area">
+
+        <span class="section-title">{% block form-title %}{% endblock %}</span>
+
+        {% block error-handle %} {% endblock %}
+
+        {% block form-content %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-field">
+                    {{ form.username }}
+                </div>
+
+                <div class="form-field">
+                    {{ form.email }}
+                </div>
+
+                <div class="form-field">
+                    {{ form.password1 }}
+                    <span class="help-text">
+                        {{ form.password1.help_text }}
+                    </span>
+                </div>
+
+                <div class="form-field">
+                    {{ form.password2 }}
+                </div>
+
+                <div class="form-field">
+                    <button type="submit"><span style="font-weight: bold;">Create account</span></button>
+                </div>
+            </form>
+        {% endblock %}
+    </div>
+{% endblock %}
