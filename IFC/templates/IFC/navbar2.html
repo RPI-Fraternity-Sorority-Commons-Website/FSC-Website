@@ -72,16 +72,74 @@
         padding: 0;
         margin: 0;
     }
+
+    .dropbtn {
+        color: #333;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown:hover .dropdown-content {display: block;}
+
 </style>
 
 <nav class="navbar">
     <div class="page-margins">
         <ul>
             <a href="#goon"><img class="nav-logo" src="{% static 'IFC/images/favicon.png' %}" width="45" height="45"></a>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <!--<li><a href="/">Home</a></li>-->
+
+            <li class="dropdown">
+                <span class="dropbtn">About</span>
+                <div class="dropdown-content">
+                    <a href="/chapters">Our Chapters</a>
+                    <a href="/leadership">Leadership</a>
+                    <a href="/accreditation">Accreditation</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <span class="dropbtn">Chapters</span>
+                <div class="dropdown-content">
+                    <a href="/chapters">Our Chapters</a>
+                    <a href="/leadership">Leadership</a>
+                    <a href="/accreditation">Accreditation</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <span class="dropbtn">About</span>
+                <div class="dropdown-content">
+                    <a href="/chapters">Our Chapters</a>
+                    <a href="/leadership">Leadership</a>
+                    <a href="/accreditation">Accreditation</a>
+                </div>
+            </li>
         </ul>
     </div>
     <img id="nav-transition" src="{% static 'IFC/images/verticalgradient.png' %}">
