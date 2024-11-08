@@ -27,6 +27,7 @@ class Chapter(models.Model):
     info = models.TextField(max_length=900)  # A 900 character info blob
     chapter_size = models.PositiveIntegerField()  # Non-negative integer
     image = models.ImageField(upload_to='chapters/', blank=False, default='chapters/default.jpg')
+    council = models.CharField(max_length=100, default="none")
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
