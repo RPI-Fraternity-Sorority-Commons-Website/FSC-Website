@@ -1,0 +1,154 @@
+{% load static %}
+
+<style>
+    /* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body Style */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Container */
+    .navbar {
+        background-color: white;
+        padding: 8px 0 0 0;
+        width: 100%;
+        height: 70px;
+        display: flex;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .nav-content {
+        width: 100%;
+    }
+
+    #nav-transition {
+        width: 100%;
+        height: 20px;
+        padding-top: 0px;
+        display: flex;
+    }
+
+    .nav-logo {
+        width: 45px;
+        height: 45px;
+        margin-top: 3px;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+
+    .left {
+        float: left;
+        justify-content: left;
+        margin-left: 20px;
+        display: flex;
+        width: 40%;
+        left: 0;
+    }
+
+    .right {
+        float: right;
+        justify-content: right;
+        margin-right: 20px;
+        display: flex;
+        width: 40%;
+        right: 0;
+    }
+
+    .dropdown-content {
+        position: relative;
+    }
+
+    .dropdown-item {
+        padding: 0;
+    }
+
+    .dropdown-links li {
+        display: none;
+    }
+
+    .dropdown-links li a {
+        width: 100%;
+    }
+
+    .dropdown-label {
+        font-size: 22px;
+    }
+
+    
+    .dropdown-link-area {
+        width: 150%;
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown-item:hover .dropdown-links li {
+        display: flex;
+        width: 150%;
+        left: -25px;
+    }
+
+    .wide {
+        width: 100%;
+        display: flex;
+    }
+
+</style>
+
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="left">
+            <a href="/"><img class="nav-logo" src="{% static 'IFC/images/favicon.png' %}" width="45" height="45"></a>
+        </div>
+        
+        <div class="right">
+            <div class="dropdown-content">
+                <div class="dropdown-item">
+                    <span class="dropdown-label">Dropdown</span>
+                    <ul class="dropdown-links">
+                        <li><a class="wide" href="/"><span class="dropdown-link-area">Home</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <img id="nav-transition" src="{% static 'IFC/images/verticalgradient.png' %}">
+</nav>
+
+<script>
+    // Enable hover functionality for Bootstrap dropdowns
+    $(document).ready(function () {
+        $('.dropdown').hover(
+            function () {
+                $(this).addClass('show');
+                $(this).find('.dropdown-menu').addClass('show');
+            },
+            function () {
+                $(this).removeClass('show');
+                $(this).find('.dropdown-menu').removeClass('show');
+            }
+        );
+        generateBreadcrumb();
+    });
+
+    // Update the URL when a dropdown item is clicked
+    $('.nav-link').on('click', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        window.location.href = url;
+    });
+</script>
