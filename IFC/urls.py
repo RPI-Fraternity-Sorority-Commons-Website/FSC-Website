@@ -31,7 +31,6 @@ urlpatterns = [
     path("", views.simpleView("IFC/homepage.html"), name="home"),
     path("documents/", views.simpleView("IFC/documents.html"), name="documents"),
     path("calendar/", views.simpleView("IFC/calendar.html"), name="calendar"),
-    path("leadership/", views.simpleView("IFC/leadership.html"), name="leadership"),
     path("recruitment/", views.simpleView("IFC/recruitment.html"), name="recruitment"),
     path("fall/", views.simpleView("IFC/fall.html"), name="fall"),
     path("spring/", views.simpleView("IFC/spring.html"), name="spring"),
@@ -41,6 +40,7 @@ urlpatterns = [
     path("chapters/<str:chapter_name>/edit/", views.edit_chapter, name="edit_chapter"),
 
     path('selectChapter', views.select_chapter, name="select_chapter"),
+    path('leadership/', views.leadership, name="leadership"),
 
     path('login/', views.user_login, name="user_login"),
     path('signup/', views.user_signup, name="user_signup"),

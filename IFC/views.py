@@ -29,6 +29,12 @@ def select_chapter(request):
     return render(request, 'IFC/select_chapter.html', {'chapters': chapters})
 
 
+def leadership(request):
+    chapters = Chapter.objects.all()
+    print(chapters)  # Add this to see if chapters has data
+    return render(request, 'IFC/leadership.html', {'chapters': chapters})
+
+
 # @login_required
 def chapter_detail(request, chapter_name):
     chapter_name = chapter_name.replace('-', ' ')

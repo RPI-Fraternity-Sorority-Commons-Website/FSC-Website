@@ -38,6 +38,18 @@
   {% load static %}
 
   <div class="containerL">
+    {% for chapter in chapters %}
+    <div class="leader">
+      <!--<img src="{{ chapter.president.image.url }}" alt="{{ chapter.president }}"> -->
+      <img src="{% static 'IFC/images/leadership/joshMoskoff.png' %}" alt="{{ chapter.president }}">
+      <h2>{{ chapter.president }}</h2>
+      <p>FILLING SPACE FOR MAJOR</p>
+      <div class="org">{{chapter.name}}</div>
+      <div class="position">Chapter President</div>
+    </div>
+    {% endfor %}
+
+
     <!-- Repeat this section for each leader -->
     <div class="leader">
       <img src="{% static 'IFC/images/leadership/joshMoskoff.png' %}" alt="Leader image">
@@ -47,61 +59,6 @@
       <div class="position">President</div>
     </div>
 
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Peter Crisileo</h2>
-      <p>Materials Science Engineering 2024</p>
-      <div class="org">Lambda Chi Alpha</div>
-      <div class="position">Vice President</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Shawn Vembenil</h2>
-      <p>CS/ITWS 202</p>
-      <div class="org">Sigma Chi</div>
-      <div class="position">VP Recruitment</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Nick Khoo</h2>
-      <p>BSAN/ITWS 2025</p>
-      <div class="org">Lambda Chi Alpha</div>
-      <div class="position">VP Finance</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Sam Stone</h2>
-      <p>Computer Science 2024</p>
-      <div class="org">Zeta Psi</div>
-      <div class="position">VP Internal Communication</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Aidan Saunders</h2>
-      <p>major 202</p>
-      <div class="org">Pi Lambda Phi</div>
-      <div class="position">VP External Communication</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Ethan Rokjer</h2>
-      <p>major 202</p>
-      <div class="org">Tau Epsilon Phi</div>
-      <div class="position">VP Philanthropy & Service</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'IFC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Matthew So</h2>
-      <p>Computer Systems Engineer</p>
-      <div class="org">Delta Phi</div>
-      <div class="position">IFC Senator</div>
-    </div>
   </div>
 
   <!-- Add more leader sections as needed -->
