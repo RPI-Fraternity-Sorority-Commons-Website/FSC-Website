@@ -3,7 +3,7 @@
 import os
 import sys
 from django.core.management.commands.runserver import Command as runserver
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'IFC.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FSC.settings')
 
 runserver.default_port = "80"  # Running on port 80
 

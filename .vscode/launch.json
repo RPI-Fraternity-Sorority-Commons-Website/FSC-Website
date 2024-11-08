@@ -20,7 +20,7 @@
       "request": "launch",
       "program": "${workspaceFolder}\\manage.py",
       "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
-      "args": ["runserver", "0.0.0.0:80", "--settings=IFC.settings_LAN"],
+      "args": ["runserver", "0.0.0.0:80", "--settings=FSC.settings_LAN"],
       "django": true,
       "justMyCode": true
     }
