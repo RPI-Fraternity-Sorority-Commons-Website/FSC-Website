@@ -9,16 +9,12 @@ import json
 
 
 def create_chapter_models(apps, schema_editor):
-
     print("Creating chapter models...")
-
     # Get the model from the historical version
     Chapters = apps.get_model('IFC', 'Chapter')
     # Create predefined instances
-
     file = open('setup/init_chapter_data.json', 'r', encoding='utf-8')
     data = json.load(file)
-
     for i in range(len(data)):
         ch = data[i]
         Chapters.objects.create(
@@ -30,9 +26,26 @@ def create_chapter_models(apps, schema_editor):
             chapter_size=ch["chapter_size"],
             image=ch["image"]
         )
-
     file.close()
 
+def create_council_models(apps, schema_editor):
+    print("Creating council models...")
+    # Get the model from the historical version
+    Councils = apps.get_model('IFC', 'Council')
+    # Create predefined instances
+    file = open('setup/init_council_data.json', 'r', encoding='utf-8')
+    data = json.load(file)
+    for i in range(len(data)):
+        ch = data[i]
+        Councils.objects.create(
+            council_name=ch["council_name"],
+            position_name=ch["position_name"],
+            position_holder_name=ch["position_holder_name"],
+            major=ch["major"],
+            chapter_affiliation=ch["chapter_affiliation"],
+            position_holder_image=ch["position_holder_image"]
+        )
+    file.close()
 
 class Migration(migrations.Migration):
 
@@ -54,6 +67,18 @@ class Migration(migrations.Migration):
                 ('info', models.TextField(max_length=900)),
                 ('chapter_size', models.PositiveIntegerField()),
                 ('image', models.ImageField(default='chapters/default.jpg', upload_to='chapters/')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Council',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('council_name', models.CharField(max_length=255)),
+                ('position_name', models.CharField(max_length=10)),
+                ('position_holder_name', models.CharField(max_length=255)),
+                ('major', models.CharField(max_length=255)),
+                ('chapter_affiliation', models.CharField(max_length=255)),
+                ('position_holder_image', models.ImageField(default='councils/default.jpg', upload_to='councils/')),
             ],
         ),
         migrations.CreateModel(
@@ -110,5 +135,6 @@ class Migration(migrations.Migration):
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
         ),
-        migrations.RunPython(create_chapter_models)
+        migrations.RunPython(create_chapter_models),
+        migrations.RunPython(create_council_models)
     ]

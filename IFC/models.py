@@ -40,18 +40,19 @@ class FSCUser(AbstractUser):
     affiliation = models.CharField(max_length=255)
 
 class Council(models.Model):
+    council_name = models.CharField(max_length=255)
     position_name = models.CharField(max_length=255)
     position_holder_name = models.CharField(max_length=255)
     major = models.CharField(max_length=255)
     chapter_affiliation = models.CharField(max_length=255)
-    #ADD AN IMAGE FIELD!
+    position_holder_image = models.ImageField(upload_to='councils/', blank=False, default='councils/default.jpg')
 
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return f'/councils/{self.name}'
+        return f'/councils/{self.council_name}_{self.position_name}'
 
     def __str__(self):
-        return self.name
+        return self.council_name+"_"+self.position_name

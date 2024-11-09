@@ -10,7 +10,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from .forms import ChapterForm, SignUpForm
-from .models import Chapter
+from .models import Chapter, Council
 
 
 # class-based view abstreaction for views that simply render a template
@@ -31,7 +31,7 @@ def select_chapter(request):
 
 def leadership(request):
     chapters = Chapter.objects.all()
-    print(chapters)  # Add this to see if chapters has data
+    councils = Council.objects.all()
     return render(request, 'IFC/leadership.html', {'chapters': chapters})
 
 
