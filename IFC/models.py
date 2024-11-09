@@ -18,7 +18,6 @@ class table_name(models.Model):
         db_table = 'table_table'   # Explicitly set the table name
 """
 
-
 class Chapter(models.Model):
     name = models.CharField(max_length=255)
     letters = models.CharField(max_length=10)  # Assuming Greek letters are short
@@ -37,6 +36,22 @@ class Chapter(models.Model):
     def __str__(self):
         return self.name
 
-
 class FSCUser(AbstractUser):
     affiliation = models.CharField(max_length=255)
+
+class Council(models.Model):
+    position_name = models.CharField(max_length=255)
+    position_holder_name = models.CharField(max_length=255)
+    major = models.CharField(max_length=255)
+    chapter_affiliation = models.CharField(max_length=255)
+    #ADD AN IMAGE FIELD!
+
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return f'/councils/{self.name}'
+
+    def __str__(self):
+        return self.name
