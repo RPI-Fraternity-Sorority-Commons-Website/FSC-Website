@@ -1,3 +1,4 @@
+import json
 from typing import Any
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
@@ -11,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from .forms import ChapterForm, SignUpForm
 from .models import Chapter
+from django.shortcuts import render
 
 
 # class-based view abstreaction for views that simply render a template

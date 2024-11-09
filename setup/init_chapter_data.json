@@ -6,7 +6,11 @@
         "president": "temp",
         "info": "temp",
         "chapter_size": "0",
-        "image": "chapters/default.jpg"
+        "images": [
+            "chapters/default.jpg",
+            "chapters/default.jpg",
+            "chapters/default.jpg"
+        ]
     },
     {
         "name": "Alpha Chi Rho",
