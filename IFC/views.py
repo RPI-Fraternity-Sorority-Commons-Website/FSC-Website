@@ -110,7 +110,7 @@ def upload_content(request):
             upload.user = request.user
             upload.save()
             messages.success(request, 'Content uploaded successfully!')
-            return redirect('view_uploads')  # Create this view to show all uploads
+            return redirect('home')  # Redirecting to home for now CORRECT TO THE PHILANTHROPY PAGE?
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
