@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from .forms import ChapterForm, SignUpForm
 from .models import Chapter
-
+from django.contrib import messages
+from .forms import UploadForm
 
 # class-based view abstreaction for views that simply render a template
 def simpleView(template):
@@ -36,7 +37,7 @@ def chapter_detail(request, chapter_name):
     return render(request, 'IFC/Chapter_base.html', {'chapter': chapter})
 
 
-# @login_required
+@login_required
 def edit_chapter(request, chapter_name):
 
     # Get the chapter by ID (or use some other logic to assign chapters to users)
@@ -99,3 +100,20 @@ class profileView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+
+@login_required
+def upload_content(request):
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            upload = form.save(commit=False)
+            upload.user = request.user
+            upload.save()
+            messages.success(request, 'Content uploaded successfully!')
+            return redirect('view_uploads')  # Create this view to show all uploads
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = UploadForm()
+    
+    return render(request, 'IFC/upload.html', {'form': form})

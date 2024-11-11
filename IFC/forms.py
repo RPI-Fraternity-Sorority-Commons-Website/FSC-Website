@@ -1,5 +1,5 @@
 from django import forms
-from .models import Chapter, FSCUser
+from .models import Chapter, FSCUser, Upload
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -20,3 +20,13 @@ class SignUpForm(UserCreationForm):
         for f in self.fields:
             # set each field's placeholder text to its name
             self.fields[f].widget.attrs.update({'placeholder': self.fields[f].label})
+
+class UploadForm(forms.ModelForm):
+    class Meta:
+        model = Upload
+        fields = ['title', 'description', 'media_file']
+        widgets = {
+            'title': forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'placeholder': 'Description', 'class': 'form-control'}),
+            'media_file': forms.FileInput(attrs={'class': 'form-control-file'})
+        }

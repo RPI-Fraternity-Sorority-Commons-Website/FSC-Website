@@ -192,7 +192,7 @@
         {% if user.is_authenticated and user.affiliation %}
             <div class="admin-links">
                 <a class="nav-link" href="/chapters/{{ user.affiliation|urlencode }}/edit/">Edit My Chapter</a>
-                <a class="nav-link" href="">Upload My Chapter Events</a>
+                <a class="nav-link" href="/upload">Upload My Chapter Events</a>
             </div>
         {% endif %}
     </div>

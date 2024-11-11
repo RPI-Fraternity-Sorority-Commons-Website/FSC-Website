@@ -2,7 +2,9 @@
 
 from django.db import models
 from django.utils.text import slugify
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
+from django.conf import settings
+
 
 """
 EXAMPLE OF HOW TO MAKE A TABLE:
@@ -40,3 +42,16 @@ class Chapter(models.Model):
 
 class FSCUser(AbstractUser):
     affiliation = models.CharField(max_length=255)
+
+class Upload(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    media_file = models.FileField(upload_to='uploads/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.title} by {self.user.username}"
