@@ -14,3 +14,9 @@ media/
 
 #database
 FSC_website_database
+
+#macOS
+*.sh
+
+#macOS launch file
+launch.json
