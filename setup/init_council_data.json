@@ -1,6 +1,6 @@
 [
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "President",
         "position_holder_name": "Jim Johnson",
         "major": "Comp Sci",
@@ -8,7 +8,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "Executive VP",
         "position_holder_name": "Joe Johnson",
         "major": "MECHE",
@@ -16,7 +16,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "VP of Finance",
         "position_holder_name": "Grant Johnson",
         "major": "CHEME",
@@ -24,7 +24,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "VP of Internal Communications",
         "position_holder_name": "George Johnson",
         "major": "Cognitive Science",
@@ -32,7 +32,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "VP of Member Development",
         "position_holder_name": "Yeller Johnson",
         "major": "Economics",
@@ -40,7 +40,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "VP of Recruitment",
         "position_holder_name": "Yosemite Johnson",
         "major": "Biomed",
@@ -48,7 +48,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "VP of Health and Safety",
         "position_holder_name": "Surge Johnson",
         "major": "Biophysics",
@@ -56,7 +56,7 @@
         "position_holder_image": "councils/default.jpg"
     },
     {
-        "council_name": "IFC",
+        "council_name": "Interfraternity Council",
         "position_name": "VP of Philanthropy",
         "position_holder_name": "Frank Johnson",
         "major": "Physics",
@@ -69,6 +69,22 @@
         "position_holder_name": "Jane Johnson",
         "major": "Psychology",
         "chapter_affiliation": "Pi Beta Phi",
+        "position_holder_image": "councils/default.jpg"
+    },
+    {
+        "council_name": "Multicultural Fraternity and Sorority Council",
+        "position_name": "President",
+        "position_holder_name": "Evan Johnson",
+        "major": "Neuroscience",
+        "chapter_affiliation": "Alpha Phi Alpha",
+        "position_holder_image": "councils/default.jpg"
+    },
+    {
+        "council_name": "Professional Fraternities and Sororities",
+        "position_name": "President",
+        "position_holder_name": "Sam Johnson",
+        "major": "Business",
+        "chapter_affiliation": "Rensselaer Society of Engineers and Innovation",
         "position_holder_image": "councils/default.jpg"
     }
 ]

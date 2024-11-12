@@ -60,34 +60,22 @@
         .button p {
         margin: 1px 0; /* Reduce the top and bottom margin */
         }
+        .chapters{margin-top: 25px;}
     </style>
 {% endblock %}
 
 {% block content %}
     {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
-    <style>
-        /* Add your custom styles here */
-        .page-title{
-            background-color: rgb(214, 0, 28);
-            color: black;
-            text-align: center;
-            position: flex;
-        }
-        
-        .chapters{margin-top: 25px;}
-    </style>
-
     <div class="chapters">
         {% load static %}
-<div class="container">
-  {% for chapter in chapters %}
-    <a href="{{ chapter.name }}" class="button brighten">
-      <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
-      <p>{{chapter.name}}</p>
-      <p class="nickname">{{chapter.letters}}</p>
-    </a>
-  {% endfor %}
-</div>
+        <div class="container">
+        {% for chapter in chapters %}
+            <a href="{{ chapter.name }}" class="button brighten">
+            <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
+            <p>{{chapter.name}}</p>
+            <p class="nickname">{{chapter.letters}}</p>
+            </a>
+        {% endfor %}
+        </div>
     </div> 
 {% endblock %}

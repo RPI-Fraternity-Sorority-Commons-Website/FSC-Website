@@ -31,7 +31,18 @@ def select_chapter(request):
 
 def leadership(request):
     councils = Council.objects.all()
-    return render(request, 'IFC/leadership.html', {'councils': councils})
+
+
+    interfraternity_council_items = Council.objects.filter(council_name="Interfraternity Council")
+    panhellenic_council_items = Council.objects.filter(council_name="Panhellenic Council")
+    multicultural_council_items = Council.objects.filter(council_name="Multicultural Fraternity and Sorority Council")
+    professional_organization_items = Council.objects.filter(council_name="Professional Fraternities and Sororities")
+    return render(request, 'IFC/leadership.html', {
+        'interfraternity_council_items': interfraternity_council_items,
+        'panhellenic_council_items': panhellenic_council_items,
+        'multicultural_council_items': multicultural_council_items,
+        'professional_organization_items': professional_organization_items
+    })
 
 
 # @login_required

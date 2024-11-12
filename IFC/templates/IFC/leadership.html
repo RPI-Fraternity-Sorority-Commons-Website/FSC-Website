@@ -5,50 +5,115 @@
 {% block header %}
     <style>
         /* Add your custom styles here */
-        .containerL {
+        .leaders {
+            margin-top: 25px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 0 10% 0 10%;
+            justify-content: space-evenly;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
         }
 
         .leader {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
             width: 30%;
-            padding: 5%;
+            padding: 1% 5%; /* Vertical padding is 1% and horizontal padding is 5% */
             text-align: center;
+            /*justify-content: space-evenly; this spreads all the items out in a leader box */
         }
         .leader h2{margin: 0;}
         .leader p{margin: 0;}
 
         .leader img {
-            width: 50%;
-            height: 60%;
+            height: 40%;
+            width: auto;
             object-fit: contain;
         }
 
         .position {
+            width: 80%;
             color: white;
             background-color: rgb(214, 0, 28);
             padding: 5px;
+        }
+        .councilHeader {
+            margin-bottom: 5%;
+            text-align: center;
+            width: 80%;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1%;
+        }
+        .councilContainer {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
         }
     </style>
 {% endblock %}
 
 {% block content %}
   {% load static %}
-
-  <div class="containerL">
-    {% for council in councils %}
-    <div class="leader">
-      <img src="{{ council.position_holder_image.url }}" alt="{{ council }}">
-      <h2>{{ council.position_holder_name }}</h2>
-      <p>{{ council.major }}</p>
-      <div class="org"><a href="../chapters/{{ council.chapter_affiliation }}">{{council.chapter_affiliation}}</a></div>
-      <div class="position">{{ council }}</div>
+  <div class="leaders">
+    <div class="container">
+      <!-- IFC CONTAINER-->
+      <div class="councilContainer">
+        <h1 class="councilHeader">Interfraternity Council</h1>
+        {% for item in interfraternity_council_items %}
+        <div class="leader">
+          <img src="{{ item.position_holder_image.url }}" alt="{{ item }}">
+          <h2>{{ item.position_holder_name }}</h2>
+          <p>{{ item.major }}</p>
+          <div class="org"><a href="../chapters/{{ item.chapter_affiliation }}">{{item.chapter_affiliation}}</a></div>
+          <div class="position">{{ item.position_name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- PANHEL CONTAINER -->
+      <div class="councilContainer">
+        <h1 class="councilHeader">Panhellenic Council</h1>
+        {% for item in panhellenic_council_items %}
+        <div class="leader">
+          <img src="{{ item.position_holder_image.url }}" alt="{{ item }}">
+          <h2>{{ item.position_holder_name }}</h2>
+          <p>{{ item.major }}</p>
+          <div class="org"><a href="../chapters/{{ item.chapter_affiliation }}">{{item.chapter_affiliation}}</a></div>
+          <div class="position">{{ item.position_name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Multicultural Sorority and Fraternity Council -->
+      <div class="councilContainer">
+        <h1 class="councilHeader">Multicultural Sorority and Fraternity Council</h1>
+        {% for item in multicultural_council_items %}
+        <div class="leader">
+          <img src="{{ item.position_holder_image.url }}" alt="{{ item }}">
+          <h2>{{ item.position_holder_name }}</h2>
+          <p>{{ item.major }}</p>
+          <div class="org"><a href="../chapters/{{ item.chapter_affiliation }}">{{item.chapter_affiliation}}</a></div>
+          <div class="position">{{ item.position_name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Professional Organizations -->
+      <div class="councilContainer">
+        <h1 class="councilHeader">Professional Fraternties and Sororities</h1>
+        {% for item in professional_organization_items %}
+        <div class="leader">
+          <img src="{{ item.position_holder_image.url }}" alt="{{ item }}">
+          <h2>{{ item.position_holder_name }}</h2>
+          <p>{{ item.major }}</p>
+          <div class="org"><a href="../chapters/{{ item.chapter_affiliation }}">{{item.chapter_affiliation}}</a></div>
+          <div class="position">{{ item.position_name }}</div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
-
   </div>
-
-  <!-- Add more leader sections as needed -->
 {% endblock %}
