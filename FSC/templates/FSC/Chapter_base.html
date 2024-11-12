@@ -1,0 +1,93 @@
+{% extends 'FSC/base.html' %}
+
+{% block content %}
+  <style>
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left-column {
+    width: 55%;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .right-column {
+    width: 45%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .social-bar {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .social-bar a {
+    text-decoration: none;
+    margin-right: 10px;
+  }
+
+  .social-bar a:last-child {
+    margin-right: 0;
+  }
+  p {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  .contact_text {
+    font-size: 15px;
+  }
+  .prov-image {
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .map {
+    margin-top: 10px;
+  }
+  </style>
+
+  {% load static %}
+
+  <div class="container">
+      <div class="left-column">
+        <div class="content">
+          
+          <a href="/chapters">Back</a>
+
+          <h1>{{chapter.name}} ({{chapter.letters}})</h1>
+
+          <h2>President</h2>
+          <p>{{chapter.president}}</p>
+          
+          <h2>Rush chair</h2>
+          <p>{{chapter.rush_chair}}</p>
+          
+          <h2>Chapter size</h2>
+          <p>{{chapter.chapter_size}}</p>
+
+          <h2>About</h2>
+          <p>{{chapter.info}}</p>
+
+          {% block links %} {% endblock %}
+        </div>
+      </div>
+      <div class="right-column">
+
+        <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}" width="400">
+
+        {% block map %} {% endblock %}
+
+        {% block right_column %} {% endblock %}
+      </div>
+      {% if user.affiliation == chapter.name %}
+        <a href="edit"><img src="{% static 'FSC/images/pencil.png' %}" width="40" height="40"></a>
+      {% endif %}
+    </div>
+    
+{% endblock %}

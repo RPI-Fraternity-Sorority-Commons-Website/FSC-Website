@@ -1,0 +1,108 @@
+{% extends 'FSC/base.html' %}
+
+{% block title %}Leadership{% endblock %}
+
+{% block header %}
+    <style>
+        /* Add your custom styles here */
+        .containerL {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 10% 0 10%;
+        }
+
+        .leader {
+            width: 30%;
+            padding: 5%;
+            text-align: center;
+        }
+        .leader h2{margin: 0;}
+        .leader p{margin: 0;}
+
+        .leader img {
+            width: 50%;
+            height: 60%;
+            object-fit: contain;
+        }
+
+        .position {
+            color: white;
+            background-color: rgb(214, 0, 28);
+            padding: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+  {% load static %}
+
+  <div class="containerL">
+    <!-- Repeat this section for each leader -->
+    <div class="leader">
+      <img src="{% static 'FSC/images/leadership/joshMoskoff.png' %}" alt="Leader image">
+      <h2>Josh Moskoff</h2>
+      <p>Computer Science 2025</p>
+      <div class="org">Phi Sigma Kappa</div>
+      <div class="position">President</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Peter Crisileo</h2>
+      <p>Materials Science Engineering 2024</p>
+      <div class="org">Lambda Chi Alpha</div>
+      <div class="position">Vice President</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Shawn Vembenil</h2>
+      <p>CS/ITWS 202</p>
+      <div class="org">Sigma Chi</div>
+      <div class="position">VP Recruitment</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Nick Khoo</h2>
+      <p>BSAN/ITWS 2025</p>
+      <div class="org">Lambda Chi Alpha</div>
+      <div class="position">VP Finance</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Sam Stone</h2>
+      <p>Computer Science 2024</p>
+      <div class="org">Zeta Psi</div>
+      <div class="position">VP Internal Communication</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Aidan Saunders</h2>
+      <p>major 202</p>
+      <div class="org">Pi Lambda Phi</div>
+      <div class="position">VP External Communication</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Ethan Rokjer</h2>
+      <p>major 202</p>
+      <div class="org">Tau Epsilon Phi</div>
+      <div class="position">VP Philanthropy & Service</div>
+    </div>
+
+    <div class="leader">
+      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+      <h2>Matthew So</h2>
+      <p>Computer Systems Engineer</p>
+      <div class="org">Delta Phi</div>
+      <div class="position">FSC Senator</div>
+    </div>
+  </div>
+
+  <!-- Add more leader sections as needed -->
+{% endblock %}

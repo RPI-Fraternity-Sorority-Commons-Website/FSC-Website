@@ -1,0 +1,42 @@
+{% extends 'FSC/base.html' %}
+
+{% block title %}Important Documents{% endblock %}
+
+{% block header %}
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'FSC/images/favicon.png' %}" />
+
+    <link rel="stylesheet" href="{% static 'PDFButtons.css' %}">
+
+    <style>
+        /* Add your custom styles here */
+        .page-title {
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Governing Documents</h1>
+
+    <div class="pdf-buttons">
+        <a href="{% static 'FSC/documents/constitution.pdf' %}" target="_blank" class="pdf-button">
+            <div class="stripe"></div>
+            <div class="text">FSC Constitution</div>
+        </a>
+        <a href="{% static 'FSC/documents/recruitment.pdf' %}" target="_blank" class="pdf-button">
+            <div class="stripe"></div>
+            <div class="text">FSC Recruitment Policy</div>
+        </a>
+        <a href="{% static 'FSC/documents/JBoard.pdf' %}" target="_blank" class="pdf-button">
+            <div class="stripe"></div>
+            <div class="text">FSC Judicial Policy</div>
+        </a>
+        <a href="{% static 'FSC/documents/community.pdf' %}" target="_blank" class="pdf-button">
+            <div class="stripe"></div>
+            <div class="text">Community Relations Charter</div>
+        </a>
+    </div>
+{% endblock %}
