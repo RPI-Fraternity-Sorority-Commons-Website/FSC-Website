@@ -109,6 +109,6 @@ class Migration(migrations.Migration):
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
-        ),
-        migrations.RunPython(create_chapter_models)
+        )#,
+        #migrations.RunPython(create_chapter_models)
     ]
