@@ -5,7 +5,7 @@
         "position_holder_name": "Jim Johnson",
         "major": "Comp Sci",
         "chapter_affiliation": "Phi Gamma Delta",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -13,7 +13,7 @@
         "position_holder_name": "Joe Johnson",
         "major": "MECHE",
         "chapter_affiliation": "Phi Sigma Kappa",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -21,7 +21,7 @@
         "position_holder_name": "Grant Johnson",
         "major": "CHEME",
         "chapter_affiliation": "Chi Phi",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -29,7 +29,7 @@
         "position_holder_name": "George Johnson",
         "major": "Cognitive Science",
         "chapter_affiliation": "Lambda Chi Alpha",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -37,7 +37,7 @@
         "position_holder_name": "Yeller Johnson",
         "major": "Economics",
         "chapter_affiliation": "Theta Xi",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -45,7 +45,7 @@
         "position_holder_name": "Yosemite Johnson",
         "major": "Biomed",
         "chapter_affiliation": "Pi Lambda Phi",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -53,7 +53,7 @@
         "position_holder_name": "Surge Johnson",
         "major": "Biophysics",
         "chapter_affiliation": "Sigma Chi",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "IFC",
@@ -61,7 +61,7 @@
         "position_holder_name": "Frank Johnson",
         "major": "Physics",
         "chapter_affiliation": "Delta Kappa Epsilon",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     },
     {
         "council_name": "Panhellenic Council",
@@ -69,6 +69,6 @@
         "position_holder_name": "Jane Johnson",
         "major": "Psychology",
         "chapter_affiliation": "Pi Beta Phi",
-        "position_holder_image": "chapters/default.jpg"
+        "position_holder_image": "councils/default.jpg"
     }
 ]

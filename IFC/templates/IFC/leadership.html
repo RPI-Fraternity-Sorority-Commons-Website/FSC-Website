@@ -38,26 +38,15 @@
   {% load static %}
 
   <div class="containerL">
-    {% for chapter in chapters %}
+    {% for council in councils %}
     <div class="leader">
-      <!--<img src="{{ chapter.president.image.url }}" alt="{{ chapter.president }}"> -->
-      <img src="{% static 'IFC/images/leadership/joshMoskoff.png' %}" alt="{{ chapter.president }}">
-      <h2>{{ chapter.president }}</h2>
-      <p>FILLING SPACE FOR MAJOR</p>
-      <div class="org">{{chapter.name}}</div>
-      <div class="position">Chapter President</div>
+      <img src="{{ council.position_holder_image.url }}" alt="{{ council }}">
+      <h2>{{ council.position_holder_name }}</h2>
+      <p>{{ council.major }}</p>
+      <div class="org"><a href="../chapters/{{ council.chapter_affiliation }}">{{council.chapter_affiliation}}</a></div>
+      <div class="position">{{ council }}</div>
     </div>
     {% endfor %}
-
-
-    <!-- Repeat this section for each leader -->
-    <div class="leader">
-      <img src="{% static 'IFC/images/leadership/joshMoskoff.png' %}" alt="Leader image">
-      <h2>Josh Moskoff</h2>
-      <p>Computer Science 2025</p>
-      <div class="org">Phi Sigma Kappa</div>
-      <div class="position">President</div>
-    </div>
 
   </div>
 

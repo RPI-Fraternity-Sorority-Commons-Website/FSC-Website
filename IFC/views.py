@@ -30,9 +30,8 @@ def select_chapter(request):
 
 
 def leadership(request):
-    chapters = Chapter.objects.all()
     councils = Council.objects.all()
-    return render(request, 'IFC/leadership.html', {'chapters': chapters})
+    return render(request, 'IFC/leadership.html', {'councils': councils})
 
 
 # @login_required
