@@ -32,7 +32,7 @@ def create_chapter_models(apps, schema_editor):
         )
 
     file.close()
-    
+
 
 class Migration(migrations.Migration):
 
@@ -109,6 +109,6 @@ class Migration(migrations.Migration):
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
-        )#,
-        #migrations.RunPython(create_chapter_models),
+        ),
+        migrations.RunPython(create_chapter_models),
     ]
