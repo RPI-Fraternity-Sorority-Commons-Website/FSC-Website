@@ -32,6 +32,7 @@ def create_chapter_models(apps, schema_editor):
         )
 
     file.close()
+    
 
 class Migration(migrations.Migration):
 
