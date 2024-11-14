@@ -9,16 +9,16 @@ import json
 
 
 def create_chapter_models(apps, schema_editor):
-    
+
     print("Creating chapter models...")
-    
+
     # Get the model from the historical version
     Chapters = apps.get_model('IFC', 'Chapter')
     # Create predefined instances
-    
+
     file = open('setup/init_chapter_data.json', 'r', encoding='utf-8')
     data = json.load(file)
-    
+
     for i in range(len(data)):
         ch = data[i]
         Chapters.objects.create(
@@ -30,7 +30,7 @@ def create_chapter_models(apps, schema_editor):
             chapter_size=ch["chapter_size"],
             image=ch["image"]
         )
-    
+
     file.close()
 
 class Migration(migrations.Migration):
