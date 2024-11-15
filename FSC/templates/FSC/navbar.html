@@ -10,20 +10,43 @@
         /* background-image: url("{% static 'FSC/images/navbarBackground.jpg' %}"); */
         background-repeat: no-repeat;
         background-size: cover;
-        padding: 8px 16px;
+        padding: 8px 16px 0 16px;
         min-height: 80px; /* Default height for screens larger than or equal to 992px */
         /* background-color: #f8f9fa; You can change this color according to your design */
+        flex-direction: column;
+    }
+
+    /* Adjust container to account for redbar */
+    .navbar .container {
+        width: 100%;
+        max-width: 1200px; /* Or your desired max-width */
+        margin: 0 auto;
+    }
+
+    /* Show redbar on navbar hover for desktop */
+    @media (min-width: 992px) {
+        .navbar:hover .redbar,
+        .redbar:hover {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     @media (max-width: 991px) {
-        /* Styles for screens smaller than 992px */
         .navbar {
-            min-height: 180px; /* Adjust the height for smaller screens */
+            min-height: 180px;
         }
-        .admin-links {
-            position: static;
-            margin-top: 10px;
-            justify-content: flex-end;
+
+        .redbar {
+            position: relative;
+            transform: none;
+            margin-top: 16px;
+        }
+
+        /* Class to show redbar when at top of page on mobile */
+        .redbar.show-mobile {
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -101,35 +124,18 @@
         width: 200px;
     }
 
-    .admin-links {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        display: flex;
-        gap: 15px;
-        z-index: 1000;
-    }
-
-    .admin-links .nav-link {
-        font-size: 15px;
-        position: relative;
-        white-space: nowrap;
-    }
-
-    .admin-links .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
+    .redbar {
         width: 100%;
-        height: 2px;
-        background-color: #000;
+        background-color: #f8f9fa;
+        padding: 8px 0;
+        margin-top: 8px;
+        border-top: 1px solid #dee2e6;
         opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .admin-links .nav-link:hover::after {
-        opacity: 1;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        position: absolute;
+        bottom: 0;
+        transform: translateY(100%);
     }
 </style>
 
@@ -227,17 +233,19 @@
                     {% endif %}
                 </div>
             </ul>
-        </div>
+        </div> 
+    </div>
+    <div class="redbar" id="redbar">
+        {% include 'FSC/breadcrumbs.html' %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </div>
 </nav>
 
-{% include 'FSC/breadcrumbs.html' %}
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     // Enable hover functionality for Bootstrap dropdowns
-    $(document).ready(function () {
+     $(document).ready(function () {
+        // Previous dropdown functionality remains...
         $('.dropdown').hover(
             function () {
                 $(this).addClass('show');
@@ -248,6 +256,28 @@
                 $(this).find('.dropdown-menu').removeClass('show');
             }
         );
+
+        // Handle redbar visibility on mobile scroll
+        function handleScroll() {
+            if (window.innerWidth <= 991) {  // Mobile breakpoint
+                const redbar = document.getElementById('redbar');
+                if (window.scrollY === 0) {
+                    redbar.classList.add('show-mobile');
+                } else {
+                    redbar.classList.remove('show-mobile');
+                }
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+        
+        // Check initial scroll position
+        handleScroll();
+
+        // Handle window resize
+        window.addEventListener('resize', handleScroll);
+
         generateBreadcrumb();
     });
 
