@@ -1,83 +1,108 @@
 {% extends 'FSC/base.html' %}
 
 {% block title %}Fall Recruitment{% endblock %}
-    
+
 {% block header %}
     <style>
-        .bottom-buttons{
+        .image-row {
             display: flex;
-            align-items: center;
             justify-content: center;
+            gap: 30px;
+            margin: 20px auto;
+            width: 85%;
         }
 
-        a.learn-button {
-            position: relative;
-            overflow: hidden;
-            color: grey;
-            padding: 10px 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
+        .image-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             text-align: center;
-            max-width: 30%;
-            margin: 0 20px;
-            background-color: transparent;
-            display: inline-block; /* Added this */
-            text-decoration: none; /* Added this */
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
         }
 
-        a.learn-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 100%;
-            background: grey;
-            transition: width 0.3s ease-in-out;
-            z-index: -1;
+        .image-title {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        a.learn-button:hover {
-            color: white;
-            text-decoration: none;
-        }
-
-        a.learn-button:hover::before {
+        .image-block img {
             width: 100%;
+            height: auto;
+            border-radius: 4px;
         }
 
-        a.register-button {
-            transition: 0.3s;
-            background-color: rgb(214, 0, 28);
-            color: white;
-            padding: 10px 10px;
+        .image-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #ff0000;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            text-align: center;
-            max-width: 30%;
-            margin: 0 20px;
-            display: inline-block; /* Added this */
-            text-decoration: none; /* Added this */
-        }
-
-        a.register-button:hover {
-            transition: 0.3s;
-            filter: brightness(75%);
-            color: white;
+            transition: background-color 0.3s ease;
             text-decoration: none;
         }
 
-        .item{
-            margin: 10px;
+        .image-button:hover {
+            background-color: #b30000;
+            color: #fff;
+            text-decoration: none;
+            
         }
-
-        .freshmen-button{
+        .freshmen-button {
             color: grey;
             padding-top: 10px;
             display: block;
             text-align: center;
+        }
+        .rules-container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 85%;
+        }
+
+        .rules-container h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .rule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rule-item-icon {
+            margin-right: 10px;
+            color: #007BFF;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .rule-item-text {
+            flex: 1;
+        }
+
+        .rule-item-text b {
+            color: #333;
         }
     </style>
 {% endblock %}
@@ -87,27 +112,60 @@
 
     <script src="{% static 'FSC/js/links.js' %}"></script>
 
-    <div class="container">
+    <div class="rules-container">
         <h2>For potential new members (PNMs), please adhere to the following rules:</h2>
-        <ol id="numbered-list">
-            <li class="item">In the fall semester, only second-year students or those in higher years are eligible to join a fraternity. It is mandatory for all students intending to participate in recruitment or join a fraternity to register with the FSC</li>
-            <li class="item">Eligibility for recruitment requires a cumulative GPA of 2.5 or higher if you are a returning RPI student.</li>
-            <li class="item">You must not be an initiated brother or full member of any other national fraternity, whether at RPI or from another campus.</li>
-            <li class="item">If you are a transfer student and wish to affiliate with the chapter you joined at your previous institution, please contact the RPI Chapter President or email fscommons@rpi.edu to get connected.</li>
-        </ol>
-        
-        <div class="bottom-buttons">
-            <a id="registerFall" class="register-button" href="test" target="blank">
-                Register
-            </a>
-            <a class="learn-button" href="recruitment">
-                Learn More
-            </a>
+        <div class="rule-item">
+            <div class="rule-item-icon">📚</div>
+            <div class="rule-item-text">
+                <b>Eligibility:</b> In the fall semester, only second-year students or those in higher years are eligible to join an organization. It is mandatory for all students intending to participate in recruitment or join an organization to register with the FSC.
+            </div>
         </div>
-        <a id="freshmenInterest" class="freshmen-button" href="" target="blank">
-            First-year student interest form
-        </a>
+        <div class="rule-item">
+            <div class="rule-item-icon">📊</div>
+            <div class="rule-item-text">
+                <b>GPA Requirement:</b> Eligibility for recruitment requires a cumulative GPA of 2.5 or higher if you are a returning RPI student.
+            </div>
+        </div>
+        <div class="rule-item">
+            <div class="rule-item-icon">🚫</div>
+            <div class="rule-item-text">
+                <b>No Double Membership:</b> You must not be an initiated brother or full member of any other national fraternity or sorority, whether at RPI or from another campus.
+            </div>
+        </div>
+        <div class="rule-item">
+            <div class="rule-item-icon">🔄</div>
+            <div class="rule-item-text">
+                <b>Transfer Students:</b> If you are a transfer student and wish to affiliate with the chapter you joined at your previous institution, please contact the RPI Chapter President or email <a href="mailto:fscommons@rpi.edu">fscommons@rpi.edu</a> to get connected.
+            </div>
+        </div>
     </div>
+
+    <div class="image-row">
+        <div class="image-block">
+            <h3 class="image-title">Interfraternity Council</h3>
+            <img src="{% static 'FSC/images/IFCLogo.png' %}" alt="Image 1">
+            <a href="https://app.chapterbuilder.com/forms/9721/view/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjg0NTkwOSwianRpIjoiNGY2ODhkNjYtNTk3MC00OGVjLTk3NDEtNDQwMzE4ZTU0NGJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OTcyMSwibmJmIjoxNzI2ODQ1OTA5LCJjbGFpbXNfdHlwZSI6ImZvcm0ifQ.hsIK69WLT2hUdwboKhCC0PvviqA0JXKYks4vF5RD1wk" 
+            class="image-button">View More</a>
+        </div>
+        <div class="image-block">
+            <h3 class="image-title">Panhellenic Council</h3>
+            <img src="{% static 'FSC/images/panhellenicLogo.png' %}" alt="Image 2">
+            <a href="https://rpipanhel.mycampusdirector2.com/landing/" class="image-button">View More</a>
+        </div>
+        <div class="image-block">
+            <h3 class="image-title">Multicultural sorority and Fraternity Council</h3>
+            <img src="{% static 'FSC/images/msfcLogo.png' %}" alt="Image 3">
+            <a href="https://linktr.ee/msfc_rpi" class="image-button">View More</a>
+        </div>
+        <div class="image-block">
+            <h3 class="image-title">Professional Sororities and Fraternities</h3>
+            <img src="{% static 'FSC/images/pfsLogo.png' %}" alt="Image 3">
+            <a href="https://linktr.ee/RPI_PFS?fbclid=PAZXh0bgNhZW0CMTEAAabvLPaD5V7eBdYIzjOm83woV4gPgifDmeMq1y41efTo7T7RDZbGebsU_6w_aem_u3_h2bfXZqvSTM8fVdbgTQ"
+            class="image-button">View More</a>
+        </div>
+        
+    </div>
+
     <script>
         document.getElementById('registerFall').href = fallRegistration;
         document.getElementById('freshmenInterest').href = FirstYearInterest;
