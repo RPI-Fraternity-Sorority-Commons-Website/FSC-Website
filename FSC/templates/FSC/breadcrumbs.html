@@ -18,7 +18,7 @@
         const urlParts = url.replace('http://','').replace('https://','').split('/');
 
         // Replace the first part (domain/IP) with "Home"
-        let breadcrumbHTML = `<a href="/">home</a>`;
+        let breadcrumbHTML = `<a href="/">Home</a>`;
 
         // Loop through each part to build the breadcrumb trail
         urlParts.shift();  // We've already processed the domain
@@ -27,7 +27,8 @@
             path += '/' + part;
 
             // Decode the %20 and replace it with a space: Phi%20Gamma%20Delta -> Phi Gamma Delta
-            const decodedPart = decodeURIComponent(part);
+            let decodedPart = decodeURIComponent(part);
+            decodedPart = decodedPart.charAt(0).toUpperCase() + decodedPart.slice(1);
 
             if (i < urlParts.length - 1) {
                 // It's a part of the path (but not the last part), so make it a link
