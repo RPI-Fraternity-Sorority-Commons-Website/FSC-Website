@@ -22,7 +22,6 @@ FSC_website_database
 
 # Media and Static files
 media/
-static/
 
 # Development
 .env
