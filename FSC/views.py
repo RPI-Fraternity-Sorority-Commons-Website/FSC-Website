@@ -23,7 +23,8 @@ def ourChapters(request):
     ifc_chapters = sorted(Chapter.objects.filter(council="ifc"), key=lambda ch: ch.name)
     panhel_chapters = sorted(Chapter.objects.filter(council="panhel"), key=lambda ch: ch.name)
     msfc_chapters = sorted(Chapter.objects.filter(council="msfc"), key=lambda ch: ch.name)
-    return render(request, 'FSC/ourChapters.html', {'ifc_chapters': ifc_chapters, "panhel_chapters": panhel_chapters, "msfc_chapters": msfc_chapters})
+    pfs_chapters = sorted(Chapter.objects.filter(council="pfs"), key=lambda ch: ch.name)
+    return render(request, 'FSC/ourChapters.html', {'ifc_chapters': ifc_chapters, "panhel_chapters": panhel_chapters, "msfc_chapters": msfc_chapters, 'pfs_chapters': pfs_chapters})
 
 
 def select_chapter(request):
