@@ -18,11 +18,19 @@ ENV/
 db.sqlite3
 db.sqlite3-journal
 local_settings.py
-FSC_website_database
 
 # Media and Static files
 media/
 static/
+
+#database
+FSC_website_database
+
+#macOS
+*.sh
+
+#Launch file
+launch.json
 
 # Development
 .env

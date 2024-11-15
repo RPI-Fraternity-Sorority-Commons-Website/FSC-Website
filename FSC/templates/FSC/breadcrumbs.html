@@ -1,51 +1,13 @@
 <style>
-    #redbar {
-        padding: 8px;
-        min-height: 40px;
-        background-color: rgb(214, 0, 28);
-    }
-
-    #redbar a {
-        color: #ffffff;
-        text-decoration: none;
-    }
-
-    #redbar a:hover {
-        text-decoration: underline;
-    }
-
-    #redbar span {
-        color: #ffffff;
-    }
-
-    #redbar .current {
-        color: #ffffff;
-    }
-
-    .login-container {
-        float: right;
-        margin-right: 10px;
-    }
-
-    .login-item {
-        margin-right: 12px;
-    }
+    #breadcrumb {
+        width: 75%;
+        margin: 0 auto;  /* Centers it like navbar-nav */
+        /* If needed, adjust left margin to match navbar-nav spacing */
+        padding-left: calc((100% - 75%) / 2);
+        }
 </style>
 
-<div id="redbar">
     <span id="breadcrumb"></span>
-    <span id="session-info">
-        <div class="login-container">
-            {% if user.is_authenticated %}
-                <span class="login-item">Hi, <a href="{% url 'view_profile' %}" style="font-weight: bold;">{{ user.username }}</a></span>
-                <span class="login-item"><a href="{% url 'user_logout' %}">Logout</a></span>
-            {% else %}
-                <span class="login-item"><a href="{% url 'user_login' %}">Log in</a></span>
-                <span class="login-item"><a href="{% url 'user_signup' %}">Sign Up</a></span>
-            {% endif %}
-        </div>
-    </span>
-</div>
 
 <script>
     function generateBreadcrumb() {
@@ -56,19 +18,23 @@
         const urlParts = url.replace('http://','').replace('https://','').split('/');
 
         // Replace the first part (domain/IP) with "Home"
-        let breadcrumbHTML = `<a href="/">Home</a>`;
+        let breadcrumbHTML = `<a href="/">home</a>`;
 
         // Loop through each part to build the breadcrumb trail
         urlParts.shift();  // We've already processed the domain
         let path = '';
         urlParts.forEach(function(part, i) {
             path += '/' + part;
+
+            // Decode the %20 and replace it with a space: Phi%20Gamma%20Delta -> Phi Gamma Delta
+            const decodedPart = decodeURIComponent(part);
+
             if (i < urlParts.length - 1) {
                 // It's a part of the path (but not the last part), so make it a link
-                breadcrumbHTML += ` <span>&gt;</span> <a href="${path}">${part}</a>`;
+                breadcrumbHTML += ` <span>&gt;</span> <a href="${path}">${decodedPart}</a>`;
             } else {
                 // It's the last part of the path, so just display it as text
-                breadcrumbHTML += ` <span>&gt;</span> <span class="current">${part}</span>`;
+                breadcrumbHTML += `<span class="current">${decodedPart}</span>`;
             }
         });
 

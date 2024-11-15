@@ -3,17 +3,50 @@
 <style>
     .navbar {
         align-items: center;
-        background-image: url("{% static 'FSC/images/navbarBackground.jpg' %}");
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+        /* background-image: url("{% static 'FSC/images/navbarBackground.jpg' %}"); */
         background-repeat: no-repeat;
         background-size: cover;
-        min-height: 200px; /* Default height for screens larger than or equal to 992px */
-        background-color: #f8f9fa; /* You can change this color according to your design */
+        padding: 8px 16px 0 16px;
+        min-height: 80px; /* Default height for screens larger than or equal to 992px */
+        /* background-color: #f8f9fa; You can change this color according to your design */
+        flex-direction: column;
+    }
+
+    /* Adjust container to account for redbar */
+    .navbar .container {
+        width: 100%;
+        max-width: 1200px; /* Or your desired max-width */
+        margin: 0 auto;
+    }
+
+    /* Show redbar on navbar hover for desktop */
+    @media (min-width: 992px) {
+        .navbar:hover .redbar,
+        .redbar:hover {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     @media (max-width: 991px) {
-        /* Styles for screens smaller than 992px */
         .navbar {
-            min-height: 180px; /* Adjust the height for smaller screens */
+            min-height: 180px;
+        }
+
+        .redbar {
+            position: relative;
+            transform: none;
+            margin-top: 16px;
+        }
+
+        /* Class to show redbar when at top of page on mobile */
+        .redbar.show-mobile {
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -21,11 +54,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 75%;
     }
+
     .navbar-nav .nav-link {
     position: relative;
-    font-size: 25px;
+    font-size: 18px;
+    padding: 0;
     }
 
     .navbar-nav .nav-link::after {
@@ -54,7 +89,7 @@
 
     .logo-button {
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items: center;
         flex: 1;
     }
@@ -79,6 +114,29 @@
     }
     .nav-item{
         white-space: nowrap;
+        width: auto;
+        margin: 0px 10px;
+    }
+
+    .nav-login-container {
+        margin-left: 200px;
+        margin-right: 0;
+        width: 200px;
+    }
+
+    .redbar {
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 8px 0;
+        margin-top: 8px;
+        margin-left: 10px;
+        border-top: 1px solid #dee2e6;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        position: absolute;
+        bottom: 0;
+        transform: translateY(100%);
     }
 </style>
 
@@ -92,10 +150,18 @@
         <!-- Navbar Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <!-- Logo -->
+                <li class="nav-item logo-button">
+                    <a class="nav-link" href="/">
+                        <img src="{% static 'FSC/images/FSCLogo.png' %}" alt="Button Image" width="70" height="70">
+                    </a>
+                </li>
+                
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
+
                 <!-- About Us Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
@@ -107,6 +173,7 @@
                         <li><a class="dropdown-item" href="/leadership">Leadership</a></li>
                     </ul>
                 </li>
+
                 <!-- For Chapters Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="forChaptersDropdown" role="button" data-bs-toggle="dropdown"
@@ -119,20 +186,17 @@
                         <li><a class="dropdown-item" href="https://app.chapterbuilder.com/" target="_blank">Chapter Builder</a></li>
                     </ul>
                 </li>
-                <!-- Logo -->
-                <li class="nav-item logo-button no-underline">
-                    <a class="nav-link no-underline" href="/">
-                        <img src="{% static 'FSC/images/FSCLogo.png' %}" alt="Button Image" width="200" height="200">
-                    </a>
-                </li>
+
                 <!-- Title IX -->
                 <li class="nav-item">
                     <a class="nav-link" href="https://sexualviolence.rpi.edu/" target="_blank">Title IX</a>
                 </li>
+
                 <!-- Philanthropy & Service -->
                 <li class="nav-item">
                     <a class="nav-link" href="Philanthropy-and-service">Philanthropy</a>
                 </li>
+
                 <!-- Recruitment Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="recruitmentDropdown" role="button" data-bs-toggle="dropdown"
@@ -145,18 +209,44 @@
                         <li><a class="dropdown-item" href="/spring">Spring Recruitment</a></li>
                     </ul>
                 </li>
+
+                <!-- Login Dropdown -->
+                <div class="nav-login-container">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Hi, <b>{{ user.username }}</b>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                                <li><a class="dropdown-item" href="{% url 'view_profile' %}">View profile</a></li>
+                                {% if user.affiliation %}
+                                <li><a class="dropdown-item" href="/chapters/{{ user.affiliation|urlencode }}/edit/">Edit My Chapter</a></li>
+                                <li><a class="dropdown-item" href="/upload">Upload My Chapter Events</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'user_logout' %}">Log out</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Log in</a>
+                        </li>
+                    {% endif %}
+                </div>
             </ul>
-        </div>
+        </div> 
+    </div>
+    <div class="redbar" id="redbar">
+        {% include 'FSC/breadcrumbs.html' %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </div>
 </nav>
 
-{% include 'FSC/breadcrumbs.html' %}
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     // Enable hover functionality for Bootstrap dropdowns
-    $(document).ready(function () {
+     $(document).ready(function () {
+        // Previous dropdown functionality remains...
         $('.dropdown').hover(
             function () {
                 $(this).addClass('show');
@@ -167,6 +257,28 @@
                 $(this).find('.dropdown-menu').removeClass('show');
             }
         );
+
+        // Handle redbar visibility on mobile scroll
+        function handleScroll() {
+            if (window.innerWidth <= 991) {  // Mobile breakpoint
+                const redbar = document.getElementById('redbar');
+                if (window.scrollY === 0) {
+                    redbar.classList.add('show-mobile');
+                } else {
+                    redbar.classList.remove('show-mobile');
+                }
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+        
+        // Check initial scroll position
+        handleScroll();
+
+        // Handle window resize
+        window.addEventListener('resize', handleScroll);
+
         generateBreadcrumb();
     });
 

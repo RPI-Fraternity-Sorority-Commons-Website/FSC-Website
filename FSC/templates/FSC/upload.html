@@ -1,0 +1,126 @@
+{% extends 'IFC/textForm1.html' %}
+
+{% block title %}Upload Content{% endblock %}
+
+{% block header %}
+    {{ block.super }}
+    <style>
+        .media-preview {
+            max-width: 300px;
+            max-height: 300px;
+            margin: 10px auto;
+            display: none;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .file-input-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .custom-file-button {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        textarea {
+            width: 275px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .selected-file {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block form-title %}Upload Content{% endblock %}
+
+{% block error-handle %}
+    {% if form.errors %}
+    <div class="help-text alert alert-danger">
+        <span style="font-size: 12px;"><b>Error:</b></span>
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block form-content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="form-field">
+        <input type="text" name="title" placeholder="Title" required>
+    </div>
+
+    <div class="form-field">
+        <textarea name="description" placeholder="Description" required></textarea>
+    </div>
+
+    <div class="form-field">
+        <div class="file-input-wrapper">
+            <span class="custom-file-button">Choose File</span>
+            <input type="file" name="media" accept="image/*,video/*" id="mediaInput" required>
+        </div>
+        <div class="selected-file" id="selectedFileName"></div>
+    </div>
+
+    <img id="imagePreview" class="media-preview">
+    <video id="videoPreview" class="media-preview" controls></video>
+
+    <div class="form-field">
+        <button type="submit"><span style="font-weight: bold;">Upload</span></button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('mediaInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Show selected filename
+        document.getElementById('selectedFileName').textContent = file.name;
+
+        // Preview image/video
+        const imagePreview = document.getElementById('imagePreview');
+        const videoPreview = document.getElementById('videoPreview');
+        
+        if (file.type.startsWith('image/')) {
+            imagePreview.style.display = 'block';
+            videoPreview.style.display = 'none';
+            imagePreview.src = URL.createObjectURL(file);
+        } else if (file.type.startsWith('video/')) {
+            imagePreview.style.display = 'none';
+            videoPreview.style.display = 'block';
+            videoPreview.src = URL.createObjectURL(file);
+        }
+    });
+</script>
+{% endblock %}
