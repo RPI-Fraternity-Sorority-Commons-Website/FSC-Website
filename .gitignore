@@ -1,16 +1,27 @@
 # Python
-__pycache__
+__pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *.pyc
 *~
 
-# virtual environment
+# Virtual Environment
 .venv/
+venv/
+ENV/
 
-#file uploads
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+local_settings.py
+
+# Media and Static files
 media/
+static/
 
 #database
 FSC_website_database
@@ -18,5 +29,28 @@ FSC_website_database
 #macOS
 *.sh
 
-#macOS launch file
+#Launch file
 launch.json
+
+# Development
+.env
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Coverage/Testing
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.pytest_cache/
