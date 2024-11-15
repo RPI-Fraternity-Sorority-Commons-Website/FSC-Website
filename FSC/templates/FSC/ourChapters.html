@@ -75,19 +75,53 @@
             position: flex;
         }
         
-        .chapters{margin-top: 25px;}
+        .council-header {
+            font-size: 50px;
+            width: 1000px;
+            text-align: center;
+        }
     </style>
 
     <div class="chapters">
         {% load static %}
-<div class="container">
-  {% for chapter in chapters %}
-    <a href="{{ chapter.name }}" class="button brighten">
-      <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
-      <p>{{chapter.name}}</p>
-      <p class="nickname">{{chapter.letters}}</p>
-    </a>
-  {% endfor %}
-</div>
+        <div class="container">
+            <div class="council-header">
+                <span>IFC</span>
+                <hr>
+            </div>
+            {% for chapter in ifc_chapters %}
+                <a href="{{ chapter.name }}" class="button brighten">
+                <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
+                <p>{{chapter.name}}</p>
+                <p class="nickname">{{chapter.letters}}</p>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="container">
+            <div class="council-header">
+                <span>MSFC</span>
+                <hr>
+            </div>
+            {% for chapter in msfc_chapters %}
+                <a href="{{ chapter.name }}" class="button brighten">
+                <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
+                <p>{{chapter.name}}</p>
+                <p class="nickname">{{chapter.letters}}</p>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="container">
+            <div class="council-header">
+                <span>Panhellenic</span>
+                <hr>
+            </div>
+            {% for chapter in panhel_chapters %}
+                <a href="{{ chapter.name }}" class="button brighten">
+                <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
+                <p>{{chapter.name}}</p>
+                <p class="nickname">{{chapter.letters}}</p>
+                </a>
+            {% endfor %}
+        </div>
     </div> 
 {% endblock %}
