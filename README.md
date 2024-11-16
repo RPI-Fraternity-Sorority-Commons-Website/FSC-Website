@@ -2,7 +2,7 @@
 An RCOS project used for club websites at RPI
 
 ### Acknowledgments
-This project is based on [WebsiteTemplate](https://github.com/Rezlang/WebsiteTemplate/) by Josh Moskoff and Anson Decker, which is licensed under the MIT License. The original license can be found in the `WebsiteTemplate_LICENSE` file.
+This project is based on [WebsiteTemplate](https://github.com/Rezlang/WebsiteTemplate/) by Josh Moskoff and Anson Decker, which is licensed under the MIT License. The original license can be found in the `WebsiteTemplate_LICENSE` file. All modifications, additions, and deletions make to the original work are subject to the Bars Software License. See LICENSE file.
 
 # Setup
 On windows, the first-time setup process can be performed completely by running the included setup.bat script.
