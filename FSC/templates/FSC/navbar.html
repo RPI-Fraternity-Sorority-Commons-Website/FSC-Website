@@ -164,11 +164,12 @@
 
                 <!-- About Us Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="/recruitment" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         About Us
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="/recruitment">Why Join?</a></li>
                         <li><a class="dropdown-item" href="/chapters">Our Chapters</a></li>
                         <li><a class="dropdown-item" href="/leadership">Leadership</a></li>
                     </ul>
@@ -176,7 +177,7 @@
 
                 <!-- For Chapters Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="forChaptersDropdown" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="/calendar" id="forChaptersDropdown" role="button" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         For Chapters
                     </a>
@@ -199,12 +200,11 @@
 
                 <!-- Recruitment Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="recruitmentDropdown" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" id="recruitmentDropdown" role="button" href="/recruitment" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Recruitment
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="recruitmentDropdown">
-                        <li><a class="dropdown-item" href="/recruitment">Why Join?</a></li>
                         <li><a class="dropdown-item" href="/fall">Fall Recruitment</a></li>
                         <li><a class="dropdown-item" href="/spring">Spring Recruitment</a></li>
                     </ul>
@@ -246,7 +246,14 @@
 <script>
     // Enable hover functionality for Bootstrap dropdowns
      $(document).ready(function () {
-        // Previous dropdown functionality remains...
+        // Handle dropdown toggle click
+        $('.dropdown-toggle').on('click', function(e) {
+        // If it was a direct click on the dropdown toggle (not the dropdown menu)
+        if (e.target === this) {
+            window.location.href = $(this).attr('href');
+        }
+        });
+
         $('.dropdown').hover(
             function () {
                 $(this).addClass('show');
