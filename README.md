@@ -1,6 +1,9 @@
 # WebsiteTemplate
 An RCOS project used for club websites at RPI
 
+### Acknowledgments
+This project is based on [WebsiteTemplate](https://github.com/Rezlang/WebsiteTemplate/) by Josh Moskoff and Anson Decker, which is licensed under the MIT License. The original license can be found in the `WebsiteTemplate_LICENSE` file.
+
 # Setup
 On windows, the first-time setup process can be performed completely by running the included setup.bat script.
 
