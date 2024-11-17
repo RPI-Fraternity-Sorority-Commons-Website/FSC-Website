@@ -12,12 +12,22 @@ from django.views.generic import TemplateView
 from .forms import ChapterForm, SignUpForm
 from .models import Chapter
 from django.contrib import messages
+from .models import Upload
 from .forms import UploadForm
 
 # class-based view abstreaction for views that simply render a template
-def simpleView(template):
-    return TemplateView.as_view(template_name=template)
+def simpleView(template_name):
+    def view_func(request):
+        if template_name == "FSC/homepage.html":
+            # If it's the homepage, include posts
+            posts = Upload.objects.all().order_by('-created_at')
+            return render(request, template_name, {'posts': posts})
+        return render(request, template_name)
+    return view_func
 
+def home(request):
+    posts = Upload.objects.all().order_by('-created_at')
+    return render(request, 'FSC/homepage.html', {'posts': posts})
 
 # Requesting Webpages:
 def ourChapters(request):
@@ -110,10 +120,8 @@ def upload_content(request):
             upload.user = request.user
             upload.save()
             messages.success(request, 'Content uploaded successfully!')
-            return redirect('home')  # Redirecting to home for now CORRECT TO THE PHILANTHROPY PAGE?
-        else:
-            messages.error(request, 'Please correct the errors below.')
+            return redirect('home')
     else:
         form = UploadForm()
     
-    return render(request, 'IFC/upload.html', {'form': form})
+    return render(request, 'FSC/upload.html', {'form': form})

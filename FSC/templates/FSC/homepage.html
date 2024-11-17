@@ -1,113 +1,122 @@
 {% extends 'FSC/base.html' %}
 
-{% block title %}RPI FSC{% endblock %}
-
-{% block header %}
-    <!--{% include 'FSC/dropdownBanner.html' %}-->
-{% endblock %}
+{% block title %}RPI FSC Feed{% endblock %}
 
 {% block content %}
+{% load static %}
 
-    {% load static %}
-
-    <style>
-        .hero .title-text{
-            color: rgb(0, 0, 0);
-            font-weight: bolder;
-            font-size: xx-large;
-        }
-        .main-content .container{
-            padding: 20px;
-        }
-
-        .statistics p{
-            font-size: 12px;
-            text-justify: center;
-            text-align: center;
-        }
-
-        .statistics h1{
-            font-size: 24px;
-            text-justify: center;
-            text-align: center;
-        }
-
-        .separator {
-            border: none;
-            border-top: 1px solid #ccc;
-            margin: 20px 0;
-        }
-
-        @font-face {
-            font-family: 'CustomFont';
-            src: url("{% static 'FSC/Fonts/Overpass/overpass-extrabold.otf' %}") format('truetype');
-        }
-    </style>
-
-    <main class="main-content">
-        <div class="container">
-            <div class="row" style="margin-bottom: 20px;">
-                <div class="col-lg-6">
-                    <!-- First Image Carousel -->
-                    {% include 'FSC/carousel.html' %}
-                </div>
-                <div class="col-lg-6">
-                    <!-- Second Image Carousel -->
-                    {% include 'FSC/carousel.html' %}
-                </div>
-            </div>
-        </div>
-        
-        <hr class="separator">
-        <h1>About the FSC</h1>
-        <hr class="separator">
-
-        <div class ="statistics">
-            <div class="row justify-content-center" style="margin-bottom: 0px; text-align: center;">
-            </div>
-            <div class="container">
-                {% include 'FSC/percentageGraph.html' %}
-            </div>
-        </div>
-
-        <div>
-            {% include 'FSC/splitSection.html' %}
-        </div>
-        
-    </main>
-
-    <script>
-        $(document).ready(function() {
-            // For each carousel on the page
-            $(".carousel").each(function(index) {
-                var carouselId = "carouselExampleIndicators" + (index + 1);
-        
-                // Set the ID of the carousel
-                $(this).attr("id", carouselId);
-        
-                // Update the data-targets of the carousel indicators
-                $(this).find(".carousel-indicators li").each(function() {
-                    $(this).attr("data-target", "#" + carouselId);
-                });
-        
-                // Update the hrefs of the carousel controls
-                $(this).find(".carousel-control-prev").attr("href", "#" + carouselId);
-                $(this).find(".carousel-control-next").attr("href", "#" + carouselId);
-            });
-        });
+<style>
+    .feed-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
     
-        window.onload = function() {
-            var notification = document.getElementById('notification');
-            var closeBtn = document.getElementById('close-btn');
-            var mainContent = document.getElementById('main-content');
+    .post-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 24px;
+        overflow: hidden;
+    }
     
-            notification.style.top = '0px';
-            mainContent.style.marginTop = '0px';
+    .post-header {
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     
-            closeBtn.onclick = function() {
-            notification.style.top = '-' + (notification.offsetHeight * 2) + 'px';
-            mainContent.style.marginTop = '-' + notification.offsetHeight + 'px';
-            }
-        }
-    </script>
+    .post-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    .post-timestamp {
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    .post-media {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+    }
+    
+    .post-content {
+        padding: 16px;
+    }
+    
+    .post-description {
+        margin: 0;
+        color: #333;
+        line-height: 1.5;
+    }
+    
+    .post-author {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+    
+    .upload-button {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 24px;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        transition: transform 0.2s;
+    }
+    
+    .upload-button:hover {
+        transform: translateY(-2px);
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+<div class="feed-container">
+    {% for post in posts %}
+    <article class="post-card">
+        <header class="post-header">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <span class="post-timestamp">{{ post.created_at|date:"F j, Y" }}</span>
+        </header>
+        
+        {% if post.media_file %}
+            {% if post.is_video %}
+                <video class="post-media" controls>
+                    <source src="{{ post.media_file.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% else %}
+                <img class="post-media" src="{{ post.media_file.url }}" alt="{{ post.title }}">
+            {% endif %}
+        {% endif %}
+        
+        <div class="post-content">
+            <p class="post-description">{{ post.description }}</p>
+            <p class="post-author">Posted by {{ post.user.username }} of {{post.user.affiliation}}</p>
+        </div>
+    </article>
+    {% empty %}
+    <div class="post-card">
+        <div class="post-content">
+            <p class="post-description">No posts yet.</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% if user.is_authenticated and user.affiliation %}
+    <a href="{% url 'upload_content' %}" class="upload-button">
+        + New Post
+    </a>
+    {% endif %}
+</div>
+
 {% endblock %}

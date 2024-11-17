@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import AbstractUser, User
 from django.conf import settings
+import os
 
 
 """
@@ -51,8 +52,19 @@ class Upload(models.Model):
     )
     title = models.CharField(max_length=200)
     description = models.TextField()
-    media_file = models.FileField(upload_to='uploads/')
+    media_file = models.FileField(upload_to='uploads/', null=True, blank=True)  # Made optional
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    @property
+    def is_video(self):
+        if not self.media_file:
+            return False
+        video_extensions = ['.mp4', '.mov', '.avi', '.wmv']
+        file_ext = os.path.splitext(self.media_file.name)[1].lower()
+        return file_ext in video_extensions
     
     def __str__(self):
         return f"{self.title} by {self.user.username}"
+
+    class Meta:
+        app_label = 'FSC'

@@ -26,7 +26,20 @@ class UploadForm(forms.ModelForm):
         model = Upload
         fields = ['title', 'description', 'media_file']
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'placeholder': 'Description', 'class': 'form-control'}),
-            'media_file': forms.FileInput(attrs={'class': 'form-control-file'})
+            'title': forms.TextInput(attrs={
+                'placeholder': 'Title',
+                'class': 'form-control'
+            }),
+            'description': forms.Textarea(attrs={
+                'placeholder': 'Description',
+                'class': 'form-control'
+            }),
+            'media_file': forms.FileInput(attrs={
+                'class': 'form-control-file',
+                'accept': 'image/*,video/*'
+            })
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['media_file'].required = False  # Make media_file optional

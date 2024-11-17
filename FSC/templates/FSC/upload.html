@@ -1,116 +1,165 @@
-{% extends 'IFC/textForm1.html' %}
+{% extends 'FSC/base.html' %}
 
 {% block title %}Upload Content{% endblock %}
 
-{% block header %}
-    {{ block.super }}
-    <style>
-        .media-preview {
-            max-width: 300px;
-            max-height: 300px;
-            margin: 10px auto;
-            display: none;
-        }
-
-        .file-input-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-
-        .file-input-wrapper input[type=file] {
-            font-size: 100px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .custom-file-button {
-            padding: 8px 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        textarea {
-            width: 275px;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .selected-file {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-    </style>
-{% endblock %}
-
-{% block form-title %}Upload Content{% endblock %}
-
-{% block error-handle %}
-    {% if form.errors %}
-    <div class="help-text alert alert-danger">
-        <span style="font-size: 12px;"><b>Error:</b></span>
-        <ul>
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-{% endblock %}
-
-{% block form-content %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+{% block content %}
+<style>
+    .upload-container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+    }
     
-    <div class="form-field">
-        <input type="text" name="title" placeholder="Title" required>
-    </div>
+    .upload-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 24px;
+    }
+    
+    .form-field {
+        margin-bottom: 20px;
+    }
+    
+    .form-field input[type="text"],
+    .form-field textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    .form-field textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+    
+    .media-preview {
+        max-width: 100%;
+        max-height: 300px;
+        margin: 10px 0;
+        display: none;
+        border-radius: 4px;
+    }
+    
+    .file-input-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    
+    .custom-file-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .custom-file-button:hover {
+        background: #0056b3;
+    }
+    
+    .optional-label {
+        color: #666;
+        font-size: 0.8em;
+        margin-left: 8px;
+    }
+    
+    .submit-button {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+    
+    .submit-button:hover {
+        background: #218838;
+    }
 
-    <div class="form-field">
-        <textarea name="description" placeholder="Description" required></textarea>
-    </div>
+    .affiliation-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        border: 1px solid #ffeeba;
+    }
 
-    <div class="form-field">
-        <div class="file-input-wrapper">
-            <span class="custom-file-button">Choose File</span>
-            <input type="file" name="media" accept="image/*,video/*" id="mediaInput" required>
-        </div>
-        <div class="selected-file" id="selectedFileName"></div>
-    </div>
+    .user-info {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        background: #f8f9fa;
+        border-radius: 4px;
+    }
+</style>
 
-    <img id="imagePreview" class="media-preview">
-    <video id="videoPreview" class="media-preview" controls></video>
+<div class="upload-container">
+    <div class="upload-card">
+        <h2 style="margin-bottom: 24px;">Upload Content</h2>
 
-    <div class="form-field">
-        <button type="submit"><span style="font-weight: bold;">Upload</span></button>
+        {% if not user.affiliation %}
+            <div class="affiliation-warning">
+                You must have a chapter affiliation to post content. Please update your profile with your chapter affiliation.
+            </div>
+        {% else %}
+            <div class="user-info">
+                Posting as: {{ user.username }} ({{ user.affiliation }})
+            </div>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-field">
+                    <input type="text" name="title" placeholder="Title" required>
+                </div>
+
+                <div class="form-field">
+                    <textarea name="description" placeholder="Description" required></textarea>
+                </div>
+
+                <div class="form-field">
+                    <div class="file-input-wrapper">
+                        <span class="custom-file-button">Choose File</span>
+                        <input type="file" name="media_file" accept="image/*,video/*" id="mediaInput">
+                        <span class="optional-label">(Optional)</span>
+                    </div>
+                    <div class="selected-file" id="selectedFileName"></div>
+                </div>
+
+                <img id="imagePreview" class="media-preview">
+                <video id="videoPreview" class="media-preview" controls></video>
+
+                <div class="form-field">
+                    <button type="submit" class="submit-button">Post</button>
+                </div>
+            </form>
+        {% endif %}
     </div>
-</form>
+</div>
 
 <script>
-    document.getElementById('mediaInput').addEventListener('change', function(e) {
+    document.getElementById('mediaInput')?.addEventListener('change', function(e) {
         const file = e.target.files[0];
-        if (!file) return;
-
-        // Show selected filename
-        document.getElementById('selectedFileName').textContent = file.name;
-
-        // Preview image/video
+        const selectedFileName = document.getElementById('selectedFileName');
         const imagePreview = document.getElementById('imagePreview');
         const videoPreview = document.getElementById('videoPreview');
+        
+        if (!file) {
+            selectedFileName.textContent = '';
+            imagePreview.style.display = 'none';
+            videoPreview.style.display = 'none';
+            return;
+        }
+
+        selectedFileName.textContent = file.name;
         
         if (file.type.startsWith('image/')) {
             imagePreview.style.display = 'block';

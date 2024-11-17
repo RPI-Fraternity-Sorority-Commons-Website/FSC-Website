@@ -1,184 +1,206 @@
 {% extends 'FSC/base.html' %}
+{% load static %}
 
-{% block title %}Recruitment{% endblock %}
+{% block title %}About RPI FSC{% endblock %}
 
 {% block header %}
     <style>
-        .introduction{
-            justify-content: center;
-            text-align: center;
-            margin: 50px 10%;
+        @font-face {
+            font-family: 'CustomFont';
+            src: url("{% static 'FSC/Fonts/Overpass/overpass-extrabold.otf' %}") format('truetype');
         }
 
-        .two-adjacent{
+        .hero-section {
+            text-align: center;
+            padding: 50px 10%;
+            background-color: #fff;
+        }
+
+        /* Rest of the styles remain the same */
+        .hero-section h1 {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .carousel-section {
+            padding: 20px 0;
+            background-color: #f8f9fa;
+        }
+
+        .statistics {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .statistics p {
+            font-size: 14px;
+        }
+
+        .statistics h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            padding: 40px 10%;
+        }
+
+        .two-adjacent {
             display: flex;
             align-items: center;
             gap: 10%;
-            padding: 20px 10% 20px 10%;
+            padding: 40px 0;
         }
-        
-        .two-adjacent img{
+
+        .two-adjacent img {
             min-width: 40%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        
-        .titled-text{
+
+        .titled-text {
             text-align: center;
             color: black;
-            padding: 10px;
-            align-items: center;
+            padding: 20px;
         }
 
-        .FAQ{
-            padding: 20px 0 20px 0;
-            text-align: center;
-        }
-
-        .button-wrapper{
+        .button-wrapper {
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            display: flex;
         }
 
-        a.register-button {
+        .action-button {
             transition: 0.3s;
             background-color: rgb(214, 0, 28);
             color: white;
-            padding: 10px 100px;
+            padding: 12px 40px;
             border: none;
             font-size: 16px;
             text-align: center;
-
+            border-radius: 4px;
+            text-decoration: none;
         }
 
-        a.register-button:hover {
-            transition: 0.3s;
-            filter: brightness(75%);
+        .action-button:hover {
+            filter: brightness(85%);
             color: white;
             text-decoration: none;
         }
 
-        a.philanthropy-button {
-            transition: 0.3s;
-            background-color: rgb(214, 0, 28);
-            color: white;
-            padding: 10px 100px;
+        .separator {
             border: none;
-            font-size: 16px;
-            text-align: center;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
         }
 
-        a.philanthropy-button:hover {
-            transition: 0.3s;
-            filter: brightness(75%);
-            color: white;
+        .call-to-action {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #f8f9fa;
+        }
+
+        .freshmen-button {
+            color: #666;
+            display: block;
+            margin-top: 15px;
             text-decoration: none;
         }
 
-        .call-to-register {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
+        .freshmen-button:hover {
+            color: #333;
+        }
 
-            .freshmen-button{
-                color: grey;
-                padding-top: 10px;
+        @media (max-width: 768px) {
+            .two-adjacent {
+                flex-direction: column;
+                gap: 20px;
             }
-
-            .register-button {
-                margin-top: 20px;
+            
+            .two-adjacent img {
+                min-width: 100%;
             }
         }
     </style>
 {% endblock %}
 
 {% block content %}
-    {% load static %}
-
-    <div class="introduction">
-        <h1>Why Join A Greek Organization?</h1>
-        <p style="padding: 0 10% 0 10%;">Joining a greek organization provides a unique 
-            opportunity to cultivate lifelong friendships, foster personal growth, 
-            and create a strong network of professional connections. As a member of 
-            our greek community, you will have access to leadership development 
-            programs, community service projects, and social events that promote 
-            camaraderie and teamwork. Our fraternity and sorority commons is committed to 
-            creating a respectful and inclusive environment that encourages 
-            individuality while also emphasizing shared values and goals. By becoming 
-            part of our greek system, you are not only joining a brotherhood but 
-            investing in a future filled with support, success, and enrichment.</p>
+    <div class="hero-section">
+        <h1>Welcome to RPI's Fraternity & Sorority Commons</h1>
+        <p>Join a community that cultivates lifelong friendships, fosters personal growth, and creates strong professional connections. Our greek organizations are committed to leadership, service, and excellence.</p>
     </div>
 
-    <div class="Community">
+    <div class="carousel-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    {% include 'FSC/carousel.html' %}
+                </div>
+                <div class="col-lg-6">
+                    {% include 'FSC/carousel.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="statistics">
+        <h1>Our Impact</h1>
+        <div class="container">
+            {% include 'FSC/percentageGraph.html' %}
+        </div>
+    </div>
+
+    <div class="content-section">
         <div class="two-adjacent">
             <div class="titled-text">
                 <h2>Community</h2>
-                <p>Joining a greek organization is more than a college experience; it's a 
-                    lifelong journey filled with camaraderie, personal growth, and 
-                    community involvement. Engage in enriching social events, make 
-                    connections that last a lifetime, and contribute to meaningful 
-                    philanthropic efforts. By becoming part of this vibrant community,
-                        you'll forge bonds that extend beyond your university years. 
-                        Discover the unique opportunities and friendships that await 
-                        you in greek life!
-                </p>
+                <p>Experience more than just a college journey - become part of a lifelong community dedicated to growth, leadership, and meaningful connections. Our members engage in enriching social events, build lasting friendships, and develop professional networks that extend far beyond graduation.</p>
                 <div class="button-wrapper">
-                    <a class="philanthropy-button" href="chapters">
-                        Our Chapters
-                    </a>
+                    <a class="action-button" href="chapters">Our Chapters</a>
                 </div>
             </div>
-            <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" class="d-block w-100" alt="Image 1">
+            <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Community Image">
         </div>
-    </div>
 
-    <div class="Philanthropy">
         <div class="two-adjacent">
-            <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" class="d-block w-100" alt="Image 1">
-
+            <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Philanthropy Image">
             <div class="titled-text">
                 <h2>Philanthropy & Service</h2>
-                <p>Philanthropy and service are at the heart of our commitment to both
-                        the RPI community and the broader Troy community. Through 
-                        hands-on volunteering, organized charity events, and 
-                        collaboration with local organizations, we strive to make a 
-                        positive impact. Join us in making a difference!</p>
+                <p>Make a lasting impact in both the RPI and Troy communities through our dedicated service initiatives. Our members actively participate in hands-on volunteering, organize charity events, and collaborate with local organizations to create positive change.</p>
                 <div class="button-wrapper">
-                    <a class="philanthropy-button" href="philanthropy">
-                        Learn More
-                    </a>
+                    <a class="action-button" href="philanthropy">Learn More</a>
                 </div>
             </div>
-
-
         </div>
-    </div>
-
-    <div class="testimonials">
-
     </div>
 
     <div class="FAQ">
-            <h2>Fequently Asked Questions</h2>
-            {% include 'FSC/FAQ.html' %}
-
+        <h2>Frequently Asked Questions</h2>
+        {% include 'FSC/FAQ.html' %}
     </div>
 
-    <div class="call-to-register">
-        <h2>Join us today!</h2>
-        <a id="registerFall" class="register-button" href="" target="blank">
-            Register
-        </a>
-        <a id="freshmenInterest" class="freshmen-button" href="" target="blank">
-            First-year student interest form
-        </a>
+    <div class="call-to-action">
+        <h2>Ready to Join Our Community?</h2>
+        <a id="registerFall" class="action-button" href="" target="_blank">Register Now</a>
+        <a id="freshmenInterest" class="freshmen-button" href="" target="_blank">First-year student interest form</a>
     </div>
 
     <script src="{% static 'FSC/js/links.js' %}"></script>
     <script>
         document.getElementById('registerFall').href = fallRegistration;
         document.getElementById('freshmenInterest').href = FirstYearInterest;
+
+        $(document).ready(function() {
+            $(".carousel").each(function(index) {
+                var carouselId = "carouselExampleIndicators" + (index + 1);
+                $(this).attr("id", carouselId);
+                $(this).find(".carousel-indicators li").each(function() {
+                    $(this).attr("data-target", "#" + carouselId);
+                });
+                $(this).find(".carousel-control-prev").attr("href", "#" + carouselId);
+                $(this).find(".carousel-control-next").attr("href", "#" + carouselId);
+            });
+        });
     </script>
 {% endblock %}
