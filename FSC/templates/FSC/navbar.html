@@ -164,12 +164,12 @@
 
                 <!-- About Us Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/recruitment" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="/whyjoin" id="aboutDropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">
                         About Us
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                        <li><a class="dropdown-item" href="/recruitment">Why Join?</a></li>
+                        <li><a class="dropdown-item" href="/whyjoin">Why Join?</a></li>
                         <li><a class="dropdown-item" href="/chapters">Our Chapters</a></li>
                         <li><a class="dropdown-item" href="/leadership">Leadership</a></li>
                     </ul>
@@ -177,7 +177,7 @@
 
                 <!-- For Chapters Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/calendar" id="forChaptersDropdown" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="/calendar" id="forChaptersDropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">
                         For Chapters
                     </a>
@@ -195,12 +195,12 @@
 
                 <!-- Philanthropy & Service -->
                 <li class="nav-item">
-                    <a class="nav-link" href="Philanthropy-and-service">Philanthropy</a>
+                    <a class="nav-link">Philanthropy</a>
                 </li>
 
                 <!-- Recruitment Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="recruitmentDropdown" role="button" href="/recruitment" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="/fall" id="recruitmentDropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">
                         Recruitment
                     </a>
@@ -214,7 +214,7 @@
                 <div class="nav-login-container">
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" id="loginDropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">
                                 Hi, <b>{{ user.username }}</b>
                             </a>
@@ -238,36 +238,56 @@
     </div>
     <div class="redbar" id="redbar">
         {% include 'FSC/breadcrumbs.html' %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </div>
 </nav>
 
 
 <script>
-    // Enable hover functionality for Bootstrap dropdowns
-     $(document).ready(function () {
-        // Handle dropdown toggle click
-        $('.dropdown-toggle').on('click', function(e) {
-        // If it was a direct click on the dropdown toggle (not the dropdown menu)
-        if (e.target === this) {
-            window.location.href = $(this).attr('href');
-        }
+    $(document).ready(function () {      
+        // Handle recruitment dropdown
+        $('#recruitmentDropdown').on('click', function(e) {
+            // Prevent the default dropdown behavior
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Get current month and redirect accordingly
+            const currentDate = new Date();
+            const month = currentDate.getMonth() + 1; // January is 0
+            const redirectPath = month >= 7 ? '/fall' : '/spring';
+            window.location.href = redirectPath; // Changed from replace() to href for better browser history handling
         });
-
+    
+        // Handle other dropdowns with direct links
+        $('.dropdown-toggle:not(#recruitmentDropdown)').on('click', function(e) {
+            const href = $(this).attr('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = href;
+            }
+        });
+    
+        // Handle hover functionality
         $('.dropdown').hover(
-            function () {
-                $(this).addClass('show');
-                $(this).find('.dropdown-menu').addClass('show');
+            function() {
+                // Don't show dropdown menu for recruitment on hover
+                if (!$(this).find('#recruitmentDropdown').length) {
+                    $(this).addClass('show');
+                    $(this).find('.dropdown-menu').addClass('show');
+                }
             },
-            function () {
+            function() {
                 $(this).removeClass('show');
                 $(this).find('.dropdown-menu').removeClass('show');
             }
         );
-
-        // Handle redbar visibility on mobile scroll
+    
+        // Initialize Bootstrap dropdowns
+        $('.dropdown-toggle').dropdown();
+    
+        // Rest of your code for redbar and breadcrumb...
         function handleScroll() {
-            if (window.innerWidth <= 991) {  // Mobile breakpoint
+            if (window.innerWidth <= 991) {
                 const redbar = document.getElementById('redbar');
                 if (window.scrollY === 0) {
                     redbar.classList.add('show-mobile');
@@ -276,23 +296,13 @@
                 }
             }
         }
-
-        // Add scroll event listener
+    
         window.addEventListener('scroll', handleScroll);
-        
-        // Check initial scroll position
-        handleScroll();
-
-        // Handle window resize
         window.addEventListener('resize', handleScroll);
-
-        generateBreadcrumb();
-    });
-
-    // Update the URL when a dropdown item is clicked
-    $('.nav-link').on('click', function (e) {
-        e.preventDefault();
-        var url = $(this).attr('href');
-        window.location.href = url;
+        handleScroll();
+    
+        if (typeof generateBreadcrumb === 'function') {
+            generateBreadcrumb();
+        }
     });
 </script>
