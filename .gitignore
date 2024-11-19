@@ -21,7 +21,6 @@ local_settings.py
 
 # Media and Static files
 media/
-static/
 
 #database
 FSC_website_database
