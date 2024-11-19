@@ -1,122 +1,206 @@
 {% extends 'FSC/base.html' %}
-
-{% block title %}RPI FSC Feed{% endblock %}
-
-{% block content %}
 {% load static %}
 
-<style>
-    .feed-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    
-    .post-card {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        margin-bottom: 24px;
-        overflow: hidden;
-    }
-    
-    .post-header {
-        padding: 16px;
-        border-bottom: 1px solid #eee;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .post-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin: 0;
-    }
-    
-    .post-timestamp {
-        color: #666;
-        font-size: 0.9rem;
-    }
-    
-    .post-media {
-        width: 100%;
-        max-height: 500px;
-        object-fit: cover;
-    }
-    
-    .post-content {
-        padding: 16px;
-    }
-    
-    .post-description {
-        margin: 0;
-        color: #333;
-        line-height: 1.5;
-    }
-    
-    .post-author {
-        color: #666;
-        font-size: 0.9rem;
-        margin-top: 8px;
-    }
-    
-    .upload-button {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        background: #007bff;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 24px;
-        text-decoration: none;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        transition: transform 0.2s;
-    }
-    
-    .upload-button:hover {
-        transform: translateY(-2px);
-        color: white;
-        text-decoration: none;
-    }
-</style>
+{% block title %}About RPI FSC{% endblock %}
 
-<div class="feed-container">
-    {% for post in posts %}
-    <article class="post-card">
-        <header class="post-header">
-            <h2 class="post-title">{{ post.title }}</h2>
-            <span class="post-timestamp">{{ post.created_at|date:"F j, Y" }}</span>
-        </header>
-        
-        {% if post.media_file %}
-            {% if post.is_video %}
-                <video class="post-media" controls>
-                    <source src="{{ post.media_file.url }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            {% else %}
-                <img class="post-media" src="{{ post.media_file.url }}" alt="{{ post.title }}">
-            {% endif %}
-        {% endif %}
-        
-        <div class="post-content">
-            <p class="post-description">{{ post.description }}</p>
-            <p class="post-author">Posted by {{ post.user.username }} of {{post.user.affiliation}}</p>
-        </div>
-    </article>
-    {% empty %}
-    <div class="post-card">
-        <div class="post-content">
-            <p class="post-description">No posts yet.</p>
+{% block header %}
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url("{% static 'FSC/Fonts/Overpass/overpass-extrabold.otf' %}") format('truetype');
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 50px 10%;
+            background-color: #fff;
+        }
+
+        /* Rest of the styles remain the same */
+        .hero-section h1 {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .carousel-section {
+            padding: 20px 0;
+            background-color: #f8f9fa;
+        }
+
+        .statistics {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .statistics p {
+            font-size: 14px;
+        }
+
+        .statistics h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            padding: 40px 10%;
+        }
+
+        .two-adjacent {
+            display: flex;
+            align-items: center;
+            gap: 10%;
+            padding: 40px 0;
+        }
+
+        .two-adjacent img {
+            min-width: 40%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .titled-text {
+            text-align: center;
+            color: black;
+            padding: 20px;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            transition: 0.3s;
+            background-color: rgb(214, 0, 28);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .action-button:hover {
+            filter: brightness(85%);
+            color: white;
+            text-decoration: none;
+        }
+
+        .separator {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        .call-to-action {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #f8f9fa;
+        }
+
+        .freshmen-button {
+            color: #666;
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+
+        .freshmen-button:hover {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .two-adjacent {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .two-adjacent img {
+                min-width: 100%;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="hero-section">
+        <h1>Welcome to RPI's Fraternity & Sorority Commons</h1>
+        <p>Join a community that cultivates lifelong friendships, fosters personal growth, and creates strong professional connections. Our greek organizations are committed to leadership, service, and excellence.</p>
+    </div>
+
+    <div class="carousel-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    {% include 'FSC/carousel.html' %}
+                </div>
+                <div class="col-lg-6">
+                    {% include 'FSC/carousel.html' %}
+                </div>
+            </div>
         </div>
     </div>
-    {% endfor %}
-    {% if user.is_authenticated and user.affiliation %}
-    <a href="{% url 'upload_content' %}" class="upload-button">
-        + New Post
-    </a>
-    {% endif %}
-</div>
 
+    <div class="statistics">
+        <h1>Our Impact</h1>
+        <div class="container">
+            {% include 'FSC/percentageGraph.html' %}
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="two-adjacent">
+            <div class="titled-text">
+                <h2>Community</h2>
+                <p>Experience more than just a college journey - become part of a lifelong community dedicated to growth, leadership, and meaningful connections. Our members engage in enriching social events, build lasting friendships, and develop professional networks that extend far beyond graduation.</p>
+                <div class="button-wrapper">
+                    <a class="action-button" href="chapters">Our Chapters</a>
+                </div>
+            </div>
+            <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Community Image">
+        </div>
+
+        <div class="two-adjacent">
+            <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Philanthropy Image">
+            <div class="titled-text">
+                <h2>Philanthropy & Service</h2>
+                <p>Make a lasting impact in both the RPI and Troy communities through our dedicated service initiatives. Our members actively participate in hands-on volunteering, organize charity events, and collaborate with local organizations to create positive change.</p>
+                <div class="button-wrapper">
+                    <a class="action-button" href="philanthropy">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="FAQ">
+        <h2>Frequently Asked Questions</h2>
+        {% include 'FSC/FAQ.html' %}
+    </div>
+
+    <div class="call-to-action">
+        <h2>Ready to Join Our Community?</h2>
+        <a id="registerFall" class="action-button" href="" target="_blank">Register Now</a>
+        <a id="freshmenInterest" class="freshmen-button" href="" target="_blank">First-year student interest form</a>
+    </div>
+
+    <script src="{% static 'FSC/js/links.js' %}"></script>
+    <script>
+        document.getElementById('registerFall').href = fallRegistration;
+        document.getElementById('freshmenInterest').href = FirstYearInterest;
+
+        $(document).ready(function() {
+            $(".carousel").each(function(index) {
+                var carouselId = "carouselExampleIndicators" + (index + 1);
+                $(this).attr("id", carouselId);
+                $(this).find(".carousel-indicators li").each(function() {
+                    $(this).attr("data-target", "#" + carouselId);
+                });
+                $(this).find(".carousel-control-prev").attr("href", "#" + carouselId);
+                $(this).find(".carousel-control-next").attr("href", "#" + carouselId);
+            });
+        });
+    </script>
 {% endblock %}

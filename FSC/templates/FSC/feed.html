@@ -1,0 +1,122 @@
+{% extends 'FSC/base.html' %}
+
+{% block title %}RPI FSC Feed{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    .feed-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .post-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 24px;
+        overflow: hidden;
+    }
+    
+    .post-header {
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .post-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    .post-timestamp {
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    .post-media {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+    }
+    
+    .post-content {
+        padding: 16px;
+    }
+    
+    .post-description {
+        margin: 0;
+        color: #333;
+        line-height: 1.5;
+    }
+    
+    .post-author {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+    
+    .upload-button {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 24px;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        transition: transform 0.2s;
+    }
+    
+    .upload-button:hover {
+        transform: translateY(-2px);
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+<div class="feed-container">
+    {% for post in posts %}
+    <article class="post-card">
+        <header class="post-header">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <span class="post-timestamp">{{ post.created_at|date:"F j, Y" }}</span>
+        </header>
+        
+        {% if post.media_file %}
+            {% if post.is_video %}
+                <video class="post-media" controls>
+                    <source src="{{ post.media_file.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% else %}
+                <img class="post-media" src="{{ post.media_file.url }}" alt="{{ post.title }}">
+            {% endif %}
+        {% endif %}
+        
+        <div class="post-content">
+            <p class="post-description">{{ post.description }}</p>
+            <p class="post-author">Posted by {{ post.user.username }} of {{post.user.affiliation}}</p>
+        </div>
+    </article>
+    {% empty %}
+    <div class="post-card">
+        <div class="post-content">
+            <p class="post-description">No posts yet.</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% if user.is_authenticated and user.affiliation %}
+    <a href="{% url 'upload_content' %}" class="upload-button">
+        + New Post
+    </a>
+    {% endif %}
+</div>
+
+{% endblock %}

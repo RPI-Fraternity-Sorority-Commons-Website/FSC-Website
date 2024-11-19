@@ -18,8 +18,8 @@ from .forms import UploadForm
 # class-based view abstreaction for views that simply render a template
 def simpleView(template_name):
     def view_func(request):
-        if template_name == "FSC/homepage.html":
-            # If it's the homepage, include posts
+        if template_name == "FSC/feed.html":
+            # If it's the feed, include posts
             posts = Upload.objects.all().order_by('-created_at')
             return render(request, template_name, {'posts': posts})
         return render(request, template_name)
@@ -27,7 +27,7 @@ def simpleView(template_name):
 
 def home(request):
     posts = Upload.objects.all().order_by('-created_at')
-    return render(request, 'FSC/homepage.html', {'posts': posts})
+    return render(request, 'FSC/feed.html', {'posts': posts})
 
 # Requesting Webpages:
 def ourChapters(request):
