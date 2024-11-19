@@ -32,7 +32,7 @@ urlpatterns = [
     path("documents/", views.simpleView("FSC/documents.html"), name="documents"),
     path("calendar/", views.simpleView("FSC/calendar.html"), name="calendar"),
     path("leadership/", views.simpleView("FSC/leadership.html"), name="leadership"),
-    path("recruitment/", views.simpleView("FSC/recruitment.html"), name="recruitment"),
+    path("whyjoin/", views.simpleView("FSC/whyjoin.html"), name="whyjoin"),
     path("fall/", views.simpleView("FSC/fall.html"), name="fall"),
     path("spring/", views.simpleView("FSC/spring.html"), name="spring"),
 
