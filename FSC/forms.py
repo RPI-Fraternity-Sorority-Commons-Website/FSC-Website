@@ -30,3 +30,16 @@ class UploadForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'placeholder': 'Description', 'class': 'form-control'}),
             'media_file': forms.FileInput(attrs={'class': 'form-control-file'})
         }
+        
+class FSCUserForm(forms.ModelForm):
+    class Meta:
+        model = FSCUser
+        fields = ['username', 'email', 'first_name', 'last_name', 'affiliation']  # Include desired fields
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Username'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+            'affiliation': forms.TextInput(attrs={'placeholder': 'Affiliation'}),
+        }
+        labels = {
+            'affiliation': 'Affiliation (e.g., chapter, council, etc.)'
+        }
