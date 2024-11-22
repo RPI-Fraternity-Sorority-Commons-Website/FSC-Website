@@ -85,7 +85,7 @@
 
         {% block right_column %} {% endblock %}
       </div>
-      {% if user.affiliation == chapter.name %}
+      {% if user.affiliation == chapter.name or user.is_superuser %}
         <a href="edit"><img src="{% static 'FSC/images/pencil.png' %}" width="40" height="40"></a>
       {% endif %}
     </div>

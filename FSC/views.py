@@ -47,7 +47,7 @@ def edit_chapter(request, chapter_name):
     chapter_name = chapter_name.replace('-', ' ')
     chapter = get_object_or_404(Chapter, name=chapter_name)
 
-    if request.user.is_authenticated and request.user.affiliation == chapter_name:
+    if request.user.is_authenticated and (request.user.affiliation == chapter_name or request.user.is_superuser):
 
         # Ensure the user is authorized to edit this chapter (this depends on your user model/permissions setup)
         # You might need to compare request.user with the user related to the chapter
