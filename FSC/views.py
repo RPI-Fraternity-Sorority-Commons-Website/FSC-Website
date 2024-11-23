@@ -21,10 +21,10 @@ def simpleView(template):
 
 # Requesting Webpages:
 def ourChapters(request):
-    ifc_chapters = sorted(Chapter.objects.filter(council="ifc"), key=lambda ch: ch.name)
-    panhel_chapters = sorted(Chapter.objects.filter(council="panhel"), key=lambda ch: ch.name)
-    msfc_chapters = sorted(Chapter.objects.filter(council="msfc"), key=lambda ch: ch.name)
-    pfs_chapters = sorted(Chapter.objects.filter(council="pfs"), key=lambda ch: ch.name)
+    ifc_chapters = sorted(Chapter.objects.filter(council="Interfraternity Council"), key=lambda ch: ch.name)
+    panhel_chapters = sorted(Chapter.objects.filter(council="Panhellenic Council"), key=lambda ch: ch.name)
+    msfc_chapters = sorted(Chapter.objects.filter(council="Multicultural Sorority Council"), key=lambda ch: ch.name)
+    pfs_chapters = sorted(Chapter.objects.filter(council="Professional Fraternities & Sororities"), key=lambda ch: ch.name)
     return render(request, 'FSC/ourChapters.html', {'ifc_chapters': ifc_chapters, "panhel_chapters": panhel_chapters, "msfc_chapters": msfc_chapters, 'pfs_chapters': pfs_chapters})
 
 def leadership(request):

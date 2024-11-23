@@ -22,6 +22,12 @@ class table_name(models.Model):
 
 
 class Chapter(models.Model):
+    COUNCIL_CHOICES = [
+        ('Interfraternity Council', 'Interfraternity Council'),
+        ('Panhellenic Council', 'Panhellenic Council'),
+        ('Multicultural Sorority Council', 'Multicultural Sorority Council'),
+        ('Professional Fraternities & Sororities', 'Professional Fraternities & Sororities')
+    ]
     name = models.CharField(max_length=255)
     letters = models.CharField(max_length=10)  # Assuming Greek letters are short
     rush_chair = models.CharField(max_length=255)
@@ -29,7 +35,7 @@ class Chapter(models.Model):
     info = models.TextField(max_length=900)  # A 900 character info blob
     chapter_size = models.PositiveIntegerField()  # Non-negative integer
     image = models.ImageField(upload_to='chapters/', blank=False, default='chapters/default.jpg')
-    council = models.CharField(max_length=100, default="none")
+    council = models.CharField(max_length=100, choices=COUNCIL_CHOICES)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
