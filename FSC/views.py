@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-from .forms import ChapterForm, SignUpForm
+from .forms import ChapterForm, SignUpForm, FSCUserForm
 from .models import Chapter, Leadership
 from django.contrib import messages
 from .forms import UploadForm
@@ -100,12 +100,20 @@ def user_logout(request):
 
 
 class profileView(generic.UpdateView):
-    form_class = UserChangeForm
+    form_class = FSCUserForm
     template_name = 'FSC/profile.html'
     success_url = '/'
 
     def get_object(self):
         return self.request.user
+
+    def form_valid(self, form):
+        messages.success(self.request, "Your profile has been updated successfully!")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "There was an error updating your profile. Please try again.")
+        return super().form_invalid(form)
 
 @login_required
 def upload_content(request):
