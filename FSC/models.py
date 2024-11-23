@@ -39,6 +39,18 @@ class Chapter(models.Model):
 
     def __str__(self):
         return self.name
+    
+class ChapterSemesterData(models.Model):
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, related_name='semester_data') # links ChapterSemesterData to a single chapter in the Chapter table. If a chapter is deleted, all associated ChapterSemesterData will be deleted too.
+    semester = models.CharField(max_length=15)  # e.g., "Fall 2024"
+    community_service_hours = models.DecimalField(max_digits=6, decimal_places=2)  # Total community service hours for that semester
+    philanthropy_funds_raised = models.DecimalField(max_digits=8, decimal_places=2) #Total amount of funds raised through philanthropy for that semester
+
+    class Meta:
+        unique_together = ("chapter", "semester")  # Ensure one entry per semester per chapter
+
+    def __str__(self):
+        return f"{self.chapter.name} - {self.semester}: {self.hours} community service hours contributed and ${self.philanthropy_funds_raised} raised through philanthropy"
 
 class Leadership(models.Model):
     name = models.CharField(max_length=255)
