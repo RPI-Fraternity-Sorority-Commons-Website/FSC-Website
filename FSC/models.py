@@ -22,6 +22,12 @@ class table_name(models.Model):
 
 
 class Chapter(models.Model):
+    COUNCIL_CHOICES = [
+        ('Interfraternity Council', 'Interfraternity Council'),
+        ('Panhellenic Council', 'Panhellenic Council'),
+        ('Multicultural Sorority Council', 'Multicultural Sorority Council'),
+        ('Professional Fraternities & Sororities', 'Professional Fraternities & Sororities')
+    ]
     name = models.CharField(max_length=255)
     letters = models.CharField(max_length=10)  # Assuming Greek letters are short
     rush_chair = models.CharField(max_length=255)
@@ -29,7 +35,7 @@ class Chapter(models.Model):
     info = models.TextField(max_length=900)  # A 900 character info blob
     chapter_size = models.PositiveIntegerField()  # Non-negative integer
     image = models.ImageField(upload_to='chapters/', blank=False, default='chapters/default.jpg')
-    council = models.CharField(max_length=100, default="none")
+    council = models.CharField(max_length=100, choices=COUNCIL_CHOICES)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -39,6 +45,26 @@ class Chapter(models.Model):
 
     def __str__(self):
         return self.name
+    
+class ChapterSemesterData(models.Model):
+    # Define semester choices as a list of tuples - first value is the one stored in the database and the second value is the human readable lable
+    # Add more semesters as needed over time...
+    SEMESTER_CHOICES = [
+        ('Fall 2024', 'Fall 2024'),
+        ('Spring 2025', 'Spring 2025'),
+        ('Fall 2025', 'Fall 2025'),
+        ('Spring 2026', 'Spring 2026')
+    ]
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, related_name='semester_data') # links ChapterSemesterData to a single chapter in the Chapter table. If a chapter is deleted, all associated ChapterSemesterData will be deleted too.
+    semester = models.CharField(max_length=15, choices=SEMESTER_CHOICES)  # Add choices here
+    community_service_hours = models.DecimalField(max_digits=6, decimal_places=2)  # Total community service hours for that semester
+    philanthropy_funds_raised = models.DecimalField(max_digits=8, decimal_places=2) #Total amount of funds raised through philanthropy for that semester
+
+    class Meta:
+        unique_together = ("chapter", "semester")  # Ensure one entry per semester per chapter
+
+    def __str__(self):
+        return f"{self.chapter.name} - {self.semester}: {self.community_service_hours} community service hours contributed and ${self.philanthropy_funds_raised} raised through philanthropy"
 
 class Leadership(models.Model):
     name = models.CharField(max_length=255)
