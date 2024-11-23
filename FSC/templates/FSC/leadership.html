@@ -5,104 +5,141 @@
 {% block header %}
     <style>
         /* Add your custom styles here */
-        .containerL {
+        .container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 0 10% 0 10%;
+            justify-content: space-evenly;
+        }
+
+        .section-header {
+            font-size: 40px;
+            font-weight: bold;
+            margin: auto;
+            text-align: center;
+            width: 100%;
         }
 
         .leader {
-            width: 30%;
-            padding: 5%;
-            text-align: center;
+            margin: 10px;
+            width: calc(20% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            text-decoration: none;
+            color: black;
+            margin-bottom: 30px;
+            margin-top: 30px;
         }
-        .leader h2{margin: 0;}
-        .leader p{margin: 0;}
+
+        .image-wrapper {
+            width: 100%;
+            height: 100%;
+        }
 
         .leader img {
-            width: 50%;
-            height: 60%;
-            object-fit: contain;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .leader span {
+            margin: 0;
+            display: block;
         }
 
-        .position {
-            color: white;
-            background-color: rgb(214, 0, 28);
-            padding: 5px;
+        .leader .name {
+            font-size: 30px;
+            font-weight: bold;
         }
+
+        .leader .chapter {
+            font-size: 20px;
+        }
+
     </style>
 {% endblock %}
 
 {% block content %}
-  {% load static %}
+    {% load static %}
 
-  <div class="containerL">
-    <!-- Repeat this section for each leader -->
-    <div class="leader">
-      <img src="{% static 'FSC/images/leadership/joshMoskoff.png' %}" alt="Leader image">
-      <h2>Josh Moskoff</h2>
-      <p>Computer Science 2025</p>
-      <div class="org">Phi Sigma Kappa</div>
-      <div class="position">President</div>
+    
+    <div class="container">
+        <div class="section-header">
+            <span>Leadership</span>
+            <hr>
+        </div>
+        {% for leader in leadership %}
+        <div class="leader">
+            <div class="image-wrapper">
+                <img src="{{ leader.image.url }}" alt="{{ leader.name }}">
+            </div>
+            <span class="name">{{ leader.name }}</span>
+            <span class="chapter">{{ leader.chapter }}</span>
+            <span class="role">{{ leader.role }}</span>
+            <span class="email">{{ leader.email }}</span>
+            
+        </div>
+        <!-- <a href="{{ chapter.name }}" class="button brighten">
+            <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
+            <p>{{chapter.name}}</p>
+            <p class="nickname">{{chapter.letters}}</p>
+        </a> -->
+        {% endfor %}
+
+        <!-- <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Peter Crisileo</h2>
+        <p>Materials Science Engineering 2024</p>
+        <div class="org">Lambda Chi Alpha</div>
+        <div class="position">Vice President</div>
+        </div>
+
+        <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Shawn Vembenil</h2>
+        <p>CS/ITWS 202</p>
+        <div class="org">Sigma Chi</div>
+        <div class="position">VP Recruitment</div>
+        </div>
+
+        <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Nick Khoo</h2>
+        <p>BSAN/ITWS 2025</p>
+        <div class="org">Lambda Chi Alpha</div>
+        <div class="position">VP Finance</div>
+        </div>
+
+        <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Sam Stone</h2>
+        <p>Computer Science 2024</p>
+        <div class="org">Zeta Psi</div>
+        <div class="position">VP Internal Communication</div>
+        </div>
+
+        <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Aidan Saunders</h2>
+        <p>major 202</p>
+        <div class="org">Pi Lambda Phi</div>
+        <div class="position">VP External Communication</div>
+        </div>
+
+        <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Ethan Rokjer</h2>
+        <p>major 202</p>
+        <div class="org">Tau Epsilon Phi</div>
+        <div class="position">VP Philanthropy & Service</div>
+        </div>
+
+        <div class="leader">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
+        <h2>Matthew So</h2>
+        <p>Computer Systems Engineer</p>
+        <div class="org">Delta Phi</div>
+        <div class="position">FSC Senator</div>
+        </div> -->
     </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Peter Crisileo</h2>
-      <p>Materials Science Engineering 2024</p>
-      <div class="org">Lambda Chi Alpha</div>
-      <div class="position">Vice President</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Shawn Vembenil</h2>
-      <p>CS/ITWS 202</p>
-      <div class="org">Sigma Chi</div>
-      <div class="position">VP Recruitment</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Nick Khoo</h2>
-      <p>BSAN/ITWS 2025</p>
-      <div class="org">Lambda Chi Alpha</div>
-      <div class="position">VP Finance</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Sam Stone</h2>
-      <p>Computer Science 2024</p>
-      <div class="org">Zeta Psi</div>
-      <div class="position">VP Internal Communication</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Aidan Saunders</h2>
-      <p>major 202</p>
-      <div class="org">Pi Lambda Phi</div>
-      <div class="position">VP External Communication</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Ethan Rokjer</h2>
-      <p>major 202</p>
-      <div class="org">Tau Epsilon Phi</div>
-      <div class="position">VP Philanthropy & Service</div>
-    </div>
-
-    <div class="leader">
-      <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Leader image">
-      <h2>Matthew So</h2>
-      <p>Computer Systems Engineer</p>
-      <div class="org">Delta Phi</div>
-      <div class="position">FSC Senator</div>
-    </div>
-  </div>
-
-  <!-- Add more leader sections as needed -->
 {% endblock %}
