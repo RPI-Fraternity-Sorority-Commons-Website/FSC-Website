@@ -10,7 +10,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from .forms import ChapterForm, SignUpForm, FSCUserForm
-from .models import Chapter
+from .models import Chapter, Leadership
 from django.contrib import messages
 from .forms import UploadForm
 
@@ -27,6 +27,9 @@ def ourChapters(request):
     pfs_chapters = sorted(Chapter.objects.filter(council="pfs"), key=lambda ch: ch.name)
     return render(request, 'FSC/ourChapters.html', {'ifc_chapters': ifc_chapters, "panhel_chapters": panhel_chapters, "msfc_chapters": msfc_chapters, 'pfs_chapters': pfs_chapters})
 
+def leadership(request):
+    leaders = Leadership.objects.all()
+    return render(request, 'FSC/leadership.html', {'leadership': leaders})
 
 def select_chapter(request):
     chapters = Chapter.objects.all()

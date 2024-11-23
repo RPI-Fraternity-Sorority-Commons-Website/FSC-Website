@@ -40,6 +40,12 @@ class Chapter(models.Model):
     def __str__(self):
         return self.name
 
+class Leadership(models.Model):
+    name = models.CharField(max_length=255)
+    role = models.CharField(max_length=255)
+    chapter = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    image = models.ImageField(upload_to='leadership/', default='leadership/default.jpg')
 
 class FSCUser(AbstractUser):
     affiliation = models.CharField(max_length=255)
