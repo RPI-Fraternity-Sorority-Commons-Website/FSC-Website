@@ -161,3 +161,6 @@ def accountability(request):
 
 def housing(request):
     return render(request, 'IFC/housing.html')
+
+def families(request):
+    return render(request, 'IFC/families.html')

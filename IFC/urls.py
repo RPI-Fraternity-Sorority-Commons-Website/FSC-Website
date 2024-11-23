@@ -41,4 +41,5 @@ urlpatterns = [
     path("joining", views.joining, name="joining"),
     path("accountability", views.accountability, name="accountability"),
     path("housing", views.housing, name="housing"),
+    path("families", views.families, name="families"),
 ]

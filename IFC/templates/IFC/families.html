@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents, Families & Prospective Members</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4d4d4d;
+            margin-top: 20px;
+        }
+
+        .containerH {
+            padding: 20px 10%;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: rgb(214, 0, 28);
+            margin-bottom: 10px;
+        }
+
+        .section p, .section ul {
+            margin-bottom: 10px;
+            color: #666666;
+        }
+
+        .important {
+            font-weight: bold;
+            color: #a52a2a;
+        }
+
+        .links {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .links li {
+            margin-bottom: 10px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: rgb(214, 0, 28);
+            font-weight: bold;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Table styles */
+        .housing-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .housing-table th, .housing-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .housing-table th {
+            background-color: rgb(214, 0, 28);
+            color: white;
+        }
+
+        .housing-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .housing-table caption {
+            caption-side: top;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'IFC/navbar.html' %}
+
+    <h1>Parents, Families & Prospective Members</h1>
+
+    <div class="containerH">
+        <div class="section">
+            <p>Membership within an RPI fraternity or sorority continues to be a valued addition to a student’s college career. These organizations help students adapt to the scholastic and social challenges of university life. Students within our fraternity/sorority community, supported by their peers, are encouraged to step out of their comfort zone, engage in various facets of campus life, contribute to both the Rensselaer and Troy, NY communities, prepare for life after graduation, and establish lifelong bonds with members and alumni.</p>
+            <p>As you or your student consider joining our Fraternity/Sorority Commons (FSC) community at RPI, it is crucial to ensure that any organization you affiliate with is officially recognized by the institution. Recognized organizations meet stringent standards for safety, academic support, and community engagement, benefiting from ongoing oversight and resources provided by RPI.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Points to Consider:</h2>
+            <ul>
+                <li><span class="important">Safety and Accountability:</span> Recognized organizations adhere to high standards regarding member conduct, health, and safety. They have access to university resources and support to ensure a positive and safe experience.</li>
+                <li><span class="important">Academic Support:</span> Recognized fraternities and sororities prioritize academic success, offering structured programs and resources to help members excel in their studies.</li>
+                <li><span class="important">Scholarship Opportunities:</span> Recognized fraternities and sororities provide exclusive scholarship opportunities, offering financial support to members and students who demonstrate academic excellence, leadership, and a commitment to personal development.</li>
+                <li><span class="important">Community Engagement:</span> Officially recognized organizations are actively involved in community service, leadership development, and campus activities, providing a well-rounded and enriching experience.</li>
+                <li><span class="important">Transparency:</span> Recognized groups are required to operate with transparency and accountability, ensuring members and their families can trust in the organization's commitments and practices.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Emergency Reminder / Special Note:</h2>
+            <p>Fraternity & Sorority Commons strongly advises that students do not affiliate with unrecognized organizations. These organizations lack oversight and support from our office, and any student affiliating with them risks their status at the university. Affiliation with these organizations is a violation of the student code of conduct and could lead to judicial action, potentially jeopardizing the student's standing at the institution. Regardless of what the unrecognized chapters, their members, or alumni might say, involvement with these groups is strictly prohibited.</p>
+        </div>
+
+        <!-- Table Section -->
+        <div class="containerH">
+            <table class="housing-table">
+                <caption>Unrecognized Organizations</caption>
+                <thead>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Incident Date</th>
+                        <th>Policy Violation(s)</th>
+                        <th>Status</th>
+                        <th>Sanction(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Theta Chi</td>
+                        <td>10/2017</td>
+                        <td>Rensselaer Alcohol and Other Drug Policy</td>
+                        <td>Disciplinary Suspension</td>
+                        <td>The fraternity is under disciplinary suspension effective from 5/2018 through 7/2030. Upon reinstatement, the fraternity will be placed on social probation until 5/2032.</td>
+                    </tr>
+                    <!-- Add more rows here if necessary -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="containerH">
+        <p>For more information, contact:</p>
+        <p><strong>Fraternity & Sorority Commons (FSC)</strong></p>
+        <p>Phone: 518.276-6284 | Email: <a href="mailto:fscommons@rpi.edu">fscommons@rpi.edu</a></p>
+        <p>See <a href="#">Chapter Conduct & Judicial Status | Student Living and Learning</a> for a comprehensive list of conduct reports.</p>
+    </div>
+
+    {% include 'IFC/footer.html' %}
+</body>
+
+</html>
