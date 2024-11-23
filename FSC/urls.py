@@ -47,5 +47,7 @@ urlpatterns = [
     path('logout/', views.user_logout, name="user_logout"),
     path('profile/', views.profileView.as_view(), name="view_profile"),
     path('upload/', views.upload_content, name='upload_content'),
+
+    path("chapterconduct/", views.simpleView("FSC/ChapterConduct&JudicialStatus.html"), name="chapter_conduct"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
