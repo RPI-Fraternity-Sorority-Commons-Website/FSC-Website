@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraternity & Sorority Housing</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4d4d4d;
+            margin-top: 20px;
+        }
+
+        .containerH {
+            padding: 20px 10%;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+        }
+
+        .section h2 {
+            color: rgb(214, 0, 28);
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            margin-bottom: 10px;
+            color: #666666;
+        }
+
+        .important {
+            font-weight: bold;
+            color: #a52a2a;
+        }
+
+        .links {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .links li {
+            margin-bottom: 10px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: rgb(214, 0, 28);
+            font-weight: bold;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'IFC/navbar.html' %}
+
+    <h1>Fraternity & Sorority Housing</h1>
+
+    <div class="containerH">
+        <div class="section">
+            <p>Living in a fraternity/sorority house helps build community, strengthen friendships and provides a home away from home.</p>
+        </div>
+
+        <div class="section">
+            <h2>Current, Future, and Potential Residents:</h2>
+            <p>Rensselaer believes that housing is an important part of the fraternal experience, as living among one’s peers helps build community, strengthen friendships and provides a home away from home.</p>
+            <p>That being said, not all fraternities/sororities within our community provide housing. Currently, of our 32 active chapters, 24 of them have a facility on or near campus. Students interested in fraternity/sorority accommodations should make sure to ask their respective fraternity/sorority leadership about housing requirements and cost prior to making plans to live within a fraternity/sorority house.</p>
+        </div>
+
+        <div class="section">
+            <h2>Important Information:</h2>
+            <ul>
+                <li>Chapters wishing to take advantage of this live-off/residential opportunity must be granted the exemption by FSC/Housing.</li>
+                <li>Sophomores wishing to take advantage of this live-off/residential experience must submit a <span class="important">FSC Housing Waiver Request</span>.</li>
+            </ul>
+            <h3>Waiver Request Forms:</h3>
+            <ul class="links">
+                <li><a href="#">FSC Housing Waiver - Spring Request</a></li>
+                <li><a href="#">FSC Housing Waiver - Fall Request</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Important Things to Note:</h2>
+            <ul>
+                <li>You are required to complete the Student Living & Learning Housing Application prior to completing the FSC Fall Housing Waiver.</li>
+                <li>You are required to complete a FSC Member Bursar Billing Agreement as a second step within the approval process and in order to be eligible for a waiver consideration.</li>
+                <li>Regardless of ownership, Rensselaer inspects all facilities each semester to maintain houses that are safe, and conducive to learning and that are operating in full compliance with all New York State fire and building codes.</li>
+                <li>Fraternity/sorority facilities differ from chapter to chapter. Some may provide a full meal plan, others may not. Some chapters may require that members live in their facility for a specific amount of time, while others do not hold such a requirement.</li>
+                <li>Fraternity/sorority facility costs vary by chapter as the cost will depend on property style, may include a meal plan and/or additional fees.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>FSC Housing</h2>
+            <p>At Rensselaer, not all fraternities and sororities have housing. Those with housing are represented within the Interfraternity Council, Rensselaer Panhellenic Council, and our Professional organizations. The size of chapter facilities varies greatly, and most have a capacity that is far less than their total membership, meaning the majority of members do not live in the facility.</p>
+            <p>Additionally, not all chapter houses are privately owned; some are owned or managed by the university. Another aspect of fraternity/sorority living is the live-in requirement, which varies by chapter. Some chapters require members to live in the house, while others do not. We recommend contacting the chapter of interest to learn about their specific requirements.</p>
+            <p><span class="important">First-year students are not allowed to live in fraternity or sorority housing until their second semester.</span></p>
+        </div>
+    </div>
+
+    {% include 'IFC/footer.html' %}
+</body>
+
+</html>

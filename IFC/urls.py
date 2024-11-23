@@ -40,4 +40,5 @@ urlpatterns = [
     path("commitments", views.commitments, name="commitments"),
     path("joining", views.joining, name="joining"),
     path("accountability", views.accountability, name="accountability"),
+    path("housing", views.housing, name="housing"),
 ]

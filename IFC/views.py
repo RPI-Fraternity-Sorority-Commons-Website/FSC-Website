@@ -158,3 +158,6 @@ def joining(request):
 
 def accountability(request):
     return render(request, 'IFC/accountability.html')
+
+def housing(request):
+    return render(request, 'IFC/housing.html')
