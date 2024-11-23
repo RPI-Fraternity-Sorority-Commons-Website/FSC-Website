@@ -86,7 +86,7 @@
         {% load static %}
         <div class="container">
             <div class="council-header">
-                <span>IFC</span>
+                <span>Interfraternity Council (IFC)</span>
                 <hr>
             </div>
             {% for chapter in ifc_chapters %}
@@ -99,10 +99,10 @@
         </div>
         <div class="container">
             <div class="council-header">
-                <span>MSFC</span>
+                <span>Panhellenic Council</span>
                 <hr>
             </div>
-            {% for chapter in msfc_chapters %}
+            {% for chapter in panhel_chapters %}
                 <a href="{{ chapter.name }}" class="button brighten">
                 <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
                 <p>{{chapter.name}}</p>
@@ -112,10 +112,10 @@
         </div>
         <div class="container">
             <div class="council-header">
-                <span>Panhellenic</span>
+                <span>Multicultural Sorority Council (MFSC)</span>
                 <hr>
             </div>
-            {% for chapter in panhel_chapters %}
+            {% for chapter in msfc_chapters %}
                 <a href="{{ chapter.name }}" class="button brighten">
                 <img src="{{ chapter.image.url }}" alt="{{ chapter.name }}">
                 <p>{{chapter.name}}</p>

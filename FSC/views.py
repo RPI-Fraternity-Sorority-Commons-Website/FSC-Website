@@ -35,6 +35,9 @@ def select_chapter(request):
     chapters = Chapter.objects.all()
     return render(request, 'FSC/select_chapter.html', {'chapters': chapters})
 
+def philanthropy(request):
+    chapters = Chapter.objects.all()
+    return render(request, 'FSC/philanthropy.html', {'chapters': chapters})
 
 # @login_required
 def chapter_detail(request, chapter_name):
