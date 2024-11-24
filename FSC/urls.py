@@ -35,6 +35,7 @@ urlpatterns = [
     path("whyjoin/", views.simpleView("FSC/whyjoin.html"), name="whyjoin"),
     path("fall/", views.simpleView("FSC/fall.html"), name="fall"),
     path("spring/", views.simpleView("FSC/spring.html"), name="spring"),
+    path("chapterconduct&judicialstatus/", views.simpleView("FSC/chapterconduct&judicialstatus.html"), name="chapterconduct&judicialstatus"),
 
     path("chapters/", views.ourChapters, name="chapters"),
     path('chapters/<str:chapter_name>/', views.chapter_detail, name="chapter_detail"),
@@ -47,7 +48,5 @@ urlpatterns = [
     path('logout/', views.user_logout, name="user_logout"),
     path('profile/', views.profileView.as_view(), name="view_profile"),
     path('upload/', views.upload_content, name='upload_content'),
-
-    path("chapterconduct/", views.simpleView("FSC/ChapterConduct&JudicialStatus.html"), name="chapter_conduct"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
