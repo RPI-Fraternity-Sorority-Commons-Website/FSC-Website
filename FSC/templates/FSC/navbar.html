@@ -216,6 +216,9 @@
                             <li><a class="dropdown-item" href="/chapters/{{ user.affiliation|urlencode }}/edit/">Edit My Chapter</a></li>
                             <li><a class="dropdown-item" href="/upload">Upload My Chapter Events</a></li>
                             {% endif %}
+                            {% if user.is_superuser %}
+                            <li><a class="dropdown-item" href="/admin_home/">Admin Home</a></li>
+                            {% endif %}
                             <li><a class="dropdown-item" href="{% url 'user_logout' %}">Log out</a></li>
                         </ul>
                     </li>
