@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.views import generic
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserChangeForm
@@ -21,10 +21,10 @@ def simpleView(template):
 
 # Requesting Webpages:
 def ourChapters(request):
-    ifc_chapters = sorted(Chapter.objects.filter(council="ifc"), key=lambda ch: ch.name)
-    panhel_chapters = sorted(Chapter.objects.filter(council="panhel"), key=lambda ch: ch.name)
-    msfc_chapters = sorted(Chapter.objects.filter(council="msfc"), key=lambda ch: ch.name)
-    pfs_chapters = sorted(Chapter.objects.filter(council="pfs"), key=lambda ch: ch.name)
+    ifc_chapters = sorted(Chapter.objects.filter(council="Interfraternity Council"), key=lambda ch: ch.name)
+    panhel_chapters = sorted(Chapter.objects.filter(council="Panhellenic Council"), key=lambda ch: ch.name)
+    msfc_chapters = sorted(Chapter.objects.filter(council="Multicultural Sorority Council"), key=lambda ch: ch.name)
+    pfs_chapters = sorted(Chapter.objects.filter(council="Professional Fraternities & Sororities"), key=lambda ch: ch.name)
     return render(request, 'FSC/ourChapters.html', {'ifc_chapters': ifc_chapters, "panhel_chapters": panhel_chapters, "msfc_chapters": msfc_chapters, 'pfs_chapters': pfs_chapters})
 
 def leadership(request):
@@ -35,6 +35,9 @@ def select_chapter(request):
     chapters = Chapter.objects.all()
     return render(request, 'FSC/select_chapter.html', {'chapters': chapters})
 
+def philanthropy(request):
+    chapters = Chapter.objects.all()
+    return render(request, 'FSC/philanthropy.html', {'chapters': chapters})
 
 # @login_required
 def chapter_detail(request, chapter_name):
@@ -50,7 +53,7 @@ def edit_chapter(request, chapter_name):
     chapter_name = chapter_name.replace('-', ' ')
     chapter = get_object_or_404(Chapter, name=chapter_name)
 
-    if request.user.is_authenticated and request.user.affiliation == chapter_name:
+    if request.user.is_authenticated and (request.user.affiliation == chapter_name or request.user.is_superuser):
 
         # Ensure the user is authorized to edit this chapter (this depends on your user model/permissions setup)
         # You might need to compare request.user with the user related to the chapter
@@ -131,3 +134,20 @@ def upload_content(request):
         form = UploadForm()
     
     return render(request, 'IFC/upload.html', {'form': form})
+
+@login_required
+def admin_home(request):
+    # Check if the logged-in user is a superuser (admin)
+    if request.user.is_superuser:
+        chapters = Chapter.objects.all()
+        for chapter in chapters:
+            if request.method == 'POST':
+                form = ChapterForm(request.POST, request.FILES, instance=chapter)
+                if form.is_valid():
+                    form.save()
+            else:
+                form = ChapterForm(instance=chapter)
+
+        return render(request, 'FSC/admin_home.html', {'form': form, 'chapter': chapters})
+    else:
+        return HttpResponseForbidden("You do not have permission to access this page.")

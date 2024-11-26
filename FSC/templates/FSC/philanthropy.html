@@ -1,0 +1,65 @@
+{%extends 'FSC/base.html' %}
+
+{%block title%}Philanthropy{%endblock%}
+
+{%block content%}
+
+<!-- Todo: 
+  This page should have a table for community service hours for the current semester AND a table for philanthropy funds raised in the current semester.
+  To determine the "current semester" on startup, there should be a function to check the date and return what semester/year it would correlate to.
+  There should then be 2 dropdown menus to help user's filter the tables. The first should be a "groups" dropdown, which lets users toggle between
+  "All organizations", "IFC", "Panhel", "MSFC", and "Professional Orgs". The second should be a "semester" dropdown, which lets users toggle between
+  all available semesters in the database dropdown menu. When used in conjunction, these dropdowns should determine which semester and group to show
+  on BOTH leaderboards (yes, leaderboards show every possible org in the group, and yes, both leaderboards would be changed upon the dropdown menu changes).
+  Finally, since they are leaderboards, we will need to find a way to sort the entries from greatest to lowest community service hours OR philanthropy funds
+  raised in the given semester -->
+
+  <script>
+    function getSeasonWithYear() {
+        const now = new Date();  // Get the current date
+        const currentMonth = now.getMonth();  // Get the current month (0-11)
+        const currentYear = now.getFullYear();  // Get the current year
+        let season = '';
+        // Check if the month is between January (0) and August (7), inclusive
+        if (currentMonth >= 0 && currentMonth <= 7) {
+            season = "Spring ";
+        } 
+        // Otherwise, it's between September (8) and December (11), inclusive
+        else {
+            season = "Fall ";
+        }
+        // Return the season and the current year
+        return season + currentYear;
+    }
+
+    // Example usage to dynamically set the semester on page load
+    window.onload = function() {
+        const currentSemester = getSeasonWithYear();
+        document.getElementById("current-semester").innerText = currentSemester;
+    }
+</script>
+
+<!-- Community Service Hours of All Greek Organizations (Fall 2024) -->
+<div class="table">
+    <h3>Community Service Hours of all Greek Organizations (Fall 2024)</h3>
+    {% for chapter in chapters %}
+        {% for data in chapter.semester_data.all %}
+            {% if data.semester == 'Fall 2024' %}
+                <p>{{chapter.name}}: {{ data.community_service_hours }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+<!-- Community Service Hours of All Greek Organizations (Fall 2024) -->
+<div class="table">
+    <h3>Philanthropy Funds Raised by all Greek Organizations (Fall 2024)</h3>
+    {% for chapter in chapters %}
+        {% for data in chapter.semester_data.all %}
+            {% if data.semester == 'Fall 2024' %}
+                <p>{{chapter.name}}: ${{ data.philanthropy_funds_raised }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+{%endblock%}
