@@ -36,6 +36,7 @@ urlpatterns = [
     path("philanthropy/", views.philanthropy, name="philanthropy"),
     path("fall/", views.simpleView("FSC/fall.html"), name="fall"),
     path("spring/", views.simpleView("FSC/spring.html"), name="spring"),
+    path("chapterconduct&judicialstatus/", views.simpleView("FSC/chapterconduct&judicialstatus.html"), name="chapterconduct&judicialstatus"),
 
     path("chapters/", views.ourChapters, name="chapters"),
     path('chapters/<str:chapter_name>/', views.chapter_detail, name="chapter_detail"),
