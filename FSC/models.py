@@ -25,7 +25,7 @@ class Chapter(models.Model):
     COUNCIL_CHOICES = [
         ('Interfraternity Council', 'Interfraternity Council'),
         ('Panhellenic Council', 'Panhellenic Council'),
-        ('Multicultural Sorority Council', 'Multicultural Sorority Council'),
+        ('Multicultural Sorority and Fraternity Council', 'Multicultural Sorority and Fraternity Council'),
         ('Professional Fraternities & Sororities', 'Professional Fraternities & Sororities')
     ]
     name = models.CharField(max_length=255)
