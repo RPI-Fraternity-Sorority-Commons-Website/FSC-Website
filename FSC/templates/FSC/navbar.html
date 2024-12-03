@@ -11,13 +11,13 @@
         background-repeat: no-repeat;
         background-size: cover;
         padding: 8px 16px 0 16px;
-        min-height: 80px; /* Default height for screens larger than or equal to 992px */
+        min-height: 80px; /*Default height for screens larger than or equal to 992px*/
         /* background-color: #f8f9fa; You can change this color according to your design */
         flex-direction: column;
     }
 
     /* Adjust container to account for redbar */
-    .navbar .container {
+    .navbar .container-fluid {
         width: 100%;
         max-width: 1200px; /* Or your desired max-width */
         margin: 0 auto;
@@ -33,9 +33,6 @@
     }
 
     @media (max-width: 991px) {
-        .navbar {
-            min-height: 180px;
-        }
 
         .redbar {
             position: relative;
@@ -53,8 +50,8 @@
     .navbar-nav {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        width: 75%;
+        align-items: left;
+        width: 50%;
     }
 
     .navbar-nav .nav-link {
@@ -141,22 +138,16 @@
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <!-- Toggler Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Brand</a> -->
+        <a class="nav-link" href="/">
+            <img src="{% static 'FSC/images/FSCLogo.png' %}" alt="Button Image" width="70" height="70">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <!-- Logo -->
-                <li class="nav-item logo-button">
-                    <a class="nav-link" href="/">
-                        <img src="{% static 'FSC/images/FSCLogo.png' %}" alt="Button Image" width="70" height="70">
-                    </a>
-                </li>
-                
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">                
                 <!-- Home -->
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
@@ -222,33 +213,31 @@
                 </li>
 
                 <!-- Login Dropdown -->
-                <div class="nav-login-container">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="loginDropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">
-                                Hi, <b>{{ user.username }}</b>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="loginDropdown">
-                                <li><a class="dropdown-item" href="{% url 'view_profile' %}">View profile</a></li>
-                                {% if user.affiliation %}
-                                <li><a class="dropdown-item" href="/chapters/{{ user.affiliation|urlencode }}/edit/">Edit My Chapter</a></li>
-                                <li><a class="dropdown-item" href="/upload">Upload My Chapter Events</a></li>
-                                {% endif %}
-                                {% if user.is_superuser %}
-                                <li><a class="dropdown-item" href="/admin_home/">Admin Home</a></li>
-                                {% endif %}
-                                <li><a class="dropdown-item" href="{% url 'user_logout' %}">Log out</a></li>
-                            </ul>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Log in</a>
-                        </li>
-                    {% endif %}
-                </div>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="loginDropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">
+                            Hi, <b>{{ user.username }}</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                            <li><a class="dropdown-item" href="{% url 'view_profile' %}">View profile</a></li>
+                            {% if user.affiliation %}
+                            <li><a class="dropdown-item" href="/chapters/{{ user.affiliation|urlencode }}/edit/">Edit My Chapter</a></li>
+                            <li><a class="dropdown-item" href="/upload">Upload My Chapter Events</a></li>
+                            {% endif %}
+                            {% if user.is_superuser %}
+                            <li><a class="dropdown-item" href="/admin_home/">Admin Home</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{% url 'user_logout' %}">Log out</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Log in</a>
+                    </li>
+                {% endif %}
             </ul>
-        </div> 
+        </div>
     </div>
     <div class="redbar" id="redbar">
         {% include 'FSC/breadcrumbs.html' %}
@@ -257,7 +246,19 @@
 
 
 <script>
+    //remove navbar dropdown hrefs on mobile. Otherwise, mobile users won't be
+    // able to expand dropdown lists without being redirected 
     $(document).ready(function () {      
+        $(window).resize(function()
+        {
+            var width = $(window).width();
+            var mobileScreen = 900;
+            if(width <= mobileScreen)
+            {
+                $('.dropdown-toggle').attr('href', '#');
+            }
+        }).resize();
+
         // Handle recruitment dropdown
         $('#recruitmentDropdown').on('click', function(e) {
             // Prevent the default dropdown behavior
