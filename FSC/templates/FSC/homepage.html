@@ -32,6 +32,16 @@
             text-align: center;
         }
 
+        .section-header {
+                font-size: 500%;
+        }
+
+        @media (max-width: 991px) {
+            .section-header {
+                font-size: 200%;
+            }
+        }   
+
         .separator {
             border: none;
             border-top: 1px solid #ccc;
@@ -47,7 +57,7 @@
     <main class="main-content">
 
         <hr class="separator">
-        <h1>Welcome to the RPI FSC!</h1>
+        <h1 class="section-header">Welcome to the RPI FSC!</h1>
         <hr class="separator">
 
         <div class="container">
@@ -64,7 +74,7 @@
         </div>
 
         <hr class="separator">
-        <h1>About the FSC</h1>
+        <h1 class="section-header">About the FSC</h1>
         <hr class="separator">
 
         <div class ="statistics">

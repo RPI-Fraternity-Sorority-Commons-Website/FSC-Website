@@ -15,8 +15,14 @@
     
     .colour-block h1{
         position: relative; top: -30px;
+        font-size: 400%;
     }
     
+    .learn-section h2 {
+        font-size: 200%;
+        padding: 20px;
+    } 
+
     .white-block {
         background: #fff;
         width: 100%;
@@ -48,13 +54,15 @@
     }
 
     .flex-window h2{
-        margin: 100px;
+        margin: 100px 0px;
         position: relative;
         top: -80px;
     }
 
     .flex-window img {
         width: 40%;
+        margin: 10px;
+        display: flex;
         object-fit: cover; /* Adjusted object-fit */
         max-height: 100%; /* Added max-height property */
     }
@@ -83,21 +91,43 @@
         transition: 0.1s;
         background-color: rgb(214, 0, 28);
         color: white;
-        padding: 10px 20px;
+        padding: 10px 10px;
         border: none;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 100%;
         text-align: center;
-        max-width: 30%;
+        white-space: nowrap;
+        text-decoration: none;
+        width: 20%;
         margin: 0 auto;
         position: relative;
         top: -140px;
     }
 
+
+
     .learn-button:hover {
         transition: 0.1s;
         filter: brightness(75%);
     }
+
+    @media (max-width: 991px) {
+        .colour-block h1 {
+            position: relative; top: -10px;
+            font-size: 150%;
+        }
+
+        .learn-section h2 {
+            font-size: 100%;
+        }
+
+        .learn-button {
+            padding: auto;
+            width: 40%;
+            font-size: 60%;
+        }
+    }   
+
 </style>
 
 <div class="skew-c"></div>
@@ -114,7 +144,7 @@
             </h2>
             <a href="/Philanthropy-and-service"><div class="learn-button">Learn More</div></a>
         </div>
-        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px; margin-right: 75px;">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px;">
     </div>
 </div>
 <div class="skew-c"></div>
@@ -124,7 +154,7 @@
 <div class="skew-cc"></div>
 <div class="white-block">
     <div class="flex-window">
-        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px; margin-right: 75px; margin-left: 75px;">
+        <img src="{% static 'FSC/images/carousel/image1.jpeg' %}" alt="Logo" style="padding: 25px; height: 500px; position: relative; top: -60px;">
         <div class="learn-section">
             <h2>
                 Unlock the gateway to lifelong brotherhood, unparalleled networking 
