@@ -45,15 +45,13 @@
             opacity: 1;
             visibility: visible;
         }
-
-        
     }
 
     .navbar-nav {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        width: 75%;
+        align-items: left;
+        width: 50%;
     }
 
     .navbar-nav .nav-link {
@@ -205,7 +203,7 @@
 
                 <!-- Login Dropdown -->
                 {% if user.is_authenticated %}
-                    <li class="nav-item dropdown nav-login-container">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="loginDropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">
                             Hi, <b>{{ user.username }}</b>
@@ -223,7 +221,7 @@
                         </ul>
                     </li>
                 {% else %}
-                    <li class="nav-item nav-login-container">
+                    <li class="nav-item">
                         <a class="nav-link" href="/login">Log in</a>
                     </li>
                 {% endif %}
@@ -237,7 +235,19 @@
 
 
 <script>
+    //remove navbar dropdown hrefs on mobile. Otherwise, mobile users won't be
+    // able to expand dropdown lists without being redirected 
     $(document).ready(function () {      
+        $(window).resize(function()
+        {
+            var width = $(window).width();
+            var mobileScreen = 900;
+            if(width <= mobileScreen)
+            {
+                $('.dropdown-toggle').attr('href', '#');
+            }
+        }).resize();
+
         // Handle recruitment dropdown
         $('#recruitmentDropdown').on('click', function(e) {
             // Prevent the default dropdown behavior
