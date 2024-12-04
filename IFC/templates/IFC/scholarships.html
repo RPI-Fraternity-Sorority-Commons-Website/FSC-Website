@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarships</title>
+    <title>Parents, Families & Prospective Members</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,6 +53,7 @@
 </head>
 
 <body>
+    {% include 'IFC/navbar.html' %}
     <h1>Scholarships</h1>
 
     <div class="section">
@@ -101,6 +104,62 @@
         <p>For more information on these and other opportunities, visit the scholarship links below. Don’t miss your chance to access free money for your education!</p>
         <p><a href="#">IFC Scholarship Opportunities</a></p>
     </div>
+
+    <!-- Accordion Menu -->
+    <div class="section">
+        <h3>Scholarship Opportunities</h3>
+        <div id="accordionExample" class="accordion">
+            <!-- Sigma Phi Epsilon -->
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: #333333; text-decoration: none; font-weight: bold;">
+                            Sigma Phi Epsilon – Balanced Man Scholarship
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                    <div class="card-body">
+                        Every year, Sigma Phi Epsilon awards their Balanced Man Scholarship to RPI students who exhibit academic excellence, demonstrate leadership skills, and display commitment to pursuing holistic health and well-being. All first-year RPI students are eligible for the scholarship. You will be asked to provide personal, academic, and extracurricular information during the application.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Alpha Sigma Phi -->
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #333333; text-decoration: none; font-weight: bold;">
+                            Alpha Sigma Phi – To Better the Man Scholarship
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                    <div class="card-body">
+                        At Alpha Sigma Phi, our mission is to Better the World through Better Men, and through this scholarship we honor and reward men who exemplify our values — Silence, Charity, Purity, Honor, and Patriotism. All undergraduate men enrolled as full-time students this academic term are eligible to receive this scholarship. Applicants can expect to schedule an interview within two weeks of submission.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Acacia -->
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #333333; text-decoration: none; font-weight: bold;">
+                            Acacia – Men of Action Scholarship
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                    <div class="card-body">
+                        This semester Acacia is providing 4 undergraduate RPI students a chance to receive $500 scholarships! Any undergraduate student at RPI is eligible.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'IFC/footer.html' %}
 </body>
 
 </html>
