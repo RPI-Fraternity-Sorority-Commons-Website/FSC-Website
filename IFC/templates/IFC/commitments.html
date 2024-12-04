@@ -1,218 +1,183 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Commitments - Fraternity & Sorority Commons</title>
-        
-        {% load static %}
-        <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
-        
-        <!-- Bootstrap CSS -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Commitments - Fraternity & Sorority Commons</title>
+    
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
 
-            #main-content {
-                padding-bottom: 50px; /* Adds a buffer at the bottom of the content */
-            }
+        h1, h2, h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-            .introduction {
-                text-align: center;
-                margin: 50px 10% 20px 10%;
-            }
+        h1 {
+            color: #a52a2a;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
 
-            .commitments-section {
-                margin: 20px 10%;
-            }
+        h2 {
+            font-size: 1.8em;
+            color: #4d4d4d;
+            margin-bottom: 15px;
+        }
 
-            .commitments-section h2 {
-                font-size: 24px;
-                font-weight: bold;
-                text-align: center;
-                margin-bottom: 20px;
-            }
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #4d4d4d;
+        }
 
-            .commitments-section p {
-                text-align: justify;
-                line-height: 1.6;
-            }
+        .introduction {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            text-align: justify;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
 
-            .side-commitments {
-                text-align: center;
-                font-weight: bold;
-                margin: 30px 0;
-                font-size: 18px;
-            }
+        .commitment-box {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
 
-            .commitment-subsection {
-                margin-top: 40px;
-            }
+        .commitment-box h3 {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-            .commitment-subsection h3 {
-                font-size: 20px;
-                font-weight: bold;
-                margin-bottom: 15px;
-            }
+        .commitment-box ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
 
-            .commitment-subsection ul {
-                list-style-type: disc;
-                margin-left: 20px;
-            }
+        .commitment-box ul li {
+            margin-bottom: 10px;
+        }
 
-            .commitment-subsection ul li {
-                margin-bottom: 10px;
-            }
+        footer {
+            background-color: rgb(214, 0, 28);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
 
-            footer {
-                margin-top: 50px; /* Adds space between content and footer */
-            }
+        footer a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
 
-        </style>
-    </head>
+        footer a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
 
-    <body>
-        <div id="main-content">
-            <!-- Navbar -->
-            {% include 'IFC/navbar.html' %}
+<body>
+    <div id="main-content">
+        <!-- Navbar -->
+        {% include 'IFC/navbar.html' %}
 
-            <!-- Introduction Section -->
-            <div class="introduction">
-                <h1>Commitments</h1>
-                <h2>Rensselaer Polytechnic Institute</h2>
-                <h3>Fraternity & Sorority Commons</h3>
-                <p>
-                    As the Office of Fraternity & Sorority Commons (FSC), our foundation rests upon four distinct commitments: 
-                    Support, Inform, Develop, and Engage. Aligned with these commitments, we wholeheartedly champion the fraternity 
-                    and sorority community's five core values: academic excellence, civic and community engagement, diversity and 
-                    inclusion, health and wellness, and personal growth and development. Guided by these commitments, the FSC 
-                    diligently crafts programming, education, and access initiatives that seamlessly integrate into our annual 
-                    calendar. These carefully designed programs and events are a testament to our unwavering dedication to empower 
-                    and uplift our governing councils, member organizations, and their members as they work towards upholding the 
-                    essence of our community's five core values.
-                </p>
-            </div>
-
-            <!-- Side Commitments -->
-            <div class="side-commitments">
-                SIDE: SUPPORT / INFORM / DEVELOP / ENGAGE
-            </div>
-
-            <!-- Commitments Section -->
-            <div class="commitments-section">
-                <!-- FSC SUPPORT -->
-                <div class="commitment-subsection">
-                    <h3>FSC SUPPORT</h3>
-                    <p>
-                        Through its commitment to promote the community’s core values, FSC SUPPORT represents the office’s commitment 
-                        to serving as a guide/aide in pursuit of the community’s desire to provide a premier sorority and fraternity 
-                        experience for all. Through informed governance and operative logistic support, FSC will provide advisement 
-                        and process alignment to achieve this commitment.
-                    </p>
-                    <h4>Advisement</h4>
-                    <ul>
-                        <li>Providing expert advice and consultation to organizations</li>
-                        <li>Offering guidance on best practices and strategies</li>
-                        <li>Assisting in decision-making and problem-solving</li>
-                    </ul>
-                    <h4>Process Alignment</h4>
-                    <ul>
-                        <li>Ensuring processes are consistent with community values and industry norms</li>
-                        <li>Streamlining procedures for efficiency and effectiveness</li>
-                        <li>Aligning organizational operations with community goals</li>
-                    </ul>
-                    <h4>Operative Logistic Support</h4>
-                    <ul>
-                        <li>Assisting in event planning and execution</li>
-                        <li>Facilitating communication between stakeholders</li>
-                        <li>Coordinating resources and logistical arrangements</li>
-                    </ul>
-                </div>
-
-                <!-- FSC INFORM -->
-                <div class="commitment-subsection">
-                    <h3>FSC INFORM</h3>
-                    <p>
-                        Through its commitment to promote the community’s core values, FSC INFORM represents the office commitment to 
-                        both the educational initiatives and programmatic efforts of the Councils and recognition of their achievements. 
-                        FSC provides educational programming and recognition funding/support to achieve these values.
-                    </p>
-                    <h4>Educational Programming</h4>
-                    <ul>
-                        <li>Delivering workshops, seminars, and training sessions</li>
-                        <li>Providing resources for personal and organizational growth</li>
-                        <li>Promoting awareness and understanding of key topics</li>
-                    </ul>
-                    <h4>Recognition Funding & Support</h4>
-                    <ul>
-                        <li>Allocating resources for exceptional achievements</li>
-                        <li>Providing financial scholarships and funding for meaningful community contributions and individual needs</li>
-                        <li>Celebrating and highlighting noteworthy accomplishments</li>
-                    </ul>
-                </div>
-
-                <!-- FSC DEVELOP -->
-                <div class="commitment-subsection">
-                    <h3>FSC DEVELOP</h3>
-                    <p>
-                        Through its commitment to promote the community’s core values, FSC DEVELOP represents the office commitment 
-                        to developing leaders and assisting them in achieving personal and community objectives which will strengthen 
-                        both the individual(s) and the RPI community. FSC will provide access to membership development opportunities 
-                        and facilitate key programs to achieve this commitment.
-                    </p>
-                    <h4>Member Development</h4>
-                    <ul>
-                        <li>Cultivating leadership skills and personal growth</li>
-                        <li>Fostering effective communication and collaboration</li>
-                        <li>Empowering members for impactful engagement</li>
-                    </ul>
-                    <h4>Key Programming</h4>
-                    <ul>
-                        <li>Organizing leadership workshops and seminars</li>
-                        <li>Hosting events to enhance teamwork and problem-solving</li>
-                        <li>Offering opportunities for networking and skill-building through accessible platforms</li>
-                    </ul>
-                </div>
-
-                <!-- FSC ENGAGE -->
-                <div class="commitment-subsection">
-                    <h3>FSC ENGAGE</h3>
-                    <p>
-                        Through its commitment to promote the community’s core values, FSC ENGAGE represents the office commitment 
-                        to assist the Councils in their growth, community awareness and belonging, connectedness to peer groups, 
-                        campus community, and the Capital Region. FSC provides council support, core values education, recruitment/intake 
-                        training, external relations education, and vibrancy initiatives to achieve this commitment.
-                    </p>
-                    <h4>Core Values Education</h4>
-                    <ul>
-                        <li>Instilling a deep understanding of the community's core values</li>
-                        <li>Encouraging active integration of values in all aspects of fraternity and sorority life</li>
-                        <li>Nurturing a culture that aligns with the community's guiding principles</li>
-                    </ul>
-                    <h4>Recruitment/Intake Support</h4>
-                    <ul>
-                        <li>Guiding effective, values-aligned recruitment and intake processes</li>
-                        <li>Fostering inclusive and diverse membership selection practices</li>
-                        <li>Equipping chapters with resources for successful recruitment efforts</li>
-                    </ul>
-                    <h4>External Relations</h4>
-                    <ul>
-                        <li>Strengthening ties with alumni advisory boards and inter/national organizations</li>
-                        <li>Enhancing the visibility and positive reputation of the fraternity/sorority community</li>
-                        <li>Nurturing relationships with university departments and external partners</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            {% include 'IFC/footer.html' %}
+        <!-- Introduction Section -->
+        <div class="introduction">
+            <h1>Commitments</h1>
+            <h2>Rensselaer Polytechnic Institute</h2>
+            <h3>Fraternity & Sorority Commons</h3>
+            <p>
+                As the Office of Fraternity & Sorority Commons (FSC), our foundation rests upon four distinct commitments: 
+                Support, Inform, Develop, and Engage. Aligned with these commitments, we wholeheartedly champion the fraternity 
+                and sorority community's five core values: academic excellence, civic and community engagement, diversity and 
+                inclusion, health and wellness, and personal growth and development.
+            </p>
         </div>
-    </body>
 
-    </html>
+        <!-- FSC SUPPORT -->
+        <div class="commitment-box">
+            <h3>FSC SUPPORT</h3>
+            <p>
+                FSC SUPPORT represents the office’s commitment to serving as a guide/aide in pursuit of the community’s desire to provide a premier sorority and fraternity experience for all.
+            </p>
+            <h4>Advisement</h4>
+            <ul>
+                <li>Providing expert advice and consultation to organizations</li>
+                <li>Offering guidance on best practices and strategies</li>
+                <li>Assisting in decision-making and problem-solving</li>
+            </ul>
+        </div>
+
+        <!-- FSC INFORM -->
+        <div class="commitment-box">
+            <h3>FSC INFORM</h3>
+            <p>
+                FSC INFORM represents the office’s commitment to both educational initiatives and programmatic efforts of the Councils.
+            </p>
+            <h4>Educational Programming</h4>
+            <ul>
+                <li>Delivering workshops, seminars, and training sessions</li>
+                <li>Providing resources for personal and organizational growth</li>
+                <li>Promoting awareness and understanding of key topics</li>
+            </ul>
+        </div>
+
+        <!-- FSC DEVELOP -->
+        <div class="commitment-box">
+            <h3>FSC DEVELOP</h3>
+            <p>
+                FSC DEVELOP focuses on developing leaders and assisting them in achieving personal and community objectives.
+            </p>
+            <h4>Member Development</h4>
+            <ul>
+                <li>Cultivating leadership skills and personal growth</li>
+                <li>Fostering effective communication and collaboration</li>
+                <li>Empowering members for impactful engagement</li>
+            </ul>
+        </div>
+
+        <!-- FSC ENGAGE -->
+        <div class="commitment-box">
+            <h3>FSC ENGAGE</h3>
+            <p>
+                FSC ENGAGE assists Councils in growth, community awareness, and belonging.
+            </p>
+            <h4>Core Values Education</h4>
+            <ul>
+                <li>Instilling a deep understanding of the community's core values</li>
+                <li>Encouraging active integration of values in all aspects of fraternity and sorority life</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        {% include 'IFC/footer.html' %}
+    </div>
+</body>
+
+</html>
