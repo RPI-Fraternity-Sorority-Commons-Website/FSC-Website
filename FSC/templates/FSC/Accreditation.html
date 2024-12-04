@@ -1,0 +1,191 @@
+{% extends 'FSC/base.html' %}
+
+{% block title %}Accreditation{% endblock %}
+
+{% block header %}
+    <style>
+        .accreditation-container {
+            padding: 40px 10%;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .accreditation-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .accreditation-header h1 {
+            color: #d6001c;
+            font-size: 2.5rem;
+        }
+
+        .accreditation-header h2 {
+            color: #555;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .dropdown-section {
+            margin-bottom: 20px;
+            border: 2px solid #d6001c;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            overflow: hidden;
+        }
+
+        .dropdown-header {
+            padding: 15px;
+            background-color: #d6001c;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-header:hover {
+            background-color: #a50016;
+        }
+
+        .dropdown-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-header i.rotate {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dropdown-content li {
+            margin-bottom: 10px;
+        }
+
+        .dropdown-content a {
+            color: #d6001c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="accreditation-container">
+    <div class="accreditation-header">
+        <h1>2024 Accreditation Program Links</h1>
+        <h2>FRATERNITY & SORORITY COMMONS | RENSSELAER POLYTECHNIC INSTITUTE</h2>
+    </div>
+
+    <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown(this)">
+            Community Accreditation Overview
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="dropdown-content">
+            <p>
+                The accreditation process ensures that all chapters within our Greek community uphold standards of accountability, leadership, and service. Each link provided corresponds to a specific area of compliance, allowing chapters to submit necessary documentation for evaluation. 
+            </p>
+            <p>
+                Timely submissions are critical to meeting the requirements and showcasing your chapter’s commitment to excellence.
+            </p>
+        </div>
+    </div>
+
+    <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown(this)">
+            Accreditation Submission Links
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="dropdown-content">
+            <ul>
+                <li>
+                    <strong>Academic Chairperson:</strong> 
+                    <a href="https://your-link.com/Academic.Chairperson" target="_blank">Submit Academic Chairperson Details</a>
+                </li>
+                <li>
+                    <strong>Advisor Accreditation:</strong> 
+                    <a href="https://your-link.com/Advisor.Accreditation" target="_blank">Submit Advisor Accreditation Information</a>
+                </li>
+                <li>
+                    <strong>Social Media Footprint:</strong> 
+                    <a href="https://your-link.com/Social.Media.Footprint" target="_blank">Submit Social Media Details</a>
+                </li>
+                <li>
+                    <strong>Community Service:</strong> 
+                    <a href="https://your-link.com/Community.Service" target="_blank">Submit Community Service Records</a>
+                </li>
+                <li>
+                    <strong>Philanthropic Efforts:</strong> 
+                    <a href="https://your-link.com/Philanthropic.Efforts" target="_blank">Submit Philanthropic Activities</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown(this)">
+            Key Standards and Expectations
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="dropdown-content">
+            <h3>1.6: Scholarship and Academic Support</h3>
+            <p>
+                Chapters must designate a scholarship/academic chairperson to manage academic initiatives and provide resources for members' success. 
+                <a href="https://your-link.com/Academic.Chairperson" target="_blank">Submit Academic Chairperson Information</a>.
+            </p>
+            <h3>2.5: Chapter Advisor Requirements</h3>
+            <p>
+                Chapters must have an active Chapter Advisor who provides guidance, supports recruitment, and completes biannual reports. 
+                <a href="https://your-link.com/Advisor.Accreditation" target="_blank">Submit Advisor Accreditation Information</a> | 
+                <a href="https://your-link.com/Advisor.ID.Credentials" target="_blank">Submit Advisor ID Credentials</a>.
+            </p>
+            <h3>2.7 & 2.8: Social Media and Website Maintenance</h3>
+            <p>
+                Chapters should maintain an active social media presence and keep their websites updated for improved visibility. 
+                <a href="https://your-link.com/Social.Media.Footprint" target="_blank">Submit Social Media Details</a>.
+            </p>
+            <h3>5.1: Community Service</h3>
+            <p>
+                Each chapter must complete at least five community service hours per member per semester. 
+                <a href="https://your-link.com/Community.Service" target="_blank">Submit Community Service Records</a>.
+            </p>
+            <h3>Philanthropic Efforts</h3>
+            <p>
+                Record and report all philanthropic activities as part of your chapter's contributions. 
+                <a href="https://your-link.com/Philanthropic.Efforts" target="_blank">Submit Philanthropic Activities</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            icon.classList.remove('rotate');
+        } else {
+            content.style.display = "block";
+            icon.classList.add('rotate');
+        }
+    }
+</script>
+{% endblock %}
