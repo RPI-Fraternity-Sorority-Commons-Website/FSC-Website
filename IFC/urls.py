@@ -42,4 +42,5 @@ urlpatterns = [
     path("accountability", views.accountability, name="accountability"),
     path("housing", views.housing, name="housing"),
     path("families", views.families, name="families"),
+    path("scholarships", views.scholarships, name="scholarships"),
 ]

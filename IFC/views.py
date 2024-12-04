@@ -164,3 +164,6 @@ def housing(request):
 
 def families(request):
     return render(request, 'IFC/families.html')
+
+def scholarships(request):
+    return render(request, 'IFC/scholarships.html')
