@@ -50,12 +50,17 @@
             background-color: #a50016;
         }
 
-        .dropdown-header i {
+        .dropdown-header .toggle-icon {
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            transform-origin: center;
             transition: transform 0.3s ease;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
 
-        .dropdown-header i.rotate {
-            transform: rotate(180deg);
+        .dropdown-header .toggle-icon.open {
+            transform: rotate(45deg);
         }
 
         .dropdown-content {
@@ -96,7 +101,7 @@
     <div class="dropdown-section">
         <div class="dropdown-header" onclick="toggleDropdown(this)">
             Community Accreditation Overview
-            <i class="fas fa-chevron-down"></i>
+            <div class="toggle-icon"></div>
         </div>
         <div class="dropdown-content">
             <p>
@@ -111,7 +116,7 @@
     <div class="dropdown-section">
         <div class="dropdown-header" onclick="toggleDropdown(this)">
             Accreditation Submission Links
-            <i class="fas fa-chevron-down"></i>
+            <div class="toggle-icon"></div>
         </div>
         <div class="dropdown-content">
             <ul>
@@ -142,7 +147,7 @@
     <div class="dropdown-section">
         <div class="dropdown-header" onclick="toggleDropdown(this)">
             Key Standards and Expectations
-            <i class="fas fa-chevron-down"></i>
+            <div class="toggle-icon"></div>
         </div>
         <div class="dropdown-content">
             <h3>1.6: Scholarship and Academic Support</h3>
@@ -178,13 +183,13 @@
 <script>
     function toggleDropdown(element) {
         const content = element.nextElementSibling;
-        const icon = element.querySelector('i');
+        const icon = element.querySelector('.toggle-icon');
         if (content.style.display === "block") {
             content.style.display = "none";
-            icon.classList.remove('rotate');
+            icon.classList.remove('open');
         } else {
             content.style.display = "block";
-            icon.classList.add('rotate');
+            icon.classList.add('open');
         }
     }
 </script>
