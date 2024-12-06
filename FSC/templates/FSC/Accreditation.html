@@ -26,17 +26,27 @@
             font-weight: 400;
         }
 
+        .description {
+            margin-bottom: 30px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+            padding: 20px;
+            background-color: #f6f6f6;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
         .dropdown-section {
             margin-bottom: 20px;
             border: 2px solid #d6001c;
             border-radius: 8px;
-            background-color: #f9f9f9;
             overflow: hidden;
         }
 
         .dropdown-header {
             padding: 15px;
-            background-color: #d6001c;
+            background: linear-gradient(90deg, #d6001c, #a50016);
             color: white;
             font-size: 1.2rem;
             font-weight: bold;
@@ -44,10 +54,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background 0.3s ease;
         }
 
         .dropdown-header:hover {
-            background-color: #a50016;
+            background: linear-gradient(90deg, #a50016, #d6001c);
         }
 
         .dropdown-header .toggle-icon {
@@ -68,6 +79,8 @@
             padding: 20px;
             font-size: 1rem;
             line-height: 1.5;
+            background-color: #f1f1f1; /* Softer grey for readability */
+            color: #333;
         }
 
         .dropdown-content ul {
@@ -98,19 +111,13 @@
         <h2>FRATERNITY & SORORITY COMMONS | RENSSELAER POLYTECHNIC INSTITUTE</h2>
     </div>
 
-    <div class="dropdown-section">
-        <div class="dropdown-header" onclick="toggleDropdown(this)">
-            Community Accreditation Overview
-            <div class="toggle-icon"></div>
-        </div>
-        <div class="dropdown-content">
-            <p>
-                The accreditation process ensures that all chapters within our Greek community uphold standards of accountability, leadership, and service. Each link provided corresponds to a specific area of compliance, allowing chapters to submit necessary documentation for evaluation. 
-            </p>
-            <p>
-                Timely submissions are critical to meeting the requirements and showcasing your chapter’s commitment to excellence.
-            </p>
-        </div>
+    <div class="description">
+        <p>
+            The accreditation process ensures that all chapters within our Greek community uphold standards of accountability, leadership, and service. Each link provided corresponds to a specific area of compliance, allowing chapters to submit necessary documentation for evaluation.
+        </p>
+        <p>
+            Timely submissions are critical to meeting the requirements and showcasing your chapter’s commitment to excellence.
+        </p>
     </div>
 
     <div class="dropdown-section">
