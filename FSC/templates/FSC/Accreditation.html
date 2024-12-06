@@ -3,201 +3,170 @@
 {% block title %}Accreditation{% endblock %}
 
 {% block header %}
-    <style>
-        .accreditation-container {
-            padding: 40px 10%;
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
+<style>
+    .introduction {
+        text-align: center;
+        margin: 20px 10%;
+    }
 
-        .accreditation-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .dropdown-header {
+        padding: 15px;
+        background: linear-gradient(
+            90deg, 
+            #d6001c 0%, 
+            #bf0019 25%, 
+            #a50016 50%, 
+            #8c0012 75%, 
+            #6e000e 100%
+        );
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s ease;
+    }
 
-        .accreditation-header h1 {
-            color: #d6001c;
-            font-size: 2.5rem;
-        }
+    .dropdown-header:hover {
+        background: linear-gradient(
+            90deg, 
+            #a50016 0%, 
+            #8c0012 50%, 
+            #6e000e 100%
+        );
+    }
 
-        .accreditation-header h2 {
-            color: #555;
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
+    .dropdown-header .toggle-icon {
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        transform-origin: center;
+        transition: transform 0.3s ease;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 
-        .description {
-            margin-bottom: 30px;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #444;
-            padding: 20px;
-            background-color: #f6f6f6;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
+    .dropdown-header .toggle-icon.open {
+        transform: rotate(45deg);
+    }
 
-        .dropdown-section {
-            margin-bottom: 20px;
-            border: 2px solid #d6001c;
-            border-radius: 8px;
-            overflow: hidden;
-        }
+    .dropdown-content {
+        display: none;
+        padding: 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+        background-color: #f1f1f1; /* Softer grey for readability */
+        color: #333;
+    }
 
-        .dropdown-header {
-            padding: 15px;
-            background: linear-gradient(90deg, #d6001c, #a50016);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
+    .dropdown-content ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-        .dropdown-header:hover {
-            background: linear-gradient(90deg, #a50016, #d6001c);
-        }
+    .dropdown-content li {
+        margin-bottom: 10px;
+    }
 
-        .dropdown-header .toggle-icon {
-            width: 15px;
-            height: 15px;
-            background-color: white;
-            transform-origin: center;
-            transition: transform 0.3s ease;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-        }
+    .dropdown-content a {
+        color: #d6001c;
+        font-weight: bold;
+        text-decoration: none;
+    }
 
-        .dropdown-header .toggle-icon.open {
-            transform: rotate(45deg);
-        }
-
-        .dropdown-content {
-            display: none;
-            padding: 20px;
-            font-size: 1rem;
-            line-height: 1.5;
-            background-color: #f1f1f1; /* Softer grey for readability */
-            color: #333;
-        }
-
-        .dropdown-content ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .dropdown-content li {
-            margin-bottom: 10px;
-        }
-
-        .dropdown-content a {
-            color: #d6001c;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .dropdown-content a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .dropdown-content a:hover {
+        text-decoration: underline;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<div class="accreditation-container">
-    <div class="accreditation-header">
-        <h1>2024 Accreditation Program Links</h1>
-        <h2>FRATERNITY & SORORITY COMMONS | RENSSELAER POLYTECHNIC INSTITUTE</h2>
-    </div>
+<div class="introduction">
+    <h1>Accreditation</h1>
+    <p>
+        The accreditation process ensures that chapters in our community meet the standards set forth for academic excellence, community service, philanthropy, and overall chapter operations. Use the links below to fulfill the necessary requirements.
+    </p>
+</div>
 
-    <div class="description">
-        <p>
-            The accreditation process ensures that all chapters within our Greek community uphold standards of accountability, leadership, and service. Each link provided corresponds to a specific area of compliance, allowing chapters to submit necessary documentation for evaluation.
-        </p>
-        <p>
-            Timely submissions are critical to meeting the requirements and showcasing your chapter’s commitment to excellence.
-        </p>
-    </div>
-
-    <div class="dropdown-section">
-        <div class="dropdown-header" onclick="toggleDropdown(this)">
-            Accreditation Submission Links
+<div>
+    <div class="dropdown">
+        <div class="dropdown-header">
+            Academic Chairperson
             <div class="toggle-icon"></div>
         </div>
         <div class="dropdown-content">
-            <ul>
-                <li>
-                    <strong>Academic Chairperson:</strong> 
-                    <a href="https://your-link.com/Academic.Chairperson" target="_blank">Submit Academic Chairperson Details</a>
-                </li>
-                <li>
-                    <strong>Advisor Accreditation:</strong> 
-                    <a href="https://your-link.com/Advisor.Accreditation" target="_blank">Submit Advisor Accreditation Information</a>
-                </li>
-                <li>
-                    <strong>Social Media Footprint:</strong> 
-                    <a href="https://your-link.com/Social.Media.Footprint" target="_blank">Submit Social Media Details</a>
-                </li>
-                <li>
-                    <strong>Community Service:</strong> 
-                    <a href="https://your-link.com/Community.Service" target="_blank">Submit Community Service Records</a>
-                </li>
-                <li>
-                    <strong>Philanthropic Efforts:</strong> 
-                    <a href="https://your-link.com/Philanthropic.Efforts" target="_blank">Submit Philanthropic Activities</a>
-                </li>
-            </ul>
+            <p>
+                Complete this form to provide details about your chapter's Academic Chairperson, who oversees scholastic initiatives and promotes academic success.
+            </p>
+            <a href="Academic.Chairperson" target="_blank">Submit Academic Chairperson Form</a>
         </div>
     </div>
 
-    <div class="dropdown-section">
-        <div class="dropdown-header" onclick="toggleDropdown(this)">
-            Key Standards and Expectations
+    <div class="dropdown">
+        <div class="dropdown-header">
+            Advisor Accreditation
             <div class="toggle-icon"></div>
         </div>
         <div class="dropdown-content">
-            <h3>1.6: Scholarship and Academic Support</h3>
             <p>
-                Chapters must designate a scholarship/academic chairperson to manage academic initiatives and provide resources for members' success. 
-                <a href="https://your-link.com/Academic.Chairperson" target="_blank">Submit Academic Chairperson Information</a>.
+                Submit this form to share information about your chapter's primary advisor, their involvement, and contributions to chapter development.
             </p>
-            <h3>2.5: Chapter Advisor Requirements</h3>
+            <a href="Advisor.Accreditation" target="_blank">Submit Advisor Accreditation Form</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-header">
+            Social Media Footprint
+            <div class="toggle-icon"></div>
+        </div>
+        <div class="dropdown-content">
             <p>
-                Chapters must have an active Chapter Advisor who provides guidance, supports recruitment, and completes biannual reports. 
-                <a href="https://your-link.com/Advisor.Accreditation" target="_blank">Submit Advisor Accreditation Information</a> | 
-                <a href="https://your-link.com/Advisor.ID.Credentials" target="_blank">Submit Advisor ID Credentials</a>.
+                Track your chapter's online presence by submitting details about your social media accounts and activities.
             </p>
-            <h3>2.7 & 2.8: Social Media and Website Maintenance</h3>
+            <a href="Social.Media.Footprint" target="_blank">Submit Social Media Footprint Form</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-header">
+            Community Service
+            <div class="toggle-icon"></div>
+        </div>
+        <div class="dropdown-content">
             <p>
-                Chapters should maintain an active social media presence and keep their websites updated for improved visibility. 
-                <a href="https://your-link.com/Social.Media.Footprint" target="_blank">Submit Social Media Details</a>.
+                Document your chapter’s service efforts by providing information about community service activities and hours contributed.
             </p>
-            <h3>5.1: Community Service</h3>
+            <a href="Community.Service" target="_blank">Submit Community Service Form</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-header">
+            Philanthropic Efforts
+            <div class="toggle-icon"></div>
+        </div>
+        <div class="dropdown-content">
             <p>
-                Each chapter must complete at least five community service hours per member per semester. 
-                <a href="https://your-link.com/Community.Service" target="_blank">Submit Community Service Records</a>.
+                Share your chapter’s philanthropic activities to highlight the impact and contributions you’ve made.
             </p>
-            <h3>Philanthropic Efforts</h3>
-            <p>
-                Record and report all philanthropic activities as part of your chapter's contributions. 
-                <a href="https://your-link.com/Philanthropic.Efforts" target="_blank">Submit Philanthropic Activities</a>.
-            </p>
+            <a href="Philanthropic.Efforts" target="_blank">Submit Philanthropic Efforts Form</a>
         </div>
     </div>
 </div>
 
 <script>
-    function toggleDropdown(element) {
-        const content = element.nextElementSibling;
-        const icon = element.querySelector('.toggle-icon');
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            icon.classList.remove('open');
-        } else {
-            content.style.display = "block";
-            icon.classList.add('open');
-        }
-    }
+    document.querySelectorAll('.dropdown').forEach((dropdown) => {
+        const header = dropdown.querySelector('.dropdown-header');
+        const content = dropdown.querySelector('.dropdown-content');
+        const icon = header.querySelector('.toggle-icon');
+
+        header.addEventListener('click', () => {
+            const isOpen = content.style.display === 'block';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.classList.toggle('open', !isOpen);
+        });
+    });
 </script>
 {% endblock %}
