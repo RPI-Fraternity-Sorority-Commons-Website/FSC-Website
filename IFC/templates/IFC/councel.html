@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Council - Fraternity & Sorority Commons</title>
+  
+  {% load static %}
+  <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+    }
+
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 15px auto;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+    }
+
+    h1 {
+      color: #a52a2a;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    h2, h3 {
+      color: #4d4d4d;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+    }
+
+    h3 {
+      font-size: 1.4em;
+    }
+
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+
+    .links {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .links li {
+      margin: 10px 0;
+    }
+
+    .links a {
+      color: rgb(214, 0, 28);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    {% include 'IFC/navbar.html' %}
+  </header>
+
+  <div id="main-content">
+
+    <div class="section">
+      <h1>Council</h1>
+      <p>A council is a group of fraternities and/or sororities that work together to support a common mission and vision. These organizations are often grouped by affinity, history, or goals. Each council is overseen by a council advisor—a Fraternity and Sorority Commons staff member—and a team of student leaders who serve as the council executive board.</p>
+    </div>
+
+    <div class="section">
+      <h2>Governing Councils</h2>
+      <p>At Rensselaer, three Governing Councils—Interfraternity Council (IFC), Multicultural Sorority & Fraternity Council (MSFC), and Rensselaer Panhellenic Council—serve as pillars of guidance, oversight, and direction for our 29 active organizations. Additionally, the Professional Fraternities/Sororities community, encompassing three more organizations, provides a unique space for professional development and growth.</p>
+      <ul>
+        <li>John Cohen, President of the Interfraternity Council, oversees the IFC’s mission of fostering brotherhood and collaboration among its member fraternities.</li>
+        <li>Vic Webb, President of the Multicultural Sorority & Fraternity Council, champions inclusivity and cultural awareness within our community.</li>
+        <li>Lillian Hendry, President of the Rensselaer Panhellenic Council, advocates for sisterhood, scholarship, and service among our sorority members.</li>
+      </ul>
+      <p>These leaders, alongside their executive boards, work tirelessly to enhance the fraternity and sorority experience for all.</p>
+    </div>
+
+    <div class="section">
+      <h2>Opportunities within Councils</h2>
+      <p>Within this diverse tapestry of organizations, students benefit from leadership development, self-governance, and the freedom to shape their unique experiences at Rensselaer. Join us in celebrating the spirit of camaraderie, growth, and excellence within our flourishing fraternity and sorority community!</p>
+    </div>
+
+    <div class="section">
+      <h2>Organizational Breakdown</h2>
+      <h3>3 Governing Councils (Social Organizations)</h3>
+      <ul>
+        <li><strong>Interfraternity Council:</strong> 22 Organizations</li>
+        <li><strong>Multicultural Sorority & Fraternity Council:</strong> 4 Organizations</li>
+        <li><strong>Rensselaer Panhellenic Council:</strong> 3 Organizations</li>
+      </ul>
+      <h3>1 Professional Community (Professional Organizations)</h3>
+      <ul>
+        <li><strong>Professional Fraternities & Sororities:</strong> 2 Organizations</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    {% include 'IFC/footer.html' %}
+  </footer>
+</body>
+</html>

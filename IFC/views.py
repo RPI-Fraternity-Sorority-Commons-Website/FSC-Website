@@ -170,3 +170,6 @@ def scholarships(request):
 
 def resources(request):
     return render(request, 'IFC/resources.html')
+
+def councel(request):
+    return render(request, 'IFC/councel.html')
