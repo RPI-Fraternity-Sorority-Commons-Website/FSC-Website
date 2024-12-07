@@ -12,11 +12,11 @@
     .dropdown-header {
         padding: 15px;
         background: linear-gradient(
-            90deg, 
-            #d6001c 0%, 
-            #bf0019 25%, 
-            #a50016 50%, 
-            #8c0012 75%, 
+            90deg,
+            #d6001c 0%,
+            #bf0019 25%,
+            #a50016 50%,
+            #8c0012 75%,
             #6e000e 100%
         );
         color: white;
@@ -26,16 +26,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: background 0.3s ease;
+        transition: background 0.3s ease, transform 0.3s ease;
         border-radius: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     .dropdown-header:hover {
         background: linear-gradient(
-            90deg, 
-            #a50016 0%, 
-            #8c0012 50%, 
+            90deg,
+            #a50016 0%,
+            #8c0012 50%,
             #6e000e 100%
         );
     }
@@ -44,7 +44,6 @@
         width: 15px;
         height: 15px;
         background-color: white;
-        transform-origin: center;
         transition: transform 0.3s ease;
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
@@ -57,10 +56,10 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease, padding 0.3s ease;
-        background-color: #f1f1f1; /* Softer grey for readability */
-        padding: 0 15px;
+        background-color: #f1f1f1;
         color: #333;
         border-radius: 5px;
+        padding: 0 15px;
     }
 
     .dropdown-content ul {
@@ -84,7 +83,7 @@
 
     .dropdown-content.expanded {
         max-height: 300px; /* Adjust as necessary for your content */
-        padding: 15px;
+        padding: 50px;
     }
 </style>
 {% endblock %}
@@ -97,7 +96,7 @@
     </p>
 </div>
 
-<div>
+<div class="dropdown-container">
     <div class="dropdown">
         <div class="dropdown-header">
             Academic Chairperson
@@ -165,31 +164,31 @@
 </div>
 
 <script>
-    // Query all dropdown elements
-    document.querySelectorAll('.dropdown').forEach((dropdown) => {
-        const header = dropdown.querySelector('.dropdown-header');
-        const content = dropdown.querySelector('.dropdown-content');
-        const icon = header.querySelector('.toggle-icon');
-
-        // Attach a click event listener to the header
+    // Select all dropdown headers
+    document.querySelectorAll('.dropdown-header').forEach((header) => {
         header.addEventListener('click', () => {
-            // Toggle the dropdown content's expanded class
+            // Access the content and icon
+            const dropdown = header.parentElement;
+            const content = dropdown.querySelector('.dropdown-content');
+            const icon = header.querySelector('.toggle-icon');
+
+            // Toggle expanded class
             const isExpanded = content.classList.contains('expanded');
 
+            // Close all dropdowns
             document.querySelectorAll('.dropdown-content').forEach((item) => {
-                item.classList.remove('expanded'); // Close all dropdowns
+                item.classList.remove('expanded');
+                item.style.maxHeight = null; // Reset height
+                item.previousElementSibling.querySelector('.toggle-icon').classList.remove('open');
             });
 
-            document.querySelectorAll('.toggle-icon').forEach((icon) => {
-                icon.classList.remove('open'); // Reset all icons
-            });
-
+            // Expand the clicked dropdown
             if (!isExpanded) {
                 content.classList.add('expanded');
+                content.style.maxHeight = content.scrollHeight + 'px'; // Dynamically set height
                 icon.classList.add('open');
             }
         });
     });
 </script>
 {% endblock %}
-
