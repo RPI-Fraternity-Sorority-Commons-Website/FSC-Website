@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfraternity Council - Fraternity & Sorority Commons</title>
+  
+  {% load static %}
+  <link rel="icon" type="image/x-icon" href="{% static 'IFC/images/favicon.png' %}" />
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+    }
+
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 15px auto;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+    }
+
+    h1 {
+      color: #a52a2a;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    h2, h3 {
+      color: #4d4d4d;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+    }
+
+    h3 {
+      font-size: 1.4em;
+    }
+
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    ul {
+      margin-left: 20px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    ul li span {
+      font-weight: bold;
+    }
+
+    ul li span.chapter-name {
+      color: #a52a2a; /* Primary header color */
+    }
+
+    ul li span.chapter-symbol {
+      color: #4d4d4d; /* Secondary header color */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    {% include 'IFC/navbar.html' %}
+  </header>
+
+  <div id="main-content">
+
+    <div class="section">
+      <h1>Interfraternity Council (IFC)</h1>
+      <p>As the local governing body for many fraternity chapters at Rensselaer, the Interfraternity Council (IFC) works to promote the highest ideals of scholarship, leadership, service, and fraternalism among its member organizations.</p>
+    </div>
+
+    <div class="section">
+      <h2>Member Chapters</h2>
+      <ul>
+        <li><span class="chapter-name">Acacia</span> - <span class="chapter-symbol">Acacia</span></li>
+        <li><span class="chapter-name">Alpha Chi Rho</span> - <span class="chapter-symbol">ΑΧΡ</span></li>
+        <li><span class="chapter-name">Alpha Epsilon Pi</span> - <span class="chapter-symbol">ΑΕΠ</span></li>
+        <li><span class="chapter-name">Alpha Sigma Phi</span> - <span class="chapter-symbol">ΑΣΦ</span></li>
+        <li><span class="chapter-name">Chi Phi</span> - <span class="chapter-symbol">ΧΦ</span></li>
+        <li><span class="chapter-name">Delta Kappa Epsilon</span> - <span class="chapter-symbol">ΔΚΕ</span></li>
+        <li><span class="chapter-name">Delta Phi</span> - <span class="chapter-symbol">ΔΦ</span></li>
+        <li><span class="chapter-name">Lambda Chi Alpha</span> - <span class="chapter-symbol">ΛΧΑ</span></li>
+        <li><span class="chapter-name">Phi Gamma Delta</span> - <span class="chapter-symbol">ΦΓΔ</span></li>
+        <li><span class="chapter-name">Phi Kappa Theta</span> - <span class="chapter-symbol">ΦΚΘ</span></li>
+        <li><span class="chapter-name">Phi Mu Delta</span> - <span class="chapter-symbol">ΦΜΔ</span></li>
+        <li><span class="chapter-name">Phi Sigma Kappa</span> - <span class="chapter-symbol">ΦΣΚ</span></li>
+        <li><span class="chapter-name">Pi Kappa Alpha</span> - <span class="chapter-symbol">ΠΚΑ</span></li>
+        <li><span class="chapter-name">Pi Lambda Phi</span> - <span class="chapter-symbol">ΠΛΦ</span></li>
+        <li><span class="chapter-name">Psi Upsilon</span> - <span class="chapter-symbol">ΨΥ</span></li>
+        <li><span class="chapter-name">Sigma Alpha Epsilon</span> - <span class="chapter-symbol">ΣΑΕ</span></li>
+        <li><span class="chapter-name">Sigma Chi</span> - <span class="chapter-symbol">ΣΧ</span></li>
+        <li><span class="chapter-name">Sigma Phi Epsilon</span> - <span class="chapter-symbol">ΣΦΕ</span></li>
+        <li><span class="chapter-name">Tau Epsilon Phi</span> - <span class="chapter-symbol">ΤΕΦ</span></li>
+        <li><span class="chapter-name">Tau Kappa Epsilon</span> - <span class="chapter-symbol">TKE</span></li>
+        <li><span class="chapter-name">Theta Xi</span> - <span class="chapter-symbol">ΘΞ</span></li>
+        <li><span class="chapter-name">Zeta Psi</span> - <span class="chapter-symbol">ΖΨ</span></li>
+        <li><span class="chapter-name">Delta Tau Delta</span> - <span class="chapter-symbol">ΔTΔ</span> <em>(New expansion organization Spring 2025)</em></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    {% include 'IFC/footer.html' %}
+  </footer>
+</body>
+</html>

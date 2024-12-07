@@ -173,3 +173,6 @@ def resources(request):
 
 def councel(request):
     return render(request, 'IFC/councel.html')
+
+def i_council(request):
+    return render(request, 'IFC/i_council.html')
