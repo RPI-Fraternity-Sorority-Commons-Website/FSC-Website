@@ -27,6 +27,8 @@
         justify-content: space-between;
         align-items: center;
         transition: background 0.3s ease;
+        border-radius: 5px;
+        margin-bottom: 5px;
     }
 
     .dropdown-header:hover {
@@ -52,12 +54,13 @@
     }
 
     .dropdown-content {
-        display: none;
-        padding: 20px;
-        font-size: 1rem;
-        line-height: 1.5;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.3s ease;
         background-color: #f1f1f1; /* Softer grey for readability */
+        padding: 0 15px;
         color: #333;
+        border-radius: 5px;
     }
 
     .dropdown-content ul {
@@ -77,6 +80,11 @@
 
     .dropdown-content a:hover {
         text-decoration: underline;
+    }
+
+    .dropdown-content.expanded {
+        max-height: 300px; /* Adjust as necessary for your content */
+        padding: 15px;
     }
 </style>
 {% endblock %}
@@ -157,16 +165,31 @@
 </div>
 
 <script>
+    // Query all dropdown elements
     document.querySelectorAll('.dropdown').forEach((dropdown) => {
         const header = dropdown.querySelector('.dropdown-header');
         const content = dropdown.querySelector('.dropdown-content');
         const icon = header.querySelector('.toggle-icon');
 
+        // Attach a click event listener to the header
         header.addEventListener('click', () => {
-            const isOpen = content.style.display === 'block';
-            content.style.display = isOpen ? 'none' : 'block';
-            icon.classList.toggle('open', !isOpen);
+            // Toggle the dropdown content's expanded class
+            const isExpanded = content.classList.contains('expanded');
+
+            document.querySelectorAll('.dropdown-content').forEach((item) => {
+                item.classList.remove('expanded'); // Close all dropdowns
+            });
+
+            document.querySelectorAll('.toggle-icon').forEach((icon) => {
+                icon.classList.remove('open'); // Reset all icons
+            });
+
+            if (!isExpanded) {
+                content.classList.add('expanded');
+                icon.classList.add('open');
+            }
         });
     });
 </script>
 {% endblock %}
+
