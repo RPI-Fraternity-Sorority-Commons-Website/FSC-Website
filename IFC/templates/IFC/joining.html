@@ -31,23 +31,24 @@
       text-align: center;
     }
 
-    h2, h3 {
-      color: #4d4d4d;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
     h2 {
+      color: #4d4d4d;
       font-size: 1.8em;
+      font-weight: bold;
+      margin-top: 20px;
     }
 
     h3 {
+      color: #4d4d4d;
       font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 15px;
     }
 
     p, ul {
       margin-bottom: 10px;
       max-width: 800px;
+      text-align: justify;
     }
 
     ul {
@@ -76,13 +77,14 @@
       padding: 0 10px;
     }
 
+    /* Breadcrumb */
     .breadcrumb {
       color: #a52a2a;
       margin-bottom: 10px;
       font-size: 0.9em;
     }
 
-    /* Full-width Header and Footer */
+    /* Header and Footer */
     header, footer {
       width: 100%;
       margin: 0;
@@ -91,28 +93,22 @@
       color: white;
     }
 
-    .accordion .card-header {
-      background-color: #f9f9f9;
-      border: none;
-    }
-
     .accordion .btn-link {
-        font-size: 1em;
-        color: #333333;
-        text-decoration: none;
-        font-weight: bold;
+      color: #a52a2a; /* FSC primary header color */
+      font-weight: bold; /* Bold for emphasis */
+      text-decoration: none; /* Remove underline */
     }
 
     .accordion .btn-link:hover {
-      text-decoration: none;
-      color: #333333;
+      color: #4d4d4d; /* Secondary header color for hover */
+      text-decoration: none; /* No underline on hover */
     }
 
-    .accordion .card-body {
-      background-color: #ffffff;
-      color: #696969;
-      border-top: 1px solid #dddddd;
+    .accordion .btn-link:focus {
+      text-decoration: none; /* Prevent underline on focus */
+      color: #4d4d4d; /* Secondary header color */
     }
+
   </style>
 </head>
 
@@ -125,6 +121,7 @@
   <div id="main-content">
 
     <h1>How to Join!</h1>
+
     <div class="section">
       <p>Joining a fraternity or sorority is a personal choice that can sometimes feel overwhelming. To help ease this process and support better decision-making, we encourage all interested students (potential new members) to learn about the organizations and ask questions about recruitment, intake, and what membership entails.</p>
     </div>
@@ -171,138 +168,141 @@
 
     <!-- Accordion Menu -->
     <div class="section">
-        <h3>Benefits of Joining a Fraternity or Sorority</h3>
-        <div id="accordionExample" class="accordion">
-          <!-- Leadership -->
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  + Leadership
-                </button>
-              </h2>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-              <div class="card-body">
-                All Greek organizations are working examples of a democracy in action. This is often the first time that members are responsible for managing their own activities and living within their means, so joining a fraternity or sorority provides an excellent opportunity to experience leadership and the responsibility of membership. In addition, the chapters are more than clubs; they are corporations, often with large budgets managed by the members.
-              </div>
+      <h3>Benefits of Joining a Fraternity or Sorority</h3>
+      <div id="accordionExample" class="accordion">
+        <!-- Leadership -->
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                + Leadership
+              </button>
+            </h2>
+          </div>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+            <div class="card-body">
+              All Greek organizations are working examples of a democracy in action. This is often the first time that members are responsible for managing their own activities and living within their means, so joining a fraternity or sorority provides an excellent opportunity to experience leadership and the responsibility of membership. In addition, the chapters are more than clubs; they are corporations, often with large budgets managed by the members.
             </div>
           </div>
-      
-          <!-- Friendship -->
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  + Friendship
-                </button>
-              </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-              <div class="card-body">
-                One of the most mentioned aspects of fraternity and sorority life is the friendship that exists between members of a chapter, among both its undergraduates and alumni/ae. Fraternity and sorority life promotes the development of close ties between members through living, studying, working, competing, and having fun together. These lifetime relationships go beyond ordinary friendship to become like that of a family.
-              </div>
+        </div>
+    
+        <!-- Friendship -->
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                + Friendship
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+            <div class="card-body">
+              One of the most mentioned aspects of fraternity and sorority life is the friendship that exists between members of a chapter, among both its undergraduates and alumni/ae. Fraternity and sorority life promotes the development of close ties between members through living, studying, working, competing, and having fun together. These lifetime relationships go beyond ordinary friendship to become like that of a family.
             </div>
           </div>
-      
-          <!-- Financial Responsibility -->
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  + Financial Responsibility
-                </button>
-              </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-              <div class="card-body">
-                Greek letter organizations are self-sufficient, with each chapter collecting dues and membership fees to support their own activities and programs. For chapters with houses, charges include room, board, and fees which may vary depending on whether the member lives in or out of the chapter house. While students should ask about a chapter's fees while going through recruitment, Greek living is generally comparable to non-Greek on-campus living costs, and in many cases is less expensive.
-              </div>
+        </div>
+    
+        <!-- Financial Responsibility -->
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                + Financial Responsibility
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+            <div class="card-body">
+              Greek letter organizations are self-sufficient, with each chapter collecting dues and membership fees to support their own activities and programs. For chapters with houses, charges include room, board, and fees which may vary depending on whether the member lives in or out of the chapter house. While students should ask about a chapter's fees while going through recruitment, Greek living is generally comparable to non-Greek on-campus living costs, and in many cases is less expensive.
             </div>
           </div>
-      
-          <!-- Social Life -->
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  + Social Life
-                </button>
-              </h2>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
-              <div class="card-body">
-                The social aspects of Greek-letter organizations help to make college more than just a school. Greeks often organize various social activities including picnics and barbecues, faculty dinners, formals, parties, and trips to local attractions. All chapters have risk management procedures for social events which help to provide a safe environment for members and guests during chapter functions.
-              </div>
+        </div>
+    
+        <!-- Social Life -->
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                + Social Life
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
+            <div class="card-body">
+              The social aspects of Greek-letter organizations help to make college more than just a school. Greeks often organize various social activities including picnics and barbecues, faculty dinners, formals, parties, and trips to local attractions. All chapters have risk management procedures for social events which help to provide a safe environment for members and guests during chapter functions.
             </div>
           </div>
-      
-          <!-- Greek Housing -->
-          <div class="card">
-            <div class="card-header" id="headingFive">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  + Greek Housing
-                </button>
-              </h2>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
-              <div class="card-body">
-                Chapter housing facilities vary greatly in size and amenities. Some groups live in Rensselaer residence halls or renovated apartments; others in houses owned and operated by the chapters themselves. Actual living arrangements vary from chapter to chapter as to how many members reside in the house and share bedrooms. Chapters with their own houses commonly run their own meal plans, either with a paid cook or members preparing meals themselves. All chapters that provide housing facilities for students are inspected twice a year to ensure compliance with fire and building codes.
-              </div>
+        </div>
+    
+        <!-- Greek Housing -->
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                + Greek Housing
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
+            <div class="card-body">
+              Chapter housing facilities vary greatly in size and amenities. Some groups live in Rensselaer residence halls or renovated apartments; others in houses owned and operated by the chapters themselves. Actual living arrangements vary from chapter to chapter as to how many members reside in the house and share bedrooms. Chapters with their own houses commonly run their own meal plans, either with a paid cook or members preparing meals themselves. All chapters that provide housing facilities for students are inspected twice a year to ensure compliance with fire and building codes.
             </div>
           </div>
-      
-          <!-- Effects on Academics -->
-          <div class="card">
-            <div class="card-header" id="headingSix">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  + Effects on Academics
-                </button>
-              </h2>
-            </div>
-            <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
-              <div class="card-body">
-                Academics are important in Greek Life and are stressed by chapters from rush to graduation. The resources that Greeks often provide include scholarship awards, study sessions, files of materials, and tutoring assistance. Many chapters and national Greek organizations recognize and reward members for their scholastic excellence. According to Institute retention data, members of Greek organizations are more likely to complete their Rensselaer degree than their non-Greek counterparts.
-              </div>
+        </div>
+    
+        <!-- Effects on Academics -->
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                + Effects on Academics
+              </button>
+            </h2>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
+            <div class="card-body">
+              Academics are important in Greek Life and are stressed by chapters from rush to graduation. The resources that Greeks often provide include scholarship awards, study sessions, files of materials, and tutoring assistance. Many chapters and national Greek organizations recognize and reward members for their scholastic excellence. According to Institute retention data, members of Greek organizations are more likely to complete their Rensselaer degree than their non-Greek counterparts.
             </div>
           </div>
-      
-          <!-- Community Service -->
-          <div class="card">
-            <div class="card-header" id="headingSeven">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  + Community Service
-                </button>
-              </h2>
-            </div>
-            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
-              <div class="card-body">
-                Philanthropy is part of Rensselaer's fraternity and sorority community. Each semester, the Greeks at Rensselaer raise thousands of dollars and donate hundreds of hours to worthy causes. For example, chapters donate blood, raise money for various charitable causes, serve as Big Brothers and Sisters to Troy children, and help Neighborhood Associations clean and beautify their streets.
-              </div>
+        </div>
+    
+        <!-- Community Service -->
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                + Community Service
+              </button>
+            </h2>
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
+            <div class="card-body">
+              Philanthropy is part of Rensselaer's fraternity and sorority community. Each semester, the Greeks at Rensselaer raise thousands of dollars and donate hundreds of hours to worthy causes. For example, chapters donate blood, raise money for various charitable causes, serve as Big Brothers and Sisters to Troy children, and help Neighborhood Associations clean and beautify their streets.
             </div>
           </div>
-      
-          <!-- Alumni Involvement -->
-          <div class="card">
-            <div class="card-header" id="headingEight">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                  + Alumni Involvement
-                </button>
-              </h2>
-            </div>
-            <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
-              <div class="card-body">
-                Greek alumni/ae play a major role in advising chapters. Each chapter has at least one adviser, but often many more, and housing corporation members to help with day-to-day operations. They meet regularly as members of the Alumni Inter-Greek Council, which provides networking and resources for efficient chapter management.
-              </div>
+        </div>
+    
+        <!-- Alumni Involvement -->
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                + Alumni Involvement
+              </button>
+            </h2>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
+            <div class="card-body">
+              Greek alumni/ae play a major role in advising chapters. Each chapter has at least one adviser, but often many more, and housing corporation members to help with day-to-day operations. They meet regularly as members of the Alumni Inter-Greek Council, which provides networking and resources for efficient chapter management.
             </div>
           </div>
         </div>
       </div>
-      
+    </div>
+
+
+  </div>
+
 
   <!-- Full-width Footer -->
   <footer>
